@@ -1,0 +1,437 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Disney API",
+    "description": "GET only API for Disney characters information. No authentication required. Provides endpoints to filter characters, get all characters, and get details about one character. Available in REST and GraphQL. Access to a database of 9820 Disney characters.",
+    "version": "1.0.0",
+    "contact": {
+      "url": "https://disneyapi.dev/docs/"
+    },
+    "termsOfService": "https://disneyapi.dev/docs/"
+  },
+  "servers": [
+    {
+      "url": "https://api.disneyapi.dev",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/character": {
+      "get": {
+        "summary": "Get all characters",
+        "description": "Get the list of all Disney characters. Supports pagination and filtering by various character attributes.",
+        "operationId": "getAllCharacters",
+        "tags": [
+          "Characters"
+        ],
+        "parameters": [
+          {
+            "name": "page",
+            "in": "query",
+            "description": "The page number to get",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 1,
+              "minimum": 1
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "The number of items per page",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 50,
+              "minimum": 1,
+              "maximum": 100
+            }
+          },
+          {
+            "name": "name",
+            "in": "query",
+            "description": "Filter by character name",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "films",
+            "in": "query",
+            "description": "Filter by films the character appears in",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "shortFilms",
+            "in": "query",
+            "description": "Filter by short films the character appears in",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "tvShows",
+            "in": "query",
+            "description": "Filter by TV shows the character appears in",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "videoGames",
+            "in": "query",
+            "description": "Filter by video games the character appears in",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "parkAttractions",
+            "in": "query",
+            "description": "Filter by park attractions featuring the character",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "allies",
+            "in": "query",
+            "description": "Filter by character allies",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "enemies",
+            "in": "query",
+            "description": "Filter by character enemies",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "alignment",
+            "in": "query",
+            "description": "Filter by character alignment",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with character list",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CharacterListResponse"
+                },
+                "example": {
+                  "info": {
+                    "totalPages": 149,
+                    "count": 50,
+                    "previousPage": "https://api.disneyapi.dev/character?page=3",
+                    "nextPage": "https://api.disneyapi.dev/character?page=5"
+                  },
+                  "data": [
+                    {
+                      "_id": 308,
+                      "films": [
+                        "Tangled",
+                        "Tangled: Before Ever After"
+                      ],
+                      "shortFilms": [
+                        "Tangled Ever After",
+                        "Hare Peace"
+                      ],
+                      "tvShows": [
+                        "Once Upon a Time",
+                        "Tangled: The Series"
+                      ],
+                      "videoGames": [
+                        "Disney Princess Enchanting Storybooks",
+                        "Hidden Worlds",
+                        "Disney Crossy Road",
+                        "Kingdom Hearts III"
+                      ],
+                      "parkAttractions": [
+                        "Celebrate the Magic",
+                        "Jingle Bell, Jingle BAM!"
+                      ],
+                      "allies": [],
+                      "enemies": [],
+                      "sourceUrl": "https://disney.fandom.com/wiki/Queen_Arianna",
+                      "name": "Queen Arianna",
+                      "imageUrl": "https://static.wikia.nocookie.net/disney/images/1/15/Arianna_Tangled.jpg/revision/latest?cb=20160715191802",
+                      "createdAt": "2021-04-12T01:33:34.458Z",
+                      "updatedAt": "2021-04-12T01:33:34.458Z",
+                      "url": "https://api.disneyapi.dev/characters/308",
+                      "__v": 0
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - invalid parameters"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    },
+    "/character/{id}": {
+      "get": {
+        "summary": "Get one character",
+        "description": "Get the details about a specific Disney character by ID",
+        "operationId": "getOneCharacter",
+        "tags": [
+          "Characters"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The ID of the character to retrieve",
+            "required": true,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with character details",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CharacterResponse"
+                },
+                "example": {
+                  "info": {
+                    "count": 1
+                  },
+                  "data": {
+                    "_id": 308,
+                    "films": [
+                      "Tangled",
+                      "Tangled: Before Ever After"
+                    ],
+                    "shortFilms": [
+                      "Tangled Ever After",
+                      "Hare Peace"
+                    ],
+                    "tvShows": [
+                      "Once Upon a Time",
+                      "Tangled: The Series"
+                    ],
+                    "videoGames": [
+                      "Disney Princess Enchanting Storybooks",
+                      "Hidden Worlds",
+                      "Disney Crossy Road",
+                      "Kingdom Hearts III"
+                    ],
+                    "parkAttractions": [
+                      "Celebrate the Magic",
+                      "Jingle Bell, Jingle BAM!"
+                    ],
+                    "allies": [],
+                    "enemies": [],
+                    "name": "Queen Arianna",
+                    "imageUrl": "https://static.wikia.nocookie.net/disney/images/1/15/Arianna_Tangled.jpg",
+                    "url": "https://api.disneyapi.dev/characters/308"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Character not found"
+          },
+          "500": {
+            "description": "Internal server error"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Character": {
+        "type": "object",
+        "properties": {
+          "_id": {
+            "type": "integer",
+            "description": "Unique identifier for the character"
+          },
+          "url": {
+            "type": "string",
+            "format": "uri",
+            "description": "API URL for this character"
+          },
+          "name": {
+            "type": "string",
+            "description": "Name of the character"
+          },
+          "sourceUrl": {
+            "type": "string",
+            "format": "uri",
+            "description": "Source URL (Disney Wiki) for the character"
+          },
+          "imageUrl": {
+            "type": "string",
+            "format": "uri",
+            "description": "Image URL for the character"
+          },
+          "films": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "List of films the character appears in"
+          },
+          "shortFilms": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "List of short films the character appears in"
+          },
+          "tvShows": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "List of TV shows the character appears in"
+          },
+          "videoGames": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "List of video games the character appears in"
+          },
+          "alignment": {
+            "type": "string",
+            "description": "Character alignment (good, bad, neutral, etc.)"
+          },
+          "parkAttractions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "List of park attractions featuring the character"
+          },
+          "allies": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "List of character allies"
+          },
+          "enemies": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "List of character enemies"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Timestamp when the character was added to the database"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Timestamp when the character was last updated"
+          },
+          "__v": {
+            "type": "integer",
+            "description": "Version key"
+          }
+        }
+      },
+      "PaginationInfo": {
+        "type": "object",
+        "properties": {
+          "totalPages": {
+            "type": "integer",
+            "description": "Total number of pages available"
+          },
+          "count": {
+            "type": "integer",
+            "description": "Number of items in current response"
+          },
+          "previousPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true,
+            "description": "URL for the previous page"
+          },
+          "nextPage": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true,
+            "description": "URL for the next page"
+          }
+        }
+      },
+      "CharacterListResponse": {
+        "type": "object",
+        "properties": {
+          "info": {
+            "$ref": "#/components/schemas/PaginationInfo"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Character"
+            }
+          }
+        }
+      },
+      "CharacterResponse": {
+        "type": "object",
+        "properties": {
+          "info": {
+            "type": "object",
+            "properties": {
+              "count": {
+                "type": "integer",
+                "description": "Number of items in response (always 1 for single character)"
+              }
+            }
+          },
+          "data": {
+            "$ref": "#/components/schemas/Character"
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Characters",
+      "description": "Operations related to Disney characters"
+    }
+  ],
+  "externalDocs": {
+    "description": "Disney API Documentation",
+    "url": "https://disneyapi.dev/docs/"
+  }
+}

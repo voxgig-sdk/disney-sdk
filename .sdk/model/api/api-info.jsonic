@@ -1,0 +1,24 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        url: "https://disneyapi.dev/docs/"
+      }
+      description: "GET only API for Disney characters information. No authentication required. Provides endpoints to filter characters, get all characters, and get details about one character. Available in REST and GraphQL. Access to a database of 9820 Disney characters."
+      servers: [
+        {
+          description: "Production server"
+          url: "https://api.disneyapi.dev"
+        }
+      ]
+      termsOfService: "https://disneyapi.dev/docs/"
+      title: "Disney API"
+      version: "1.0.0"
+    }
+  }
+}
+
+}

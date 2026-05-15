@@ -1,0 +1,89 @@
+{
+  "existing": {
+    "character": {
+      "CHARACTER00": {
+        "alignment": "sb4",
+        "ally": [],
+        "created_at": "sb6",
+        "data": {},
+        "enemy": [],
+        "film": [],
+        "id": "CHARACTER00",
+        "image_url": "sbb",
+        "info": {},
+        "name": "sbd",
+        "park_attraction": [],
+        "short_film": [],
+        "source_url": "sc0",
+        "tv_show": [],
+        "updated_at": "sc2",
+        "url": "sc3",
+        "v": "sc4",
+        "video_game": []
+      },
+      "CHARACTER01": {
+        "alignment": "s168",
+        "ally": [],
+        "created_at": "s16a",
+        "data": {},
+        "enemy": [],
+        "film": [],
+        "id": "CHARACTER01",
+        "image_url": "s16f",
+        "info": {},
+        "name": "s171",
+        "park_attraction": [],
+        "short_film": [],
+        "source_url": "s174",
+        "tv_show": [],
+        "updated_at": "s176",
+        "url": "s177",
+        "v": "s178",
+        "video_game": []
+      },
+      "CHARACTER02": {
+        "alignment": "s21c",
+        "ally": [],
+        "created_at": "s21e",
+        "data": {},
+        "enemy": [],
+        "film": [],
+        "id": "CHARACTER02",
+        "image_url": "s223",
+        "info": {},
+        "name": "s225",
+        "park_attraction": [],
+        "short_film": [],
+        "source_url": "s228",
+        "tv_show": [],
+        "updated_at": "s22a",
+        "url": "s22b",
+        "v": "s22c",
+        "video_game": []
+      }
+    }
+  },
+  "new": {
+    "character": {
+      "character_ref01": {
+        "alignment": "s2d0",
+        "ally": [],
+        "created_at": "s2d2",
+        "data": {},
+        "enemy": [],
+        "film": [],
+        "image_url": "s2d7",
+        "info": {},
+        "name": "s2d9",
+        "park_attraction": [],
+        "short_film": [],
+        "source_url": "s2dc",
+        "tv_show": [],
+        "updated_at": "s2de",
+        "url": "s2df",
+        "v": "s2e0",
+        "video_game": []
+      }
+    }
+  }
+}
