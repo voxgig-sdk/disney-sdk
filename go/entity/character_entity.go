@@ -1,9 +1,9 @@
 package entity
 
 import (
-	"github.com/voxgig-sdk/disney-sdk/core"
+	"github.com/voxgig-sdk/disney-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/disney-sdk/go/utility/struct"
 )
 
 type CharacterEntity struct {

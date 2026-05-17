@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/disney-sdk"
-	"github.com/voxgig-sdk/disney-sdk/core"
+	sdk "github.com/voxgig-sdk/disney-sdk/go"
+	"github.com/voxgig-sdk/disney-sdk/go/core"
 )
 
 func TestCharacterDirect(t *testing.T) {

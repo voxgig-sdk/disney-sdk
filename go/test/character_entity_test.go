@@ -9,10 +9,10 @@ import (
 	"testing"
 	"time"
 
-	sdk "github.com/voxgig-sdk/disney-sdk"
-	"github.com/voxgig-sdk/disney-sdk/core"
+	sdk "github.com/voxgig-sdk/disney-sdk/go"
+	"github.com/voxgig-sdk/disney-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/disney-sdk/go/utility/struct"
 )
 
 func TestCharacterEntity(t *testing.T) {
