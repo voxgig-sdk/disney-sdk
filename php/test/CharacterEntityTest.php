@@ -96,7 +96,6 @@ function character_basic_setup($extra)
         "DISNEY_TEST_CHARACTER_ENTID" => $idmap,
         "DISNEY_TEST_LIVE" => "FALSE",
         "DISNEY_TEST_EXPLAIN" => "FALSE",
-        "DISNEY_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -108,7 +107,6 @@ function character_basic_setup($extra)
     if ($env["DISNEY_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["DISNEY_APIKEY"],
             ],
             $extra ?? [],
         ]);

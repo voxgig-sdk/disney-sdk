@@ -123,14 +123,12 @@ function character_direct_setup($mockres)
     $env = Runner::env_override([
         "DISNEY_TEST_CHARACTER_ENTID" => [],
         "DISNEY_TEST_LIVE" => "FALSE",
-        "DISNEY_APIKEY" => "NONE",
     ]);
 
     $live = $env["DISNEY_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [
-            "apikey" => $env["DISNEY_APIKEY"],
         ];
         $client = new DisneySDK($merged_opts);
         return [

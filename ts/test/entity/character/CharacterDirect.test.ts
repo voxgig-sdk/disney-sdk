@@ -136,14 +136,12 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'DISNEY_TEST_CHARACTER_ENTID': {},
     'DISNEY_TEST_LIVE': 'FALSE',
-    'DISNEY_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.DISNEY_TEST_LIVE
 
   if (live) {
     const client = new DisneySDK({
-      apikey: env.DISNEY_APIKEY,
     })
 
     let idmap: any = env['DISNEY_TEST_CHARACTER_ENTID']

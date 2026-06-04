@@ -194,14 +194,12 @@ func characterDirectSetup(mockres any) *characterDirectSetupResult {
 	env := envOverride(map[string]any{
 		"DISNEY_TEST_CHARACTER_ENTID": map[string]any{},
 		"DISNEY_TEST_LIVE":    "FALSE",
-		"DISNEY_APIKEY":       "NONE",
 	})
 
 	live := env["DISNEY_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
-			"apikey": env["DISNEY_APIKEY"],
 		}
 		client := sdk.NewDisneySDK(mergedOpts)
 

@@ -120,7 +120,6 @@ function basicSetup(extra?: any) {
     'DISNEY_TEST_CHARACTER_ENTID': idmap,
     'DISNEY_TEST_LIVE': 'FALSE',
     'DISNEY_TEST_EXPLAIN': 'FALSE',
-    'DISNEY_APIKEY': 'NONE',
   })
 
   idmap = env['DISNEY_TEST_CHARACTER_ENTID']
@@ -130,7 +129,6 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new DisneySDK(merge([
       {
-        apikey: env.DISNEY_APIKEY,
       },
       extra
     ]))

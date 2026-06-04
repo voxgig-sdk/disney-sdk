@@ -17,7 +17,17 @@
         ],
         "termsOfService": "https://disneyapi.dev/docs/",
         "title": "Disney API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "tagline": "Look up Disney characters across films, shows, parks, and games via REST or GraphQL",
+        "homepage": "https://disneyapi.dev",
+        "docs_url": "https://disneyapi.dev",
+        "license_short": "Unofficial fan-made API; licence not stated. Disney characters and names are trademarks of The Walt Disney Company.",
+        "license_md": "- No licence is published on the API site; treat the service as a community resource that may change or disappear.\n- Disney character names, images, and likenesses remain trademarks/copyrights of The Walt Disney Company and its subsidiaries.\n- The API is not affiliated with or endorsed by Disney; use accordingly and check Disney's terms before any redistribution.",
+        "about_md": "The [Disney API](https://disneyapi.dev) is a community-run, read-only catalogue of roughly 9,820 Disney characters drawn from Disney films, TV shows, video games, and theme-park attractions. It is served from `https://api.disneyapi.dev` and is offered free of charge with no authentication required.\n\nWhat you get from the API:\n\n- List all characters: `GET /character`\n- Filter characters by name: `GET /character?name={name}`\n- Fetch a single character by id: `GET /character/{id}`\n- Both REST and GraphQL interfaces are exposed against the same data set.\n\nThe service has CORS enabled on all endpoints and is suitable for browser-side use. No rate limits are documented, but response times are typically in the 1.5–2.5 second range, so client-side caching is recommended for any UI that pages or auto-completes against the character list.",
+        "entity_desc": {
+          "character": "A single Disney character record, addressable via `GET /character`, `GET /character?name={name}` for name filtering, and `GET /character/{id}` for a specific character."
+        },
+        "auth": false
       },
       "config": {
         "auth": {
@@ -25,7 +35,15 @@
         },
         "headers": {
           "content-type": "application/json"
-        }
+        },
+        "docs_order": [
+          "ts",
+          "py",
+          "php",
+          "go",
+          "rb",
+          "lua"
+        ]
       },
       "entity": {
         "character": {

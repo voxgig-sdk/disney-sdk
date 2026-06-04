@@ -20,9 +20,6 @@ class DisneyConfig
             ],
             "options" => [
                 "base" => "https://api.disneyapi.dev",
-                "auth" => [
-                    "prefix" => "Bearer",
-                ],
                 "headers" => [
           'content-type' => 'application/json',
         ],
