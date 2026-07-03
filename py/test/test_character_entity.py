@@ -102,6 +102,7 @@ def _character_basic_setup(extra):
         "DISNEY_TEST_CHARACTER_ENTID": idmap,
         "DISNEY_TEST_LIVE": "FALSE",
         "DISNEY_TEST_EXPLAIN": "FALSE",
+        "DISNEY_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -112,6 +113,7 @@ def _character_basic_setup(extra):
     if env.get("DISNEY_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
+                "apikey": env.get("DISNEY_APIKEY"),
             },
             extra or {},
         ])

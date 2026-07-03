@@ -1,21 +1,8 @@
 # Disney SDK
 
-Look up Disney characters across films, shows, parks, and games via REST or GraphQL
+Disney API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About Disney API
-
-The [Disney API](https://disneyapi.dev) is a community-run, read-only catalogue of roughly 9,820 Disney characters drawn from Disney films, TV shows, video games, and theme-park attractions. It is served from `https://api.disneyapi.dev` and is offered free of charge with no authentication required.
-
-What you get from the API:
-
-- List all characters: `GET /character`
-- Filter characters by name: `GET /character?name={name}`
-- Fetch a single character by id: `GET /character/{id}`
-- Both REST and GraphQL interfaces are exposed against the same data set.
-
-The service has CORS enabled on all endpoints and is suitable for browser-side use. No rate limits are documented, but response times are typically in the 1.5–2.5 second range, so client-side caching is recommended for any UI that pages or auto-completes against the character list.
 
 ## Try it
 
@@ -49,29 +36,31 @@ gem install disney-sdk
 luarocks install disney-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { DisneySDK } from 'disney'
 
-const client = new DisneySDK({})
+const client = new DisneySDK({
+  apikey: process.env.DISNEY_APIKEY,
+})
 
 // List all characters
 const characters = await client.Character().list()
+console.log(characters.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -101,7 +90,7 @@ The API exposes one entity:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Character** | A single Disney character record, addressable via `GET /character`, `GET /character?name={name}` for name filtering, and `GET /character/{id}` for a specific character. | `/character` |
+| **Character** |  | `/character` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -111,17 +100,20 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from disney_sdk import DisneySDK
 
-client = DisneySDK({})
+client = DisneySDK({
+    "apikey": os.environ.get("DISNEY_APIKEY"),
+})
 
 # List all characters
-characters, err = client.Character(None).list(None, None)
+characters, err = client.Character().list()
+print(characters)
 
 # Load a specific character
-character, err = client.Character(None).load(
-    {"id": "example_id"}, None
-)
+character, err = client.Character().load({"id": "example_id"})
+print(character)
 ```
 
 ### PHP
@@ -130,15 +122,17 @@ character, err = client.Character(None).load(
 <?php
 require_once 'disney_sdk.php';
 
-$client = new DisneySDK([]);
+$client = new DisneySDK([
+    "apikey" => getenv("DISNEY_APIKEY"),
+]);
 
 // List all characters
-[$characters, $err] = $client->Character(null)->list(null, null);
+[$characters, $err] = $client->Character()->list();
+print_r($characters);
 
 // Load a specific character
-[$character, $err] = $client->Character(null)->load(
-    ["id" => "example_id"], null
-);
+[$character, $err] = $client->Character()->load(["id" => "example_id"]);
+print_r($character);
 ```
 
 ### Golang
@@ -146,10 +140,13 @@ $client = new DisneySDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/disney-sdk/go"
 
-client := sdk.NewDisneySDK(map[string]any{})
+client := sdk.NewDisneySDK(map[string]any{
+    "apikey": os.Getenv("DISNEY_APIKEY"),
+})
 
 // List all characters
 characters, err := client.Character(nil).List(nil, nil)
+fmt.Println(characters)
 ```
 
 ### Ruby
@@ -157,15 +154,17 @@ characters, err := client.Character(nil).List(nil, nil)
 ```ruby
 require_relative "Disney_sdk"
 
-client = DisneySDK.new({})
+client = DisneySDK.new({
+  "apikey" => ENV["DISNEY_APIKEY"],
+})
 
 # List all characters
-characters, err = client.Character(nil).list(nil, nil)
+characters, err = client.Character().list
+puts characters
 
 # Load a specific character
-character, err = client.Character(nil).load(
-  { "id" => "example_id" }, nil
-)
+character, err = client.Character().load({ "id" => "example_id" })
+puts character
 ```
 
 ### Lua
@@ -173,15 +172,17 @@ character, err = client.Character(nil).load(
 ```lua
 local sdk = require("disney_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("DISNEY_APIKEY"),
+})
 
 -- List all characters
-local characters, err = client:Character(nil):list(nil, nil)
+local characters, err = client:Character():list()
+print(characters)
 
 -- Load a specific character
-local character, err = client:Character(nil):load(
-  { id = "example_id" }, nil
-)
+local character, err = client:Character():load({ id = "example_id" })
+print(character)
 ```
 
 ## Unit testing in offline mode
@@ -200,25 +201,21 @@ const result = await client.Character().load({ id: 'test01' })
 ### Python
 
 ```python
-client = DisneySDK.test(None, None)
-result, err = client.Character(None).load(
-    {"id": "test01"}, None
-)
+client = DisneySDK.test()
+result, err = client.Character().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = DisneySDK::test(null, null);
-[$result, $err] = $client->Character(null)->load(
-    ["id" => "test01"], null
-);
+$client = DisneySDK::test();
+[$result, $err] = $client->Character()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.Character(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -227,19 +224,15 @@ result, err := client.Character(nil).Load(
 ### Ruby
 
 ```ruby
-client = DisneySDK.test(nil, nil)
-result, err = client.Character(nil).load(
-  { "id" => "test01" }, nil
-)
+client = DisneySDK.test
+result, err = client.Character().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:Character(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:Character():load({ id = "test01" })
 ```
 
 ## How it works
@@ -343,14 +336,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the Disney API
-
-- Upstream: [https://disneyapi.dev](https://disneyapi.dev)
-
-- No licence is published on the API site; treat the service as a community resource that may change or disappear.
-- Disney character names, images, and likenesses remain trademarks/copyrights of The Walt Disney Company and its subsidiaries.
-- The API is not affiliated with or endorsed by Disney; use accordingly and check Disney's terms before any redistribution.
 
 ---
 

@@ -109,12 +109,14 @@ def _character_direct_setup(mockres):
     env = runner.env_override({
         "DISNEY_TEST_CHARACTER_ENTID": {},
         "DISNEY_TEST_LIVE": "FALSE",
+        "DISNEY_APIKEY": "NONE",
     })
 
     live = env.get("DISNEY_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
+            "apikey": env.get("DISNEY_APIKEY"),
         }
         client = DisneySDK(merged_opts)
         return {

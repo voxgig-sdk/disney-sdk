@@ -102,6 +102,7 @@ function character_basic_setup(extra)
     ["DISNEY_TEST_CHARACTER_ENTID"] = idmap,
     ["DISNEY_TEST_LIVE"] = "FALSE",
     ["DISNEY_TEST_EXPLAIN"] = "FALSE",
+    ["DISNEY_APIKEY"] = "NONE",
   })
 
   local idmap_resolved = helpers.to_map(
@@ -113,6 +114,7 @@ function character_basic_setup(extra)
   if env["DISNEY_TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
       {
+        apikey = env["DISNEY_APIKEY"],
       },
       extra or {},
     })
