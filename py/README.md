@@ -10,7 +10,7 @@ The Python SDK for the Disney API — an entity-oriented client following Python
 
 ## Install
 ```bash
-pip install disney-sdk
+pip install voxgig-sdk-disney
 ```
 
 Or install from source:

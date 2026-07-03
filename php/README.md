@@ -10,7 +10,7 @@ The PHP SDK for the Disney API — an entity-oriented client using PHP conventio
 
 ## Install
 ```bash
-composer require voxgig/disney-sdk
+composer require voxgig-sdk/disney
 ```
 
 

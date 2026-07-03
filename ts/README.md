@@ -10,7 +10,7 @@ The TypeScript SDK for the Disney API — a type-safe, entity-oriented client wi
 
 ## Install
 ```bash
-npm install disney
+npm install @voxgig-sdk/disney
 ```
 ## Tutorial: your first API call
 

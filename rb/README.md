@@ -10,13 +10,13 @@ The Ruby SDK for the Disney API — an entity-oriented client using idiomatic Ru
 
 ## Install
 ```bash
-gem install disney-sdk
+gem install voxgig-sdk-disney
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "disney-sdk"
+gem "voxgig-sdk-disney"
 ```
 
 Then run:
