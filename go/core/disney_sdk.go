@@ -245,6 +245,9 @@ func (sdk *DisneySDK) Direct(fetchargs map[string]any) (map[string]any, error) {
 }
 
 
+// Character returns a Character entity bound to this client.
+// Idiomatic usage: client.Character(nil).List(nil, nil) or
+// client.Character(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *DisneySDK) Character(data map[string]any) DisneyEntity {
 	return NewCharacterEntityFunc(sdk, data)
 }

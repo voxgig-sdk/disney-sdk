@@ -117,14 +117,12 @@ function character_direct_setup(mockres)
   local env = runner.env_override({
     ["DISNEY_TEST_CHARACTER_ENTID"] = {},
     ["DISNEY_TEST_LIVE"] = "FALSE",
-    ["DISNEY_APIKEY"] = "NONE",
   })
 
   local live = env["DISNEY_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {
-      apikey = env["DISNEY_APIKEY"],
     }
     local client = sdk.new(merged_opts)
     return {

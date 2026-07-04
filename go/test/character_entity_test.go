@@ -135,7 +135,6 @@ func characterBasicSetup(extra map[string]any) *entityTestSetup {
 		"DISNEY_TEST_CHARACTER_ENTID": idmap,
 		"DISNEY_TEST_LIVE":      "FALSE",
 		"DISNEY_TEST_EXPLAIN":   "FALSE",
-		"DISNEY_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["DISNEY_TEST_CHARACTER_ENTID"])
@@ -146,7 +145,6 @@ func characterBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["DISNEY_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
-				"apikey": env["DISNEY_APIKEY"],
 			},
 			extra,
 		})

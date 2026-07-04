@@ -2,6 +2,8 @@
 
 import { CharacterEntity } from './entity/CharacterEntity'
 
+export type * from './DisneyTypes'
+
 
 import { inspect } from 'node:util'
 
@@ -202,6 +204,14 @@ class DisneySDK {
 
 
 
+  _character?: CharacterEntity
+
+  // Idiomatic facade: `client.character.list()` / `client.character.load({ id })`.
+  get character(): CharacterEntity {
+    return (this._character ??= new CharacterEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.character` instead. */
   Character(data?: any) {
     const self = this
     return new CharacterEntity(self,data)

@@ -15,9 +15,6 @@ module DisneyConfig
       },
       "options" => {
         "base" => "https://api.disneyapi.dev",
-        "auth" => {
-          "prefix" => "Bearer",
-        },
         "headers" => {
           "content-type" => "application/json",
         },
@@ -301,6 +298,7 @@ module DisneyConfig
                         "orig" => "id",
                         "reqd" => true,
                         "type" => "`$INTEGER`",
+                        "index$" => 0,
                       },
                     ],
                   },

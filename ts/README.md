@@ -9,9 +9,12 @@ The TypeScript SDK for the Disney API — a type-safe, entity-oriented client wi
 
 
 ## Install
-```bash
-npm install @voxgig-sdk/disney
-```
+This package is not yet published to npm. Install it from the GitHub
+release tag (`ts/vX.Y.Z`):
+
+- Releases: [https://github.com/voxgig-sdk/disney-sdk/releases](https://github.com/voxgig-sdk/disney-sdk/releases)
+
+
 ## Tutorial: your first API call
 
 This tutorial walks through creating a client, listing entities, and
@@ -20,17 +23,15 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { DisneySDK } from 'disney'
+import { DisneySDK } from '@voxgig-sdk/disney'
 
-const client = new DisneySDK({
-  apikey: process.env.DISNEY_APIKEY,
-})
+const client = new DisneySDK()
 ```
 
 ### 2. List characters
 
 ```ts
-const result = await client.Character().list()
+const result = await client.character.list()
 
 if (result.ok) {
   for (const item of result.data) {
@@ -42,7 +43,7 @@ if (result.ok) {
 ### 3. Load a character
 
 ```ts
-const result = await client.Character().load({ id: 'example_id' })
+const result = await client.character.load({ id: 'example_id' })
 
 if (result.ok) {
   console.log(result.data)
@@ -91,7 +92,7 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = DisneySDK.test()
 
-const result = await client.Planet().load({ id: 'test01' })
+const result = await client.character.load({ id: 'test01' })
 // result.ok === true
 // result.data contains mock response data
 ```
@@ -99,7 +100,7 @@ const result = await client.Planet().load({ id: 'test01' })
 You can also use the instance method:
 
 ```ts
-const client = new DisneySDK({ apikey: '...' })
+const client = new DisneySDK()
 const testClient = client.tester()
 ```
 
@@ -108,7 +109,7 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.Planet()
+const entity = client.character
 
 // First call sets internal match
 await entity.load({ id: 'example' })
@@ -135,7 +136,6 @@ const logger = {
 }
 
 const client = new DisneySDK({
-  apikey: '...',
   extend: [logger],
 })
 ```
@@ -146,7 +146,6 @@ Create a `.env.local` file at the project root:
 
 ```
 DISNEY_TEST_LIVE=TRUE
-DISNEY_APIKEY=<your-key>
 ```
 
 Then run:
@@ -164,7 +163,6 @@ cd ts && npm test
 
 ```ts
 new DisneySDK(options?: {
-  apikey?: string
   base?: string
   prefix?: string
   suffix?: string
@@ -175,7 +173,6 @@ new DisneySDK(options?: {
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -295,7 +292,7 @@ API path: `/character`
 
 ### Character
 
-Create an instance: `const character = client.Character()`
+Create an instance: `const character = client.character`
 
 #### Operations
 
@@ -330,13 +327,13 @@ Create an instance: `const character = client.Character()`
 #### Example: Load
 
 ```ts
-const character = await client.Character().load({ id: 'character_id' })
+const character = await client.character.load({ id: 'character_id' })
 ```
 
 #### Example: List
 
 ```ts
-const characters = await client.Character().list()
+const characters = await client.character.list()
 ```
 
 
@@ -397,7 +394,7 @@ disney/
 Import the SDK from the package root:
 
 ```ts
-import { DisneySDK } from 'disney'
+import { DisneySDK } from '@voxgig-sdk/disney'
 ```
 
 ### Entity state
@@ -407,11 +404,11 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const moon = client.Moon()
-await moon.load({ planet_id: 'earth', id: 'luna' })
+const character = client.character
+await character.load({ id: "example_id" })
 
-// moon.data() now returns the loaded moon data
-// moon.match() returns { planet_id: 'earth', id: 'luna' }
+// character.data() now returns the loaded character data
+// character.match() returns { id: "example_id" }
 ```
 
 Call `make()` to create a fresh instance with the same configuration
