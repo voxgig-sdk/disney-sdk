@@ -86,7 +86,7 @@ same parameters as `direct()`. Raises on error.
 ## CharacterEntity
 
 ```ruby
-character = client.character
+character = client.Character
 ```
 
 ### Fields
@@ -119,7 +119,7 @@ character = client.character
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.character.list(nil)
+results = client.Character.list(nil)
 ```
 
 #### `load(reqmatch, ctrl = nil) -> result`
@@ -127,7 +127,7 @@ results = client.character.list(nil)
 Load a single entity matching the given criteria. Raises on error.
 
 ```ruby
-result = client.character.load({ "id" => "character_id" })
+result = client.Character.load({ "id" => "character_id" })
 ```
 
 ### Common Methods

@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:character():list() / client:character():load({ id = ... })
-function DisneySDK:character(data)
+-- Idiomatic facade: client:Character():list() / client:Character():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function DisneySDK:Character(data)
   local EntityMod = require("entity.character_entity")
   if data == nil then
     if self._character == nil then
@@ -253,12 +254,6 @@ function DisneySDK:character(data)
     end
     return self._character
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:character() instead.
-function DisneySDK:Character(data)
-  local EntityMod = require("entity.character_entity")
   return EntityMod.new(self, data)
 end
 

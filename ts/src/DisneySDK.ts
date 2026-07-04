@@ -204,14 +204,7 @@ class DisneySDK {
 
 
 
-  _character?: CharacterEntity
-
-  // Idiomatic facade: `client.character.list()` / `client.character.load({ id })`.
-  get character(): CharacterEntity {
-    return (this._character ??= new CharacterEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.character` instead. */
+  // Entity access: `client.Character().list()` / `client.Character().load({ id })`.
   Character(data?: any) {
     const self = this
     return new CharacterEntity(self,data)

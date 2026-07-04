@@ -85,7 +85,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## CharacterEntity
 
 ```php
-$character = $client->character();
+$character = $client->Character();
 ```
 
 ### Fields
@@ -118,7 +118,7 @@ $character = $client->character();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->character()->list([]);
+$results = $client->Character()->list([]);
 ```
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
@@ -126,7 +126,7 @@ $results = $client->character()->list([]);
 Load a single entity matching the given criteria. Throws on error.
 
 ```php
-$result = $client->character()->load(["id" => "character_id"]);
+$result = $client->Character()->load(["id" => "character_id"]);
 ```
 
 ### Common Methods
