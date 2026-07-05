@@ -97,24 +97,24 @@ character := client.Character(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `alignment` | ``$STRING`` | No |  |
-| `ally` | ``$ARRAY`` | No |  |
-| `created_at` | ``$STRING`` | No |  |
-| `data` | ``$OBJECT`` | No |  |
-| `enemy` | ``$ARRAY`` | No |  |
-| `film` | ``$ARRAY`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `image_url` | ``$STRING`` | No |  |
-| `info` | ``$OBJECT`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `park_attraction` | ``$ARRAY`` | No |  |
-| `short_film` | ``$ARRAY`` | No |  |
-| `source_url` | ``$STRING`` | No |  |
-| `tv_show` | ``$ARRAY`` | No |  |
-| `updated_at` | ``$STRING`` | No |  |
-| `url` | ``$STRING`` | No |  |
-| `v` | ``$INTEGER`` | No |  |
-| `video_game` | ``$ARRAY`` | No |  |
+| `alignment` | `string` | No |  |
+| `ally` | `[]any` | No |  |
+| `created_at` | `string` | No |  |
+| `data` | `map[string]any` | No |  |
+| `enemy` | `[]any` | No |  |
+| `film` | `[]any` | No |  |
+| `id` | `int` | No |  |
+| `image_url` | `string` | No |  |
+| `info` | `map[string]any` | No |  |
+| `name` | `string` | No |  |
+| `park_attraction` | `[]any` | No |  |
+| `short_film` | `[]any` | No |  |
+| `source_url` | `string` | No |  |
+| `tv_show` | `[]any` | No |  |
+| `updated_at` | `string` | No |  |
+| `url` | `string` | No |  |
+| `v` | `int` | No |  |
+| `video_game` | `[]any` | No |  |
 
 ### Operations
 

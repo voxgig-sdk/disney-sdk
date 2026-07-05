@@ -30,5 +30,24 @@ export interface CharacterLoadMatch {
   id: number
 }
 
-export type CharacterListMatch = Partial<Character>
+export interface CharacterListMatch {
+  alignment?: string
+  ally?: any[]
+  created_at?: string
+  data?: Record<string, any>
+  enemy?: any[]
+  film?: any[]
+  id?: number
+  image_url?: string
+  info?: Record<string, any>
+  name?: string
+  park_attraction?: any[]
+  short_film?: any[]
+  source_url?: string
+  tv_show?: any[]
+  updated_at?: string
+  url?: string
+  v?: number
+  video_game?: any[]
+}
 

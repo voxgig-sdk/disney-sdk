@@ -87,33 +87,33 @@ character = client.Character()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `alignment` | ``$STRING`` | No |  |
-| `ally` | ``$ARRAY`` | No |  |
-| `created_at` | ``$STRING`` | No |  |
-| `data` | ``$OBJECT`` | No |  |
-| `enemy` | ``$ARRAY`` | No |  |
-| `film` | ``$ARRAY`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `image_url` | ``$STRING`` | No |  |
-| `info` | ``$OBJECT`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `park_attraction` | ``$ARRAY`` | No |  |
-| `short_film` | ``$ARRAY`` | No |  |
-| `source_url` | ``$STRING`` | No |  |
-| `tv_show` | ``$ARRAY`` | No |  |
-| `updated_at` | ``$STRING`` | No |  |
-| `url` | ``$STRING`` | No |  |
-| `v` | ``$INTEGER`` | No |  |
-| `video_game` | ``$ARRAY`` | No |  |
+| `alignment` | `str` | No |  |
+| `ally` | `list` | No |  |
+| `created_at` | `str` | No |  |
+| `data` | `dict` | No |  |
+| `enemy` | `list` | No |  |
+| `film` | `list` | No |  |
+| `id` | `int` | No |  |
+| `image_url` | `str` | No |  |
+| `info` | `dict` | No |  |
+| `name` | `str` | No |  |
+| `park_attraction` | `list` | No |  |
+| `short_film` | `list` | No |  |
+| `source_url` | `str` | No |  |
+| `tv_show` | `list` | No |  |
+| `updated_at` | `str` | No |  |
+| `url` | `str` | No |  |
+| `v` | `int` | No |  |
+| `video_game` | `list` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Character().list({})
+results = client.Character().list()
 for character in results:
     print(character)
 ```

@@ -8,7 +8,7 @@ Complete API reference for the Disney Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'disney_sdk'
+require_relative 'Disney_sdk'
 
 client = DisneySDK.new(options)
 ```
@@ -93,33 +93,33 @@ character = client.Character
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `alignment` | ``$STRING`` | No |  |
-| `ally` | ``$ARRAY`` | No |  |
-| `created_at` | ``$STRING`` | No |  |
-| `data` | ``$OBJECT`` | No |  |
-| `enemy` | ``$ARRAY`` | No |  |
-| `film` | ``$ARRAY`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `image_url` | ``$STRING`` | No |  |
-| `info` | ``$OBJECT`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `park_attraction` | ``$ARRAY`` | No |  |
-| `short_film` | ``$ARRAY`` | No |  |
-| `source_url` | ``$STRING`` | No |  |
-| `tv_show` | ``$ARRAY`` | No |  |
-| `updated_at` | ``$STRING`` | No |  |
-| `url` | ``$STRING`` | No |  |
-| `v` | ``$INTEGER`` | No |  |
-| `video_game` | ``$ARRAY`` | No |  |
+| `alignment` | `String` | No |  |
+| `ally` | `Array` | No |  |
+| `created_at` | `String` | No |  |
+| `data` | `Hash` | No |  |
+| `enemy` | `Array` | No |  |
+| `film` | `Array` | No |  |
+| `id` | `Integer` | No |  |
+| `image_url` | `String` | No |  |
+| `info` | `Hash` | No |  |
+| `name` | `String` | No |  |
+| `park_attraction` | `Array` | No |  |
+| `short_film` | `Array` | No |  |
+| `source_url` | `String` | No |  |
+| `tv_show` | `Array` | No |  |
+| `updated_at` | `String` | No |  |
+| `url` | `String` | No |  |
+| `v` | `Integer` | No |  |
+| `video_game` | `Array` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.Character.list(nil)
+results = client.Character.list
 ```
 
 #### `load(reqmatch, ctrl = nil) -> result`

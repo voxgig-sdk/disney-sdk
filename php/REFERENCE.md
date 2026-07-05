@@ -45,11 +45,11 @@ $client = DisneySDK::test();
 
 Create a new `CharacterEntity` instance. Pass `null` for no initial data.
 
-#### `optionsMap(): array`
+#### `options_map(): array`
 
 Return a deep copy of the current SDK options.
 
-#### `getUtility(): ProjectNameUtility`
+#### `get_utility(): DisneyUtility`
 
 Return a copy of the SDK utility object.
 
@@ -92,33 +92,33 @@ $character = $client->Character();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `alignment` | ``$STRING`` | No |  |
-| `ally` | ``$ARRAY`` | No |  |
-| `created_at` | ``$STRING`` | No |  |
-| `data` | ``$OBJECT`` | No |  |
-| `enemy` | ``$ARRAY`` | No |  |
-| `film` | ``$ARRAY`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `image_url` | ``$STRING`` | No |  |
-| `info` | ``$OBJECT`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `park_attraction` | ``$ARRAY`` | No |  |
-| `short_film` | ``$ARRAY`` | No |  |
-| `source_url` | ``$STRING`` | No |  |
-| `tv_show` | ``$ARRAY`` | No |  |
-| `updated_at` | ``$STRING`` | No |  |
-| `url` | ``$STRING`` | No |  |
-| `v` | ``$INTEGER`` | No |  |
-| `video_game` | ``$ARRAY`` | No |  |
+| `alignment` | `string` | No |  |
+| `ally` | `array` | No |  |
+| `created_at` | `string` | No |  |
+| `data` | `array` | No |  |
+| `enemy` | `array` | No |  |
+| `film` | `array` | No |  |
+| `id` | `int` | No |  |
+| `image_url` | `string` | No |  |
+| `info` | `array` | No |  |
+| `name` | `string` | No |  |
+| `park_attraction` | `array` | No |  |
+| `short_film` | `array` | No |  |
+| `source_url` | `string` | No |  |
+| `tv_show` | `array` | No |  |
+| `updated_at` | `string` | No |  |
+| `url` | `string` | No |  |
+| `v` | `int` | No |  |
+| `video_game` | `array` | No |  |
 
 ### Operations
 
-#### `list(array $reqmatch, ?array $ctrl = null): mixed`
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria. Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->Character()->list([]);
+$results = $client->Character()->list();
 ```
 
 #### `load(array $reqmatch, ?array $ctrl = null): mixed`
@@ -131,19 +131,19 @@ $result = $client->Character()->load(["id" => "character_id"]);
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -152,7 +152,7 @@ Set the entity match criteria.
 Create a new `CharacterEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 

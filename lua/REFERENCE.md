@@ -90,24 +90,24 @@ local character = client:Character(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `alignment` | ``$STRING`` | No |  |
-| `ally` | ``$ARRAY`` | No |  |
-| `created_at` | ``$STRING`` | No |  |
-| `data` | ``$OBJECT`` | No |  |
-| `enemy` | ``$ARRAY`` | No |  |
-| `film` | ``$ARRAY`` | No |  |
-| `id` | ``$INTEGER`` | No |  |
-| `image_url` | ``$STRING`` | No |  |
-| `info` | ``$OBJECT`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `park_attraction` | ``$ARRAY`` | No |  |
-| `short_film` | ``$ARRAY`` | No |  |
-| `source_url` | ``$STRING`` | No |  |
-| `tv_show` | ``$ARRAY`` | No |  |
-| `updated_at` | ``$STRING`` | No |  |
-| `url` | ``$STRING`` | No |  |
-| `v` | ``$INTEGER`` | No |  |
-| `video_game` | ``$ARRAY`` | No |  |
+| `alignment` | `string` | No |  |
+| `ally` | `table` | No |  |
+| `created_at` | `string` | No |  |
+| `data` | `table` | No |  |
+| `enemy` | `table` | No |  |
+| `film` | `table` | No |  |
+| `id` | `number` | No |  |
+| `image_url` | `string` | No |  |
+| `info` | `table` | No |  |
+| `name` | `string` | No |  |
+| `park_attraction` | `table` | No |  |
+| `short_film` | `table` | No |  |
+| `source_url` | `string` | No |  |
+| `tv_show` | `table` | No |  |
+| `updated_at` | `string` | No |  |
+| `url` | `string` | No |  |
+| `v` | `number` | No |  |
+| `video_game` | `table` | No |  |
 
 ### Operations
 
