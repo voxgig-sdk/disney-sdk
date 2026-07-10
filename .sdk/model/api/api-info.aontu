@@ -15,10 +15,10 @@ main: {
           url: "https://api.disneyapi.dev"
         }
       ]
+      summary: "GET only API for Disney characters information."
       termsOfService: "https://disneyapi.dev/docs/"
       title: "Disney API"
       version: "1.0.0"
+      website: "https://disneyapi.dev/docs/"
     }
   }
-}
-

@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -461,15 +458,18 @@
           "url": "https://disneyapi.dev/docs/"
         },
         "description": "GET only API for Disney characters information. No authentication required. Provides endpoints to filter characters, get all characters, and get details about one character. Available in REST and GraphQL. Access to a database of 9820 Disney characters.",
+        "meta_source": "https://www.freepublicapis.com",
         "servers": [
           {
             "description": "Production server",
             "url": "https://api.disneyapi.dev"
           }
         ],
+        "summary": "GET only API for Disney characters information.",
         "termsOfService": "https://disneyapi.dev/docs/",
         "title": "Disney API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "website": "https://disneyapi.dev/docs/"
       },
       "option": {},
       "target": {
@@ -522,6 +522,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -572,6 +575,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
