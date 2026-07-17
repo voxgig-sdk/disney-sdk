@@ -1,4 +1,4 @@
--- ProjectName SDK configuration
+-- Disney SDK configuration
 
 local function make_config()
   return {

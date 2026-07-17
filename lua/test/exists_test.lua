@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- Disney SDK exists test
 
 local sdk = require("disney_sdk")
 
