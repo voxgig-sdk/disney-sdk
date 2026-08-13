@@ -16,23 +16,23 @@ declare(strict_types=1);
 class Character
 {
     public ?string $alignment = null;
-    public ?array $ally = null;
-    public ?string $created_at = null;
+    public ?array $allies = null;
+    public ?string $createdAt = null;
     public ?array $data = null;
-    public ?array $enemy = null;
-    public ?array $film = null;
+    public ?array $enemies = null;
+    public ?array $films = null;
     public ?int $id = null;
-    public ?string $image_url = null;
+    public ?string $imageUrl = null;
     public ?array $info = null;
     public ?string $name = null;
-    public ?array $park_attraction = null;
-    public ?array $short_film = null;
-    public ?string $source_url = null;
-    public ?array $tv_show = null;
-    public ?string $updated_at = null;
+    public ?array $parkAttractions = null;
+    public ?array $shortFilms = null;
+    public ?string $sourceUrl = null;
+    public ?array $tvShows = null;
+    public ?string $updatedAt = null;
     public ?string $url = null;
     public ?int $v = null;
-    public ?array $video_game = null;
+    public ?array $videoGames = null;
 }
 
 /** Request payload for Character#load. */
@@ -45,22 +45,22 @@ class CharacterLoadMatch
 class CharacterListMatch
 {
     public ?string $alignment = null;
-    public ?array $ally = null;
-    public ?string $created_at = null;
+    public ?array $allies = null;
+    public ?string $createdAt = null;
     public ?array $data = null;
-    public ?array $enemy = null;
-    public ?array $film = null;
+    public ?array $enemies = null;
+    public ?array $films = null;
     public ?int $id = null;
-    public ?string $image_url = null;
+    public ?string $imageUrl = null;
     public ?array $info = null;
     public ?string $name = null;
-    public ?array $park_attraction = null;
-    public ?array $short_film = null;
-    public ?string $source_url = null;
-    public ?array $tv_show = null;
-    public ?string $updated_at = null;
+    public ?array $parkAttractions = null;
+    public ?array $shortFilms = null;
+    public ?string $sourceUrl = null;
+    public ?array $tvShows = null;
+    public ?string $updatedAt = null;
     public ?string $url = null;
     public ?int $v = null;
-    public ?array $video_game = null;
+    public ?array $videoGames = null;
 }
 

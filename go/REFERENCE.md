@@ -99,23 +99,23 @@ fmt.Println(character.GetName()) // "character"
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `alignment` | `string` | No |  |
-| `ally` | `[]any` | No |  |
-| `created_at` | `string` | No |  |
+| `allies` | `[]any` | No |  |
+| `createdAt` | `string` | No |  |
 | `data` | `map[string]any` | No |  |
-| `enemy` | `[]any` | No |  |
-| `film` | `[]any` | No |  |
+| `enemies` | `[]any` | No |  |
+| `films` | `[]any` | No |  |
 | `id` | `int` | No |  |
-| `image_url` | `string` | No |  |
+| `imageUrl` | `string` | No |  |
 | `info` | `map[string]any` | No |  |
 | `name` | `string` | No |  |
-| `park_attraction` | `[]any` | No |  |
-| `short_film` | `[]any` | No |  |
-| `source_url` | `string` | No |  |
-| `tv_show` | `[]any` | No |  |
-| `updated_at` | `string` | No |  |
+| `parkAttractions` | `[]any` | No |  |
+| `shortFilms` | `[]any` | No |  |
+| `sourceUrl` | `string` | No |  |
+| `tvShows` | `[]any` | No |  |
+| `updatedAt` | `string` | No |  |
 | `url` | `string` | No |  |
 | `v` | `int` | No |  |
-| `video_game` | `[]any` | No |  |
+| `videoGames` | `[]any` | No |  |
 
 ### Operations
 

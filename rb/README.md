@@ -48,7 +48,7 @@ end
 
 ```ruby
 begin
-  # load returns the bare Character record (raises on error).
+  # load returns the ENTITY — call data_get for the Character record (raises on error).
   character = client.Character.load({ "id" => 1 })
   puts character
 rescue => err
@@ -134,7 +134,8 @@ client = DisneySDK.test({
   "entity" => { "character" => { "test01" => { "id" => "test01" } } },
 })
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 character = client.Character.list()
 puts character
 ```
@@ -253,23 +254,23 @@ returns a result `Hash` with these keys:
 | Field | Description |
 | --- | --- |
 | `alignment` |  |
-| `ally` |  |
-| `created_at` |  |
+| `allies` |  |
+| `createdAt` |  |
 | `data` |  |
-| `enemy` |  |
-| `film` |  |
+| `enemies` |  |
+| `films` |  |
 | `id` |  |
-| `image_url` |  |
+| `imageUrl` |  |
 | `info` |  |
 | `name` |  |
-| `park_attraction` |  |
-| `short_film` |  |
-| `source_url` |  |
-| `tv_show` |  |
-| `updated_at` |  |
+| `parkAttractions` |  |
+| `shortFilms` |  |
+| `sourceUrl` |  |
+| `tvShows` |  |
+| `updatedAt` |  |
 | `url` |  |
 | `v` |  |
-| `video_game` |  |
+| `videoGames` |  |
 
 Operations: List, Load.
 
@@ -296,28 +297,28 @@ Create an instance: `character = client.Character`
 | Field | Type | Description |
 | --- | --- | --- |
 | `alignment` | `String` |  |
-| `ally` | `Array` |  |
-| `created_at` | `String` |  |
+| `allies` | `Array` |  |
+| `createdAt` | `String` |  |
 | `data` | `Hash` |  |
-| `enemy` | `Array` |  |
-| `film` | `Array` |  |
+| `enemies` | `Array` |  |
+| `films` | `Array` |  |
 | `id` | `Integer` |  |
-| `image_url` | `String` |  |
+| `imageUrl` | `String` |  |
 | `info` | `Hash` |  |
 | `name` | `String` |  |
-| `park_attraction` | `Array` |  |
-| `short_film` | `Array` |  |
-| `source_url` | `String` |  |
-| `tv_show` | `Array` |  |
-| `updated_at` | `String` |  |
+| `parkAttractions` | `Array` |  |
+| `shortFilms` | `Array` |  |
+| `sourceUrl` | `String` |  |
+| `tvShows` | `Array` |  |
+| `updatedAt` | `String` |  |
 | `url` | `String` |  |
 | `v` | `Integer` |  |
-| `video_game` | `Array` |  |
+| `videoGames` | `Array` |  |
 
 #### Example: Load
 
 ```ruby
-# load returns the bare Character record (raises on error).
+# load returns the ENTITY — call data_get for the Character record (raises on error).
 character = client.Character.load({ "id" => 1 })
 ```
 

@@ -13,25 +13,25 @@
 # @!attribute [rw] alignment
 #   @return [String, nil]
 #
-# @!attribute [rw] ally
+# @!attribute [rw] allies
 #   @return [Array, nil]
 #
-# @!attribute [rw] created_at
+# @!attribute [rw] createdAt
 #   @return [String, nil]
 #
 # @!attribute [rw] data
 #   @return [Hash, nil]
 #
-# @!attribute [rw] enemy
+# @!attribute [rw] enemies
 #   @return [Array, nil]
 #
-# @!attribute [rw] film
+# @!attribute [rw] films
 #   @return [Array, nil]
 #
 # @!attribute [rw] id
 #   @return [Integer, nil]
 #
-# @!attribute [rw] image_url
+# @!attribute [rw] imageUrl
 #   @return [String, nil]
 #
 # @!attribute [rw] info
@@ -40,19 +40,19 @@
 # @!attribute [rw] name
 #   @return [String, nil]
 #
-# @!attribute [rw] park_attraction
+# @!attribute [rw] parkAttractions
 #   @return [Array, nil]
 #
-# @!attribute [rw] short_film
+# @!attribute [rw] shortFilms
 #   @return [Array, nil]
 #
-# @!attribute [rw] source_url
+# @!attribute [rw] sourceUrl
 #   @return [String, nil]
 #
-# @!attribute [rw] tv_show
+# @!attribute [rw] tvShows
 #   @return [Array, nil]
 #
-# @!attribute [rw] updated_at
+# @!attribute [rw] updatedAt
 #   @return [String, nil]
 #
 # @!attribute [rw] url
@@ -61,27 +61,27 @@
 # @!attribute [rw] v
 #   @return [Integer, nil]
 #
-# @!attribute [rw] video_game
+# @!attribute [rw] videoGames
 #   @return [Array, nil]
 Character = Struct.new(
   :alignment,
-  :ally,
-  :created_at,
+  :allies,
+  :createdAt,
   :data,
-  :enemy,
-  :film,
+  :enemies,
+  :films,
   :id,
-  :image_url,
+  :imageUrl,
   :info,
   :name,
-  :park_attraction,
-  :short_film,
-  :source_url,
-  :tv_show,
-  :updated_at,
+  :parkAttractions,
+  :shortFilms,
+  :sourceUrl,
+  :tvShows,
+  :updatedAt,
   :url,
   :v,
-  :video_game,
+  :videoGames,
   keyword_init: true
 )
 
@@ -99,25 +99,25 @@ CharacterLoadMatch = Struct.new(
 # @!attribute [rw] alignment
 #   @return [String, nil]
 #
-# @!attribute [rw] ally
+# @!attribute [rw] allies
 #   @return [Array, nil]
 #
-# @!attribute [rw] created_at
+# @!attribute [rw] createdAt
 #   @return [String, nil]
 #
 # @!attribute [rw] data
 #   @return [Hash, nil]
 #
-# @!attribute [rw] enemy
+# @!attribute [rw] enemies
 #   @return [Array, nil]
 #
-# @!attribute [rw] film
+# @!attribute [rw] films
 #   @return [Array, nil]
 #
 # @!attribute [rw] id
 #   @return [Integer, nil]
 #
-# @!attribute [rw] image_url
+# @!attribute [rw] imageUrl
 #   @return [String, nil]
 #
 # @!attribute [rw] info
@@ -126,19 +126,19 @@ CharacterLoadMatch = Struct.new(
 # @!attribute [rw] name
 #   @return [String, nil]
 #
-# @!attribute [rw] park_attraction
+# @!attribute [rw] parkAttractions
 #   @return [Array, nil]
 #
-# @!attribute [rw] short_film
+# @!attribute [rw] shortFilms
 #   @return [Array, nil]
 #
-# @!attribute [rw] source_url
+# @!attribute [rw] sourceUrl
 #   @return [String, nil]
 #
-# @!attribute [rw] tv_show
+# @!attribute [rw] tvShows
 #   @return [Array, nil]
 #
-# @!attribute [rw] updated_at
+# @!attribute [rw] updatedAt
 #   @return [String, nil]
 #
 # @!attribute [rw] url
@@ -147,27 +147,27 @@ CharacterLoadMatch = Struct.new(
 # @!attribute [rw] v
 #   @return [Integer, nil]
 #
-# @!attribute [rw] video_game
+# @!attribute [rw] videoGames
 #   @return [Array, nil]
 CharacterListMatch = Struct.new(
   :alignment,
-  :ally,
-  :created_at,
+  :allies,
+  :createdAt,
   :data,
-  :enemy,
-  :film,
+  :enemies,
+  :films,
   :id,
-  :image_url,
+  :imageUrl,
   :info,
   :name,
-  :park_attraction,
-  :short_film,
-  :source_url,
-  :tv_show,
-  :updated_at,
+  :parkAttractions,
+  :shortFilms,
+  :sourceUrl,
+  :tvShows,
+  :updatedAt,
   :url,
   :v,
-  :video_game,
+  :videoGames,
   keyword_init: true
 )
 

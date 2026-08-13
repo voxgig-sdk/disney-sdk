@@ -94,23 +94,23 @@ character = client.Character
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `alignment` | `String` | No |  |
-| `ally` | `Array` | No |  |
-| `created_at` | `String` | No |  |
+| `allies` | `Array` | No |  |
+| `createdAt` | `String` | No |  |
 | `data` | `Hash` | No |  |
-| `enemy` | `Array` | No |  |
-| `film` | `Array` | No |  |
+| `enemies` | `Array` | No |  |
+| `films` | `Array` | No |  |
 | `id` | `Integer` | No |  |
-| `image_url` | `String` | No |  |
+| `imageUrl` | `String` | No |  |
 | `info` | `Hash` | No |  |
 | `name` | `String` | No |  |
-| `park_attraction` | `Array` | No |  |
-| `short_film` | `Array` | No |  |
-| `source_url` | `String` | No |  |
-| `tv_show` | `Array` | No |  |
-| `updated_at` | `String` | No |  |
+| `parkAttractions` | `Array` | No |  |
+| `shortFilms` | `Array` | No |  |
+| `sourceUrl` | `String` | No |  |
+| `tvShows` | `Array` | No |  |
+| `updatedAt` | `String` | No |  |
 | `url` | `String` | No |  |
 | `v` | `Integer` | No |  |
-| `video_game` | `Array` | No |  |
+| `videoGames` | `Array` | No |  |
 
 ### Operations
 

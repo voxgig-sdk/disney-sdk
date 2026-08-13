@@ -49,7 +49,7 @@ try {
 
 ```php
 try {
-    // load() returns the bare Character record (throws on error).
+    // load() returns the ENTITY — call data_get() for the Character record (throws on error).
     $character = $client->Character()->load(["id" => 1]);
     print_r($character);
 } catch (\Throwable $err) {
@@ -140,7 +140,8 @@ $client = DisneySDK::test([
     "entity" => ["character" => ["test01" => ["id" => "test01"]]],
 ]);
 
-// Entity ops return the bare mock record (throws on error).
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
 $character = $client->Character()->list();
 print_r($character);
 ```
@@ -240,7 +241,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -263,23 +264,23 @@ On error, `ok` is `false` and `$err` contains the error value.
 | Field | Description |
 | --- | --- |
 | `alignment` |  |
-| `ally` |  |
-| `created_at` |  |
+| `allies` |  |
+| `createdAt` |  |
 | `data` |  |
-| `enemy` |  |
-| `film` |  |
+| `enemies` |  |
+| `films` |  |
 | `id` |  |
-| `image_url` |  |
+| `imageUrl` |  |
 | `info` |  |
 | `name` |  |
-| `park_attraction` |  |
-| `short_film` |  |
-| `source_url` |  |
-| `tv_show` |  |
-| `updated_at` |  |
+| `parkAttractions` |  |
+| `shortFilms` |  |
+| `sourceUrl` |  |
+| `tvShows` |  |
+| `updatedAt` |  |
 | `url` |  |
 | `v` |  |
-| `video_game` |  |
+| `videoGames` |  |
 
 Operations: List, Load.
 
@@ -306,28 +307,28 @@ Create an instance: `$character = $client->Character();`
 | Field | Type | Description |
 | --- | --- | --- |
 | `alignment` | `string` |  |
-| `ally` | `array` |  |
-| `created_at` | `string` |  |
+| `allies` | `array` |  |
+| `createdAt` | `string` |  |
 | `data` | `array` |  |
-| `enemy` | `array` |  |
-| `film` | `array` |  |
+| `enemies` | `array` |  |
+| `films` | `array` |  |
 | `id` | `int` |  |
-| `image_url` | `string` |  |
+| `imageUrl` | `string` |  |
 | `info` | `array` |  |
 | `name` | `string` |  |
-| `park_attraction` | `array` |  |
-| `short_film` | `array` |  |
-| `source_url` | `string` |  |
-| `tv_show` | `array` |  |
-| `updated_at` | `string` |  |
+| `parkAttractions` | `array` |  |
+| `shortFilms` | `array` |  |
+| `sourceUrl` | `string` |  |
+| `tvShows` | `array` |  |
+| `updatedAt` | `string` |  |
 | `url` | `string` |  |
 | `v` | `int` |  |
-| `video_game` | `array` |  |
+| `videoGames` | `array` |  |
 
 #### Example: Load
 
 ```php
-// load() returns the bare Character record (throws on error).
+// load() returns the ENTITY — call data_get() for the Character record (throws on error).
 $character = $client->Character()->load(["id" => 1]);
 ```
 

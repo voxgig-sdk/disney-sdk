@@ -52,7 +52,7 @@ except Exception as err:
 
 ### 3. Load a character
 
-`load()` returns the bare record (a `dict`) and raises on error.
+`load()` returns the ENTITY — call data_get() for the record — and raises on error.
 
 ```python
 try:
@@ -136,7 +136,8 @@ Create a mock client for unit testing — no server required:
 ```python
 client = DisneySDK.test()
 
-# Entity ops return the bare record and raise on error.
+# Entity ops return the ENTITY and raises on error;
+# call data_get() for the record.
 character = client.Character().list()
 # character contains the mock response record
 ```
@@ -233,7 +234,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (a `dict` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (a `dict` for single-entity
 ops, a `list` for `list`) and raise on error. Wrap calls in
 `try`/`except` to handle failures.
 
@@ -256,23 +257,23 @@ On error, `ok` is `False` and `err` contains the error value.
 | Field | Description |
 | --- | --- |
 | `alignment` |  |
-| `ally` |  |
-| `created_at` |  |
+| `allies` |  |
+| `createdAt` |  |
 | `data` |  |
-| `enemy` |  |
-| `film` |  |
+| `enemies` |  |
+| `films` |  |
 | `id` |  |
-| `image_url` |  |
+| `imageUrl` |  |
 | `info` |  |
 | `name` |  |
-| `park_attraction` |  |
-| `short_film` |  |
-| `source_url` |  |
-| `tv_show` |  |
-| `updated_at` |  |
+| `parkAttractions` |  |
+| `shortFilms` |  |
+| `sourceUrl` |  |
+| `tvShows` |  |
+| `updatedAt` |  |
 | `url` |  |
 | `v` |  |
-| `video_game` |  |
+| `videoGames` |  |
 
 Operations: List, Load.
 
@@ -299,23 +300,23 @@ Create an instance: `character = client.Character()`
 | Field | Type | Description |
 | --- | --- | --- |
 | `alignment` | `str` |  |
-| `ally` | `list` |  |
-| `created_at` | `str` |  |
+| `allies` | `list` |  |
+| `createdAt` | `str` |  |
 | `data` | `dict` |  |
-| `enemy` | `list` |  |
-| `film` | `list` |  |
+| `enemies` | `list` |  |
+| `films` | `list` |  |
 | `id` | `int` |  |
-| `image_url` | `str` |  |
+| `imageUrl` | `str` |  |
 | `info` | `dict` |  |
 | `name` | `str` |  |
-| `park_attraction` | `list` |  |
-| `short_film` | `list` |  |
-| `source_url` | `str` |  |
-| `tv_show` | `list` |  |
-| `updated_at` | `str` |  |
+| `parkAttractions` | `list` |  |
+| `shortFilms` | `list` |  |
+| `sourceUrl` | `str` |  |
+| `tvShows` | `list` |  |
+| `updatedAt` | `str` |  |
 | `url` | `str` |  |
 | `v` | `int` |  |
-| `video_game` | `list` |  |
+| `videoGames` | `list` |  |
 
 #### Example: Load
 

@@ -88,23 +88,23 @@ character = client.Character()
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `alignment` | `str` | No |  |
-| `ally` | `list` | No |  |
-| `created_at` | `str` | No |  |
+| `allies` | `list` | No |  |
+| `createdAt` | `str` | No |  |
 | `data` | `dict` | No |  |
-| `enemy` | `list` | No |  |
-| `film` | `list` | No |  |
+| `enemies` | `list` | No |  |
+| `films` | `list` | No |  |
 | `id` | `int` | No |  |
-| `image_url` | `str` | No |  |
+| `imageUrl` | `str` | No |  |
 | `info` | `dict` | No |  |
 | `name` | `str` | No |  |
-| `park_attraction` | `list` | No |  |
-| `short_film` | `list` | No |  |
-| `source_url` | `str` | No |  |
-| `tv_show` | `list` | No |  |
-| `updated_at` | `str` | No |  |
+| `parkAttractions` | `list` | No |  |
+| `shortFilms` | `list` | No |  |
+| `sourceUrl` | `str` | No |  |
+| `tvShows` | `list` | No |  |
+| `updatedAt` | `str` | No |  |
 | `url` | `str` | No |  |
 | `v` | `int` | No |  |
-| `video_game` | `list` | No |  |
+| `videoGames` | `list` | No |  |
 
 ### Operations
 

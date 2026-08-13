@@ -93,23 +93,23 @@ $character = $client->Character();
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `alignment` | `string` | No |  |
-| `ally` | `array` | No |  |
-| `created_at` | `string` | No |  |
+| `allies` | `array` | No |  |
+| `createdAt` | `string` | No |  |
 | `data` | `array` | No |  |
-| `enemy` | `array` | No |  |
-| `film` | `array` | No |  |
+| `enemies` | `array` | No |  |
+| `films` | `array` | No |  |
 | `id` | `int` | No |  |
-| `image_url` | `string` | No |  |
+| `imageUrl` | `string` | No |  |
 | `info` | `array` | No |  |
 | `name` | `string` | No |  |
-| `park_attraction` | `array` | No |  |
-| `short_film` | `array` | No |  |
-| `source_url` | `string` | No |  |
-| `tv_show` | `array` | No |  |
-| `updated_at` | `string` | No |  |
+| `parkAttractions` | `array` | No |  |
+| `shortFilms` | `array` | No |  |
+| `sourceUrl` | `string` | No |  |
+| `tvShows` | `array` | No |  |
+| `updatedAt` | `string` | No |  |
 | `url` | `string` | No |  |
 | `v` | `int` | No |  |
-| `video_game` | `array` | No |  |
+| `videoGames` | `array` | No |  |
 
 ### Operations
 

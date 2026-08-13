@@ -11,12 +11,12 @@ main: kit: entity: character: {
       type: "`$STRING`"
     }
     {
-      name: "ally"
+      name: "allies"
       req: false
       type: "`$ARRAY`"
     }
     {
-      name: "created_at"
+      name: "createdAt"
       req: false
       type: "`$STRING`"
     }
@@ -26,12 +26,12 @@ main: kit: entity: character: {
       type: "`$OBJECT`"
     }
     {
-      name: "enemy"
+      name: "enemies"
       req: false
       type: "`$ARRAY`"
     }
     {
-      name: "film"
+      name: "films"
       req: false
       type: "`$ARRAY`"
     }
@@ -41,7 +41,7 @@ main: kit: entity: character: {
       type: "`$INTEGER`"
     }
     {
-      name: "image_url"
+      name: "imageUrl"
       req: false
       type: "`$STRING`"
     }
@@ -56,27 +56,27 @@ main: kit: entity: character: {
       type: "`$STRING`"
     }
     {
-      name: "park_attraction"
+      name: "parkAttractions"
       req: false
       type: "`$ARRAY`"
     }
     {
-      name: "short_film"
+      name: "shortFilms"
       req: false
       type: "`$ARRAY`"
     }
     {
-      name: "source_url"
+      name: "sourceUrl"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "tv_show"
+      name: "tvShows"
       req: false
       type: "`$ARRAY`"
     }
     {
-      name: "updated_at"
+      name: "updatedAt"
       req: false
       type: "`$STRING`"
     }
@@ -91,7 +91,7 @@ main: kit: entity: character: {
       type: "`$INTEGER`"
     }
     {
-      name: "video_game"
+      name: "videoGames"
       req: false
       type: "`$ARRAY`"
     }

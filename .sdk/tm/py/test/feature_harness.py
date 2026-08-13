@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import DisneyControl
-from core.error import DisneyError
-from core.result import DisneyResult
-from core.spec import DisneySpec
+from projectname_sdk.config import make_config
+from projectname_sdk.features import _make_feature
+from projectname_sdk.core.control import DisneyControl
+from projectname_sdk.core.error import DisneyError
+from projectname_sdk.core.result import DisneyResult
+from projectname_sdk.core.spec import DisneySpec
 
 
 # True when this SDK was generated with the named feature.

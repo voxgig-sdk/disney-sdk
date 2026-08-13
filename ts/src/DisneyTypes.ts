@@ -7,23 +7,23 @@
 
 export interface Character {
   alignment?: string
-  ally?: any[]
-  created_at?: string
+  allies?: any[]
+  createdAt?: string
   data?: Record<string, any>
-  enemy?: any[]
-  film?: any[]
+  enemies?: any[]
+  films?: any[]
   id?: number
-  image_url?: string
+  imageUrl?: string
   info?: Record<string, any>
   name?: string
-  park_attraction?: any[]
-  short_film?: any[]
-  source_url?: string
-  tv_show?: any[]
-  updated_at?: string
+  parkAttractions?: any[]
+  shortFilms?: any[]
+  sourceUrl?: string
+  tvShows?: any[]
+  updatedAt?: string
   url?: string
   v?: number
-  video_game?: any[]
+  videoGames?: any[]
 }
 
 export interface CharacterLoadMatch {
@@ -32,22 +32,22 @@ export interface CharacterLoadMatch {
 
 export interface CharacterListMatch {
   alignment?: string
-  ally?: any[]
-  created_at?: string
+  allies?: any[]
+  createdAt?: string
   data?: Record<string, any>
-  enemy?: any[]
-  film?: any[]
+  enemies?: any[]
+  films?: any[]
   id?: number
-  image_url?: string
+  imageUrl?: string
   info?: Record<string, any>
   name?: string
-  park_attraction?: any[]
-  short_film?: any[]
-  source_url?: string
-  tv_show?: any[]
-  updated_at?: string
+  parkAttractions?: any[]
+  shortFilms?: any[]
+  sourceUrl?: string
+  tvShows?: any[]
+  updatedAt?: string
   url?: string
   v?: number
-  video_game?: any[]
+  videoGames?: any[]
 }
 

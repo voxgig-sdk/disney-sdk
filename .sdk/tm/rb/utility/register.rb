@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ DisneyUtility.registrar = ->(u) {
   u.prepare_params = DisneyUtilities::PrepareParams
   u.prepare_path = DisneyUtilities::PreparePath
   u.prepare_query = DisneyUtilities::PrepareQuery
+  u.graphql_body = DisneyUtilities::GraphqlBody
+  u.graphql_errors = DisneyUtilities::GraphqlErrors
   u.result_basic = DisneyUtilities::ResultBasic
   u.result_body = DisneyUtilities::ResultBody
   u.result_headers = DisneyUtilities::ResultHeaders

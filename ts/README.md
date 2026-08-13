@@ -35,7 +35,9 @@ const client = new DisneySDK()
 
 ### 2. List character records
 
-`list()` resolves to an array of Character objects — iterate it directly:
+`list()` resolves to an array of Character ENTITIES — every operation
+resolves to entities, not raw records. Iterate them directly, and call
+`.data()` on one for the record it holds:
 
 ```ts
 const characters = await client.Character().list()
@@ -133,7 +135,8 @@ Create a mock client for unit testing — no server required:
 const client = DisneySDK.test()
 
 const character = await client.Character().list()
-// character is a bare entity populated with mock response data
+// character is the entity, populated with mock response data
+// — call character.data() for the record itself
 console.log(character)
 ```
 
@@ -300,23 +303,23 @@ The `prepare()` method returns:
 | Field | Description |
 | --- | --- |
 | `alignment` |  |
-| `ally` |  |
-| `created_at` |  |
+| `allies` |  |
+| `createdAt` |  |
 | `data` |  |
-| `enemy` |  |
-| `film` |  |
+| `enemies` |  |
+| `films` |  |
 | `id` |  |
-| `image_url` |  |
+| `imageUrl` |  |
 | `info` |  |
 | `name` |  |
-| `park_attraction` |  |
-| `short_film` |  |
-| `source_url` |  |
-| `tv_show` |  |
-| `updated_at` |  |
+| `parkAttractions` |  |
+| `shortFilms` |  |
+| `sourceUrl` |  |
+| `tvShows` |  |
+| `updatedAt` |  |
 | `url` |  |
 | `v` |  |
-| `video_game` |  |
+| `videoGames` |  |
 
 Operations: list, load.
 
@@ -343,23 +346,23 @@ Create an instance: `const character = client.Character()`
 | Field | Type | Description |
 | --- | --- | --- |
 | `alignment` | `string` |  |
-| `ally` | `any[]` |  |
-| `created_at` | `string` |  |
+| `allies` | `any[]` |  |
+| `createdAt` | `string` |  |
 | `data` | `Record<string, any>` |  |
-| `enemy` | `any[]` |  |
-| `film` | `any[]` |  |
+| `enemies` | `any[]` |  |
+| `films` | `any[]` |  |
 | `id` | `number` |  |
-| `image_url` | `string` |  |
+| `imageUrl` | `string` |  |
 | `info` | `Record<string, any>` |  |
 | `name` | `string` |  |
-| `park_attraction` | `any[]` |  |
-| `short_film` | `any[]` |  |
-| `source_url` | `string` |  |
-| `tv_show` | `any[]` |  |
-| `updated_at` | `string` |  |
+| `parkAttractions` | `any[]` |  |
+| `shortFilms` | `any[]` |  |
+| `sourceUrl` | `string` |  |
+| `tvShows` | `any[]` |  |
+| `updatedAt` | `string` |  |
 | `url` | `string` |  |
 | `v` | `number` |  |
-| `video_game` | `any[]` |  |
+| `videoGames` | `any[]` |  |
 
 #### Example: Load
 

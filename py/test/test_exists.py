@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# Disney SDK exists test
 
 import pytest
 from disney_sdk import DisneySDK

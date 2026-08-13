@@ -16,11 +16,11 @@
 import pytest
 
 from projectname_sdk import DisneySDK
-from core.error import DisneyError
-from core.result import DisneyResult
-from core.response import DisneyResponse
-from core.spec import DisneySpec
-from feature.base_feature import DisneyBaseFeature
+from projectname_sdk.core.error import DisneyError
+from projectname_sdk.core.result import DisneyResult
+from projectname_sdk.core.response import DisneyResponse
+from projectname_sdk.core.spec import DisneySpec
+from projectname_sdk.feature.base_feature import DisneyBaseFeature
 
 
 def _client():

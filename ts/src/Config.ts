@@ -21,7 +21,7 @@ class Config {
 
 
   main = {
-    name: 'ProjectName',
+    name: 'Disney',
   }
 
 
@@ -63,14 +63,14 @@ class Config {
         },
         {
           "active": true,
-          "name": "ally",
+          "name": "allies",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 1
         },
         {
           "active": true,
-          "name": "created_at",
+          "name": "createdAt",
           "req": false,
           "type": "`$STRING`",
           "index$": 2
@@ -84,14 +84,14 @@ class Config {
         },
         {
           "active": true,
-          "name": "enemy",
+          "name": "enemies",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 4
         },
         {
           "active": true,
-          "name": "film",
+          "name": "films",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 5
@@ -105,7 +105,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "image_url",
+          "name": "imageUrl",
           "req": false,
           "type": "`$STRING`",
           "index$": 7
@@ -126,35 +126,35 @@ class Config {
         },
         {
           "active": true,
-          "name": "park_attraction",
+          "name": "parkAttractions",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 10
         },
         {
           "active": true,
-          "name": "short_film",
+          "name": "shortFilms",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 11
         },
         {
           "active": true,
-          "name": "source_url",
+          "name": "sourceUrl",
           "req": false,
           "type": "`$STRING`",
           "index$": 12
         },
         {
           "active": true,
-          "name": "tv_show",
+          "name": "tvShows",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 13
         },
         {
           "active": true,
-          "name": "updated_at",
+          "name": "updatedAt",
           "req": false,
           "type": "`$STRING`",
           "index$": 14
@@ -175,7 +175,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "video_game",
+          "name": "videoGames",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 17
@@ -283,6 +283,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/character",
               "parts": [
@@ -331,6 +332,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/character/{id}",
               "parts": [

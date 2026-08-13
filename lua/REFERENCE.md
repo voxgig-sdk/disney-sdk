@@ -91,23 +91,23 @@ local character = client:Character(nil)
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
 | `alignment` | `string` | No |  |
-| `ally` | `table` | No |  |
-| `created_at` | `string` | No |  |
+| `allies` | `table` | No |  |
+| `createdAt` | `string` | No |  |
 | `data` | `table` | No |  |
-| `enemy` | `table` | No |  |
-| `film` | `table` | No |  |
+| `enemies` | `table` | No |  |
+| `films` | `table` | No |  |
 | `id` | `number` | No |  |
-| `image_url` | `string` | No |  |
+| `imageUrl` | `string` | No |  |
 | `info` | `table` | No |  |
 | `name` | `string` | No |  |
-| `park_attraction` | `table` | No |  |
-| `short_film` | `table` | No |  |
-| `source_url` | `string` | No |  |
-| `tv_show` | `table` | No |  |
-| `updated_at` | `string` | No |  |
+| `parkAttractions` | `table` | No |  |
+| `shortFilms` | `table` | No |  |
+| `sourceUrl` | `string` | No |  |
+| `tvShows` | `table` | No |  |
+| `updatedAt` | `string` | No |  |
 | `url` | `string` | No |  |
 | `v` | `number` | No |  |
-| `video_game` | `table` | No |  |
+| `videoGames` | `table` | No |  |
 
 ### Operations
 

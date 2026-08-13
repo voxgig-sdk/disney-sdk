@@ -242,23 +242,23 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 | Field | Description |
 | --- | --- |
 | `alignment` |  |
-| `ally` |  |
-| `created_at` |  |
+| `allies` |  |
+| `createdAt` |  |
 | `data` |  |
-| `enemy` |  |
-| `film` |  |
+| `enemies` |  |
+| `films` |  |
 | `id` |  |
-| `image_url` |  |
+| `imageUrl` |  |
 | `info` |  |
 | `name` |  |
-| `park_attraction` |  |
-| `short_film` |  |
-| `source_url` |  |
-| `tv_show` |  |
-| `updated_at` |  |
+| `parkAttractions` |  |
+| `shortFilms` |  |
+| `sourceUrl` |  |
+| `tvShows` |  |
+| `updatedAt` |  |
 | `url` |  |
 | `v` |  |
-| `video_game` |  |
+| `videoGames` |  |
 
 Operations: List, Load.
 
@@ -285,23 +285,23 @@ Create an instance: `local character = client:Character(nil)`
 | Field | Type | Description |
 | --- | --- | --- |
 | `alignment` | `string` |  |
-| `ally` | `table` |  |
-| `created_at` | `string` |  |
+| `allies` | `table` |  |
+| `createdAt` | `string` |  |
 | `data` | `table` |  |
-| `enemy` | `table` |  |
-| `film` | `table` |  |
+| `enemies` | `table` |  |
+| `films` | `table` |  |
 | `id` | `number` |  |
-| `image_url` | `string` |  |
+| `imageUrl` | `string` |  |
 | `info` | `table` |  |
 | `name` | `string` |  |
-| `park_attraction` | `table` |  |
-| `short_film` | `table` |  |
-| `source_url` | `string` |  |
-| `tv_show` | `table` |  |
-| `updated_at` | `string` |  |
+| `parkAttractions` | `table` |  |
+| `shortFilms` | `table` |  |
+| `sourceUrl` | `string` |  |
+| `tvShows` | `table` |  |
+| `updatedAt` | `string` |  |
 | `url` | `string` |  |
 | `v` | `number` |  |
-| `video_game` | `table` |  |
+| `videoGames` | `table` |  |
 
 #### Example: Load
 

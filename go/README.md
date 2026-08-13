@@ -270,23 +270,23 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 | Field | Description |
 | --- | --- |
 | `"alignment"` |  |
-| `"ally"` |  |
-| `"created_at"` |  |
+| `"allies"` |  |
+| `"createdAt"` |  |
 | `"data"` |  |
-| `"enemy"` |  |
-| `"film"` |  |
+| `"enemies"` |  |
+| `"films"` |  |
 | `"id"` |  |
-| `"image_url"` |  |
+| `"imageUrl"` |  |
 | `"info"` |  |
 | `"name"` |  |
-| `"park_attraction"` |  |
-| `"short_film"` |  |
-| `"source_url"` |  |
-| `"tv_show"` |  |
-| `"updated_at"` |  |
+| `"parkAttractions"` |  |
+| `"shortFilms"` |  |
+| `"sourceUrl"` |  |
+| `"tvShows"` |  |
+| `"updatedAt"` |  |
 | `"url"` |  |
 | `"v"` |  |
-| `"video_game"` |  |
+| `"videoGames"` |  |
 
 Operations: List, Load.
 
@@ -313,23 +313,23 @@ Create an instance: `character := client.Character(nil)`
 | Field | Type | Description |
 | --- | --- | --- |
 | `alignment` | `string` |  |
-| `ally` | `[]any` |  |
-| `created_at` | `string` |  |
+| `allies` | `[]any` |  |
+| `createdAt` | `string` |  |
 | `data` | `map[string]any` |  |
-| `enemy` | `[]any` |  |
-| `film` | `[]any` |  |
+| `enemies` | `[]any` |  |
+| `films` | `[]any` |  |
 | `id` | `int` |  |
-| `image_url` | `string` |  |
+| `imageUrl` | `string` |  |
 | `info` | `map[string]any` |  |
 | `name` | `string` |  |
-| `park_attraction` | `[]any` |  |
-| `short_film` | `[]any` |  |
-| `source_url` | `string` |  |
-| `tv_show` | `[]any` |  |
-| `updated_at` | `string` |  |
+| `parkAttractions` | `[]any` |  |
+| `shortFilms` | `[]any` |  |
+| `sourceUrl` | `string` |  |
+| `tvShows` | `[]any` |  |
+| `updatedAt` | `string` |  |
 | `url` | `string` |  |
 | `v` | `int` |  |
-| `video_game` | `[]any` |  |
+| `videoGames` | `[]any` |  |
 
 #### Example: Load
 
