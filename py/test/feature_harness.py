@@ -14,7 +14,7 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from disney_sdk.config import make_config
+from disney_sdk.config import shared_config
 from disney_sdk.features import _make_feature
 from disney_sdk.core.control import DisneyControl
 from disney_sdk.core.error import DisneyError
@@ -24,7 +24,7 @@ from disney_sdk.core.spec import DisneySpec
 
 # True when this SDK was generated with the named feature.
 def has_feature(name):
-    feature = make_config().get("feature")
+    feature = shared_config().get("feature")
     return isinstance(feature, dict) and feature.get(name) is not None
 
 

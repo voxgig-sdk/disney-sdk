@@ -5,6 +5,29 @@ declare(strict_types=1);
 
 class DisneyConfig
 {
+    /** @var array<string,mixed>|null */
+    private static ?array $shared_config = null;
+
+    /**
+     * Return the process-wide config, built once on first use. The SDK reads
+     * the config on every request and never writes to it, so one instance is
+     * shared by every client rather than rebuilt per client.
+     *
+     * PHP arrays are copy-on-write, so callers that do mutate the result get
+     * their own copy and cannot disturb the shared one.
+     */
+    public static function shared_config(): array
+    {
+        if (self::$shared_config === null) {
+            self::$shared_config = self::make_config();
+        }
+        return self::$shared_config;
+    }
+
+    /**
+     * Build a fresh, fully materialised config array. Every call rebuilds the
+     * whole structure, so prefer shared_config unless you need a private copy.
+     */
     public static function make_config(): array
     {
         return [
@@ -31,130 +54,76 @@ class DisneyConfig
         'character' => [
           'fields' => [
             [
-              'active' => true,
               'name' => 'alignment',
-              'req' => false,
               'type' => '`$STRING`',
-              'index$' => 0,
             ],
             [
-              'active' => true,
               'name' => 'allies',
-              'req' => false,
               'type' => '`$ARRAY`',
-              'index$' => 1,
             ],
             [
-              'active' => true,
               'name' => 'createdAt',
-              'req' => false,
               'type' => '`$STRING`',
-              'index$' => 2,
             ],
             [
-              'active' => true,
               'name' => 'data',
-              'req' => false,
               'type' => '`$OBJECT`',
-              'index$' => 3,
             ],
             [
-              'active' => true,
               'name' => 'enemies',
-              'req' => false,
               'type' => '`$ARRAY`',
-              'index$' => 4,
             ],
             [
-              'active' => true,
               'name' => 'films',
-              'req' => false,
               'type' => '`$ARRAY`',
-              'index$' => 5,
             ],
             [
-              'active' => true,
               'name' => 'id',
-              'req' => false,
               'type' => '`$INTEGER`',
-              'index$' => 6,
             ],
             [
-              'active' => true,
               'name' => 'imageUrl',
-              'req' => false,
               'type' => '`$STRING`',
-              'index$' => 7,
             ],
             [
-              'active' => true,
               'name' => 'info',
-              'req' => false,
               'type' => '`$OBJECT`',
-              'index$' => 8,
             ],
             [
-              'active' => true,
               'name' => 'name',
-              'req' => false,
               'type' => '`$STRING`',
-              'index$' => 9,
             ],
             [
-              'active' => true,
               'name' => 'parkAttractions',
-              'req' => false,
               'type' => '`$ARRAY`',
-              'index$' => 10,
             ],
             [
-              'active' => true,
               'name' => 'shortFilms',
-              'req' => false,
               'type' => '`$ARRAY`',
-              'index$' => 11,
             ],
             [
-              'active' => true,
               'name' => 'sourceUrl',
-              'req' => false,
               'type' => '`$STRING`',
-              'index$' => 12,
             ],
             [
-              'active' => true,
               'name' => 'tvShows',
-              'req' => false,
               'type' => '`$ARRAY`',
-              'index$' => 13,
             ],
             [
-              'active' => true,
               'name' => 'updatedAt',
-              'req' => false,
               'type' => '`$STRING`',
-              'index$' => 14,
             ],
             [
-              'active' => true,
               'name' => 'url',
-              'req' => false,
               'type' => '`$STRING`',
-              'index$' => 15,
             ],
             [
-              'active' => true,
               'name' => 'v',
-              'req' => false,
               'type' => '`$INTEGER`',
-              'index$' => 16,
             ],
             [
-              'active' => true,
               'name' => 'videoGames',
-              'req' => false,
               'type' => '`$ARRAY`',
-              'index$' => 17,
             ],
           ],
           'name' => 'character',
@@ -164,97 +133,74 @@ class DisneyConfig
               'name' => 'list',
               'points' => [
                 [
-                  'active' => true,
                   'args' => [
                     'query' => [
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'alignment',
                         'orig' => 'alignment',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'ally',
                         'orig' => 'ally',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'enemy',
                         'orig' => 'enemy',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'film',
                         'orig' => 'film',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'name',
                         'orig' => 'name',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                       [
-                        'active' => true,
                         'example' => 1,
                         'kind' => 'query',
                         'name' => 'page',
                         'orig' => 'page',
-                        'reqd' => false,
                         'type' => '`$INTEGER`',
                       ],
                       [
-                        'active' => true,
                         'example' => 50,
                         'kind' => 'query',
                         'name' => 'page_size',
                         'orig' => 'page_size',
-                        'reqd' => false,
                         'type' => '`$INTEGER`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'park_attraction',
                         'orig' => 'park_attraction',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'short_film',
                         'orig' => 'short_film',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'tv_show',
                         'orig' => 'tv_show',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                       [
-                        'active' => true,
                         'kind' => 'query',
                         'name' => 'video_game',
                         'orig' => 'video_game',
-                        'reqd' => false,
                         'type' => '`$STRING`',
                       ],
                     ],
@@ -284,27 +230,22 @@ class DisneyConfig
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
-                  'index$' => 0,
                 ],
               ],
-              'key$' => 'list',
             ],
             'load' => [
               'input' => 'data',
               'name' => 'load',
               'points' => [
                 [
-                  'active' => true,
                   'args' => [
                     'params' => [
                       [
-                        'active' => true,
                         'kind' => 'param',
                         'name' => 'id',
                         'orig' => 'id',
                         'reqd' => true,
                         'type' => '`$INTEGER`',
-                        'index$' => 0,
                       ],
                     ],
                   ],
@@ -324,10 +265,8 @@ class DisneyConfig
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
-                  'index$' => 0,
                 ],
               ],
-              'key$' => 'load',
             ],
           ],
           'relations' => [

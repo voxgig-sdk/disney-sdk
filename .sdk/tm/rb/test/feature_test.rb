@@ -15,7 +15,7 @@ require_relative "../Disney_sdk"
 module DisneyFeatureHarness
   # True when this SDK was generated with the named feature.
   def self.has_feature?(name)
-    f = DisneyConfig.make_config["feature"]
+    f = DisneyConfig.shared_config["feature"]
     f.is_a?(Hash) && !f[name].nil?
   end
 

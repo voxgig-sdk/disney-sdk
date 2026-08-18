@@ -28,7 +28,7 @@ class DisneySDK
     utility = DisneyUtility.new
     @_utility = utility
 
-    config = DisneyConfig.make_config
+    config = DisneyConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

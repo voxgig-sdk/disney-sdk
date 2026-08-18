@@ -40,7 +40,7 @@ class DisneySDK
         $utility = new DisneyUtility();
         $this->_utility = $utility;
 
-        $config = DisneyConfig::make_config();
+        $config = DisneyConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,
