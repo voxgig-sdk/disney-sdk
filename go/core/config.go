@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "Disney",
+			"slug": "disney",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -33,14 +36,17 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "alignment",
+						"short": "Character alignment (good, bad, neutral, etc.)",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "allies",
+						"short": "List of character allies",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "createdAt",
+						"short": "Timestamp when the character was added to the database",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -49,18 +55,22 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "enemies",
+						"short": "List of character enemies",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "films",
+						"short": "List of films the character appears in",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "id",
+						"short": "Unique identifier for the character",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "imageUrl",
+						"short": "Image URL for the character",
 						"type": "`$STRING`",
 					},
 					map[string]any{
@@ -69,38 +79,47 @@ func MakeConfig() map[string]any {
 					},
 					map[string]any{
 						"name": "name",
+						"short": "Name of the character",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "parkAttractions",
+						"short": "List of park attractions featuring the character",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "shortFilms",
+						"short": "List of short films the character appears in",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "sourceUrl",
+						"short": "Source URL (Disney Wiki) for the character",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "tvShows",
+						"short": "List of TV shows the character appears in",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "updatedAt",
+						"short": "Timestamp when the character was last updated",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "url",
+						"short": "API URL for this character",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "v",
+						"short": "Version key",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "videoGames",
+						"short": "List of video games the character appears in",
 						"type": "`$ARRAY`",
 					},
 				},

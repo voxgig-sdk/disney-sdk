@@ -9,7 +9,7 @@ The API is exposed as capitalised, semantic **Entities** — e.g.
 instead of raw URL paths and query parameters. This keeps the surface
 predictable and low-friction for both humans and AI agents.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go`, `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb` — see
 > the [top-level README](../README.md).
 
 
@@ -302,24 +302,24 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `alignment` |  |
-| `allies` |  |
-| `createdAt` |  |
+| `alignment` | Character alignment (good, bad, neutral, etc.) |
+| `allies` | List of character allies |
+| `createdAt` | Timestamp when the character was added to the database |
 | `data` |  |
-| `enemies` |  |
-| `films` |  |
-| `id` |  |
-| `imageUrl` |  |
+| `enemies` | List of character enemies |
+| `films` | List of films the character appears in |
+| `id` | Unique identifier for the character |
+| `imageUrl` | Image URL for the character |
 | `info` |  |
-| `name` |  |
-| `parkAttractions` |  |
-| `shortFilms` |  |
-| `sourceUrl` |  |
-| `tvShows` |  |
-| `updatedAt` |  |
-| `url` |  |
-| `v` |  |
-| `videoGames` |  |
+| `name` | Name of the character |
+| `parkAttractions` | List of park attractions featuring the character |
+| `shortFilms` | List of short films the character appears in |
+| `sourceUrl` | Source URL (Disney Wiki) for the character |
+| `tvShows` | List of TV shows the character appears in |
+| `updatedAt` | Timestamp when the character was last updated |
+| `url` | API URL for this character |
+| `v` | Version key |
+| `videoGames` | List of video games the character appears in |
 
 Operations: list, load.
 
@@ -345,24 +345,24 @@ Create an instance: `const character = client.Character()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `alignment` | `string` |  |
-| `allies` | `any[]` |  |
-| `createdAt` | `string` |  |
+| `alignment` | `string` | Character alignment (good, bad, neutral, etc.) |
+| `allies` | `any[]` | List of character allies |
+| `createdAt` | `string` | Timestamp when the character was added to the database |
 | `data` | `Record<string, any>` |  |
-| `enemies` | `any[]` |  |
-| `films` | `any[]` |  |
-| `id` | `number` |  |
-| `imageUrl` | `string` |  |
+| `enemies` | `any[]` | List of character enemies |
+| `films` | `any[]` | List of films the character appears in |
+| `id` | `number` | Unique identifier for the character |
+| `imageUrl` | `string` | Image URL for the character |
 | `info` | `Record<string, any>` |  |
-| `name` | `string` |  |
-| `parkAttractions` | `any[]` |  |
-| `shortFilms` | `any[]` |  |
-| `sourceUrl` | `string` |  |
-| `tvShows` | `any[]` |  |
-| `updatedAt` | `string` |  |
-| `url` | `string` |  |
-| `v` | `number` |  |
-| `videoGames` | `any[]` |  |
+| `name` | `string` | Name of the character |
+| `parkAttractions` | `any[]` | List of park attractions featuring the character |
+| `shortFilms` | `any[]` | List of short films the character appears in |
+| `sourceUrl` | `string` | Source URL (Disney Wiki) for the character |
+| `tvShows` | `any[]` | List of TV shows the character appears in |
+| `updatedAt` | `string` | Timestamp when the character was last updated |
+| `url` | `string` | API URL for this character |
+| `v` | `number` | Version key |
+| `videoGames` | `any[]` | List of video games the character appears in |
 
 #### Example: Load
 

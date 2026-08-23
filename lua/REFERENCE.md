@@ -90,24 +90,24 @@ local character = client:Character(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `alignment` | `string` | No |  |
-| `allies` | `table` | No |  |
-| `createdAt` | `string` | No |  |
+| `alignment` | `string` | No | Character alignment (good, bad, neutral, etc.) |
+| `allies` | `table` | No | List of character allies |
+| `createdAt` | `string` | No | Timestamp when the character was added to the database |
 | `data` | `table` | No |  |
-| `enemies` | `table` | No |  |
-| `films` | `table` | No |  |
-| `id` | `number` | No |  |
-| `imageUrl` | `string` | No |  |
+| `enemies` | `table` | No | List of character enemies |
+| `films` | `table` | No | List of films the character appears in |
+| `id` | `number` | No | Unique identifier for the character |
+| `imageUrl` | `string` | No | Image URL for the character |
 | `info` | `table` | No |  |
-| `name` | `string` | No |  |
-| `parkAttractions` | `table` | No |  |
-| `shortFilms` | `table` | No |  |
-| `sourceUrl` | `string` | No |  |
-| `tvShows` | `table` | No |  |
-| `updatedAt` | `string` | No |  |
-| `url` | `string` | No |  |
-| `v` | `number` | No |  |
-| `videoGames` | `table` | No |  |
+| `name` | `string` | No | Name of the character |
+| `parkAttractions` | `table` | No | List of park attractions featuring the character |
+| `shortFilms` | `table` | No | List of short films the character appears in |
+| `sourceUrl` | `string` | No | Source URL (Disney Wiki) for the character |
+| `tvShows` | `table` | No | List of TV shows the character appears in |
+| `updatedAt` | `string` | No | Timestamp when the character was last updated |
+| `url` | `string` | No | API URL for this character |
+| `v` | `number` | No | Version key |
+| `videoGames` | `table` | No | List of video games the character appears in |
 
 ### Operations
 

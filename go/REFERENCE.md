@@ -98,24 +98,24 @@ fmt.Println(character.GetName()) // "character"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `alignment` | `string` | No |  |
-| `allies` | `[]any` | No |  |
-| `createdAt` | `string` | No |  |
+| `alignment` | `string` | No | Character alignment (good, bad, neutral, etc.) |
+| `allies` | `[]any` | No | List of character allies |
+| `createdAt` | `string` | No | Timestamp when the character was added to the database |
 | `data` | `map[string]any` | No |  |
-| `enemies` | `[]any` | No |  |
-| `films` | `[]any` | No |  |
-| `id` | `int` | No |  |
-| `imageUrl` | `string` | No |  |
+| `enemies` | `[]any` | No | List of character enemies |
+| `films` | `[]any` | No | List of films the character appears in |
+| `id` | `int` | No | Unique identifier for the character |
+| `imageUrl` | `string` | No | Image URL for the character |
 | `info` | `map[string]any` | No |  |
-| `name` | `string` | No |  |
-| `parkAttractions` | `[]any` | No |  |
-| `shortFilms` | `[]any` | No |  |
-| `sourceUrl` | `string` | No |  |
-| `tvShows` | `[]any` | No |  |
-| `updatedAt` | `string` | No |  |
-| `url` | `string` | No |  |
-| `v` | `int` | No |  |
-| `videoGames` | `[]any` | No |  |
+| `name` | `string` | No | Name of the character |
+| `parkAttractions` | `[]any` | No | List of park attractions featuring the character |
+| `shortFilms` | `[]any` | No | List of short films the character appears in |
+| `sourceUrl` | `string` | No | Source URL (Disney Wiki) for the character |
+| `tvShows` | `[]any` | No | List of TV shows the character appears in |
+| `updatedAt` | `string` | No | Timestamp when the character was last updated |
+| `url` | `string` | No | API URL for this character |
+| `v` | `int` | No | Version key |
+| `videoGames` | `[]any` | No | List of video games the character appears in |
 
 ### Operations
 

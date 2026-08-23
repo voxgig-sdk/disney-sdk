@@ -241,24 +241,24 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `alignment` |  |
-| `allies` |  |
-| `createdAt` |  |
+| `alignment` | Character alignment (good, bad, neutral, etc.) |
+| `allies` | List of character allies |
+| `createdAt` | Timestamp when the character was added to the database |
 | `data` |  |
-| `enemies` |  |
-| `films` |  |
-| `id` |  |
-| `imageUrl` |  |
+| `enemies` | List of character enemies |
+| `films` | List of films the character appears in |
+| `id` | Unique identifier for the character |
+| `imageUrl` | Image URL for the character |
 | `info` |  |
-| `name` |  |
-| `parkAttractions` |  |
-| `shortFilms` |  |
-| `sourceUrl` |  |
-| `tvShows` |  |
-| `updatedAt` |  |
-| `url` |  |
-| `v` |  |
-| `videoGames` |  |
+| `name` | Name of the character |
+| `parkAttractions` | List of park attractions featuring the character |
+| `shortFilms` | List of short films the character appears in |
+| `sourceUrl` | Source URL (Disney Wiki) for the character |
+| `tvShows` | List of TV shows the character appears in |
+| `updatedAt` | Timestamp when the character was last updated |
+| `url` | API URL for this character |
+| `v` | Version key |
+| `videoGames` | List of video games the character appears in |
 
 Operations: List, Load.
 
@@ -284,24 +284,24 @@ Create an instance: `local character = client:Character(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `alignment` | `string` |  |
-| `allies` | `table` |  |
-| `createdAt` | `string` |  |
+| `alignment` | `string` | Character alignment (good, bad, neutral, etc.) |
+| `allies` | `table` | List of character allies |
+| `createdAt` | `string` | Timestamp when the character was added to the database |
 | `data` | `table` |  |
-| `enemies` | `table` |  |
-| `films` | `table` |  |
-| `id` | `number` |  |
-| `imageUrl` | `string` |  |
+| `enemies` | `table` | List of character enemies |
+| `films` | `table` | List of films the character appears in |
+| `id` | `number` | Unique identifier for the character |
+| `imageUrl` | `string` | Image URL for the character |
 | `info` | `table` |  |
-| `name` | `string` |  |
-| `parkAttractions` | `table` |  |
-| `shortFilms` | `table` |  |
-| `sourceUrl` | `string` |  |
-| `tvShows` | `table` |  |
-| `updatedAt` | `string` |  |
-| `url` | `string` |  |
-| `v` | `number` |  |
-| `videoGames` | `table` |  |
+| `name` | `string` | Name of the character |
+| `parkAttractions` | `table` | List of park attractions featuring the character |
+| `shortFilms` | `table` | List of short films the character appears in |
+| `sourceUrl` | `string` | Source URL (Disney Wiki) for the character |
+| `tvShows` | `table` | List of TV shows the character appears in |
+| `updatedAt` | `string` | Timestamp when the character was last updated |
+| `url` | `string` | API URL for this character |
+| `v` | `number` | Version key |
+| `videoGames` | `table` | List of video games the character appears in |
 
 #### Example: Load
 

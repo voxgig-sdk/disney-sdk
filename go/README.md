@@ -6,7 +6,7 @@ The Golang SDK for the Disney API — an entity-oriented client using standard G
 
 It exposes the API as capitalised, semantic **Entities** — e.g. `client.Character(nil)` — each with the same small set of operations (`List`, `Load`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb`, `ts` — see
 > the [top-level README](../README.md).
 
 
@@ -269,24 +269,24 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"alignment"` |  |
-| `"allies"` |  |
-| `"createdAt"` |  |
+| `"alignment"` | Character alignment (good, bad, neutral, etc.) |
+| `"allies"` | List of character allies |
+| `"createdAt"` | Timestamp when the character was added to the database |
 | `"data"` |  |
-| `"enemies"` |  |
-| `"films"` |  |
-| `"id"` |  |
-| `"imageUrl"` |  |
+| `"enemies"` | List of character enemies |
+| `"films"` | List of films the character appears in |
+| `"id"` | Unique identifier for the character |
+| `"imageUrl"` | Image URL for the character |
 | `"info"` |  |
-| `"name"` |  |
-| `"parkAttractions"` |  |
-| `"shortFilms"` |  |
-| `"sourceUrl"` |  |
-| `"tvShows"` |  |
-| `"updatedAt"` |  |
-| `"url"` |  |
-| `"v"` |  |
-| `"videoGames"` |  |
+| `"name"` | Name of the character |
+| `"parkAttractions"` | List of park attractions featuring the character |
+| `"shortFilms"` | List of short films the character appears in |
+| `"sourceUrl"` | Source URL (Disney Wiki) for the character |
+| `"tvShows"` | List of TV shows the character appears in |
+| `"updatedAt"` | Timestamp when the character was last updated |
+| `"url"` | API URL for this character |
+| `"v"` | Version key |
+| `"videoGames"` | List of video games the character appears in |
 
 Operations: List, Load.
 
@@ -312,24 +312,24 @@ Create an instance: `character := client.Character(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `alignment` | `string` |  |
-| `allies` | `[]any` |  |
-| `createdAt` | `string` |  |
+| `alignment` | `string` | Character alignment (good, bad, neutral, etc.) |
+| `allies` | `[]any` | List of character allies |
+| `createdAt` | `string` | Timestamp when the character was added to the database |
 | `data` | `map[string]any` |  |
-| `enemies` | `[]any` |  |
-| `films` | `[]any` |  |
-| `id` | `int` |  |
-| `imageUrl` | `string` |  |
+| `enemies` | `[]any` | List of character enemies |
+| `films` | `[]any` | List of films the character appears in |
+| `id` | `int` | Unique identifier for the character |
+| `imageUrl` | `string` | Image URL for the character |
 | `info` | `map[string]any` |  |
-| `name` | `string` |  |
-| `parkAttractions` | `[]any` |  |
-| `shortFilms` | `[]any` |  |
-| `sourceUrl` | `string` |  |
-| `tvShows` | `[]any` |  |
-| `updatedAt` | `string` |  |
-| `url` | `string` |  |
-| `v` | `int` |  |
-| `videoGames` | `[]any` |  |
+| `name` | `string` | Name of the character |
+| `parkAttractions` | `[]any` | List of park attractions featuring the character |
+| `shortFilms` | `[]any` | List of short films the character appears in |
+| `sourceUrl` | `string` | Source URL (Disney Wiki) for the character |
+| `tvShows` | `[]any` | List of TV shows the character appears in |
+| `updatedAt` | `string` | Timestamp when the character was last updated |
+| `url` | `string` | API URL for this character |
+| `v` | `int` | Version key |
+| `videoGames` | `[]any` | List of video games the character appears in |
 
 #### Example: Load
 

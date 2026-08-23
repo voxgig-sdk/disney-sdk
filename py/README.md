@@ -256,24 +256,24 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `alignment` |  |
-| `allies` |  |
-| `createdAt` |  |
+| `alignment` | Character alignment (good, bad, neutral, etc.) |
+| `allies` | List of character allies |
+| `createdAt` | Timestamp when the character was added to the database |
 | `data` |  |
-| `enemies` |  |
-| `films` |  |
-| `id` |  |
-| `imageUrl` |  |
+| `enemies` | List of character enemies |
+| `films` | List of films the character appears in |
+| `id` | Unique identifier for the character |
+| `imageUrl` | Image URL for the character |
 | `info` |  |
-| `name` |  |
-| `parkAttractions` |  |
-| `shortFilms` |  |
-| `sourceUrl` |  |
-| `tvShows` |  |
-| `updatedAt` |  |
-| `url` |  |
-| `v` |  |
-| `videoGames` |  |
+| `name` | Name of the character |
+| `parkAttractions` | List of park attractions featuring the character |
+| `shortFilms` | List of short films the character appears in |
+| `sourceUrl` | Source URL (Disney Wiki) for the character |
+| `tvShows` | List of TV shows the character appears in |
+| `updatedAt` | Timestamp when the character was last updated |
+| `url` | API URL for this character |
+| `v` | Version key |
+| `videoGames` | List of video games the character appears in |
 
 Operations: List, Load.
 
@@ -299,24 +299,24 @@ Create an instance: `character = client.Character()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `alignment` | `str` |  |
-| `allies` | `list` |  |
-| `createdAt` | `str` |  |
+| `alignment` | `str` | Character alignment (good, bad, neutral, etc.) |
+| `allies` | `list` | List of character allies |
+| `createdAt` | `str` | Timestamp when the character was added to the database |
 | `data` | `dict` |  |
-| `enemies` | `list` |  |
-| `films` | `list` |  |
-| `id` | `int` |  |
-| `imageUrl` | `str` |  |
+| `enemies` | `list` | List of character enemies |
+| `films` | `list` | List of films the character appears in |
+| `id` | `int` | Unique identifier for the character |
+| `imageUrl` | `str` | Image URL for the character |
 | `info` | `dict` |  |
-| `name` | `str` |  |
-| `parkAttractions` | `list` |  |
-| `shortFilms` | `list` |  |
-| `sourceUrl` | `str` |  |
-| `tvShows` | `list` |  |
-| `updatedAt` | `str` |  |
-| `url` | `str` |  |
-| `v` | `int` |  |
-| `videoGames` | `list` |  |
+| `name` | `str` | Name of the character |
+| `parkAttractions` | `list` | List of park attractions featuring the character |
+| `shortFilms` | `list` | List of short films the character appears in |
+| `sourceUrl` | `str` | Source URL (Disney Wiki) for the character |
+| `tvShows` | `list` | List of TV shows the character appears in |
+| `updatedAt` | `str` | Timestamp when the character was last updated |
+| `url` | `str` | API URL for this character |
+| `v` | `int` | Version key |
+| `videoGames` | `list` | List of video games the character appears in |
 
 #### Example: Load
 

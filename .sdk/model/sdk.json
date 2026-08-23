@@ -36,18 +36,21 @@
               "active": true,
               "name": "alignment",
               "req": false,
+              "short": "Character alignment (good, bad, neutral, etc.)",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "allies",
               "req": false,
+              "short": "List of character allies",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "createdAt",
               "req": false,
+              "short": "Timestamp when the character was added to the database",
               "type": "`$STRING`"
             },
             {
@@ -60,24 +63,28 @@
               "active": true,
               "name": "enemies",
               "req": false,
+              "short": "List of character enemies",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "films",
               "req": false,
+              "short": "List of films the character appears in",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "id",
               "req": false,
+              "short": "Unique identifier for the character",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "imageUrl",
               "req": false,
+              "short": "Image URL for the character",
               "type": "`$STRING`"
             },
             {
@@ -90,54 +97,63 @@
               "active": true,
               "name": "name",
               "req": false,
+              "short": "Name of the character",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "parkAttractions",
               "req": false,
+              "short": "List of park attractions featuring the character",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "shortFilms",
               "req": false,
+              "short": "List of short films the character appears in",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "sourceUrl",
               "req": false,
+              "short": "Source URL (Disney Wiki) for the character",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "tvShows",
               "req": false,
+              "short": "List of TV shows the character appears in",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "updatedAt",
               "req": false,
+              "short": "Timestamp when the character was last updated",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "url",
               "req": false,
+              "short": "API URL for this character",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "v",
               "req": false,
+              "short": "Version key",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "videoGames",
               "req": false,
+              "short": "List of video games the character appears in",
               "type": "`$ARRAY`"
             }
           ],

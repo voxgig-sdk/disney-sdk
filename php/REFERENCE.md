@@ -92,24 +92,24 @@ $character = $client->Character();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `alignment` | `string` | No |  |
-| `allies` | `array` | No |  |
-| `createdAt` | `string` | No |  |
+| `alignment` | `string` | No | Character alignment (good, bad, neutral, etc.) |
+| `allies` | `array` | No | List of character allies |
+| `createdAt` | `string` | No | Timestamp when the character was added to the database |
 | `data` | `array` | No |  |
-| `enemies` | `array` | No |  |
-| `films` | `array` | No |  |
-| `id` | `int` | No |  |
-| `imageUrl` | `string` | No |  |
+| `enemies` | `array` | No | List of character enemies |
+| `films` | `array` | No | List of films the character appears in |
+| `id` | `int` | No | Unique identifier for the character |
+| `imageUrl` | `string` | No | Image URL for the character |
 | `info` | `array` | No |  |
-| `name` | `string` | No |  |
-| `parkAttractions` | `array` | No |  |
-| `shortFilms` | `array` | No |  |
-| `sourceUrl` | `string` | No |  |
-| `tvShows` | `array` | No |  |
-| `updatedAt` | `string` | No |  |
-| `url` | `string` | No |  |
-| `v` | `int` | No |  |
-| `videoGames` | `array` | No |  |
+| `name` | `string` | No | Name of the character |
+| `parkAttractions` | `array` | No | List of park attractions featuring the character |
+| `shortFilms` | `array` | No | List of short films the character appears in |
+| `sourceUrl` | `string` | No | Source URL (Disney Wiki) for the character |
+| `tvShows` | `array` | No | List of TV shows the character appears in |
+| `updatedAt` | `string` | No | Timestamp when the character was last updated |
+| `url` | `string` | No | API URL for this character |
+| `v` | `int` | No | Version key |
+| `videoGames` | `array` | No | List of video games the character appears in |
 
 ### Operations
 

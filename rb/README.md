@@ -253,24 +253,24 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `alignment` |  |
-| `allies` |  |
-| `createdAt` |  |
+| `alignment` | Character alignment (good, bad, neutral, etc.) |
+| `allies` | List of character allies |
+| `createdAt` | Timestamp when the character was added to the database |
 | `data` |  |
-| `enemies` |  |
-| `films` |  |
-| `id` |  |
-| `imageUrl` |  |
+| `enemies` | List of character enemies |
+| `films` | List of films the character appears in |
+| `id` | Unique identifier for the character |
+| `imageUrl` | Image URL for the character |
 | `info` |  |
-| `name` |  |
-| `parkAttractions` |  |
-| `shortFilms` |  |
-| `sourceUrl` |  |
-| `tvShows` |  |
-| `updatedAt` |  |
-| `url` |  |
-| `v` |  |
-| `videoGames` |  |
+| `name` | Name of the character |
+| `parkAttractions` | List of park attractions featuring the character |
+| `shortFilms` | List of short films the character appears in |
+| `sourceUrl` | Source URL (Disney Wiki) for the character |
+| `tvShows` | List of TV shows the character appears in |
+| `updatedAt` | Timestamp when the character was last updated |
+| `url` | API URL for this character |
+| `v` | Version key |
+| `videoGames` | List of video games the character appears in |
 
 Operations: List, Load.
 
@@ -296,24 +296,24 @@ Create an instance: `character = client.Character`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `alignment` | `String` |  |
-| `allies` | `Array` |  |
-| `createdAt` | `String` |  |
+| `alignment` | `String` | Character alignment (good, bad, neutral, etc.) |
+| `allies` | `Array` | List of character allies |
+| `createdAt` | `String` | Timestamp when the character was added to the database |
 | `data` | `Hash` |  |
-| `enemies` | `Array` |  |
-| `films` | `Array` |  |
-| `id` | `Integer` |  |
-| `imageUrl` | `String` |  |
+| `enemies` | `Array` | List of character enemies |
+| `films` | `Array` | List of films the character appears in |
+| `id` | `Integer` | Unique identifier for the character |
+| `imageUrl` | `String` | Image URL for the character |
 | `info` | `Hash` |  |
-| `name` | `String` |  |
-| `parkAttractions` | `Array` |  |
-| `shortFilms` | `Array` |  |
-| `sourceUrl` | `String` |  |
-| `tvShows` | `Array` |  |
-| `updatedAt` | `String` |  |
-| `url` | `String` |  |
-| `v` | `Integer` |  |
-| `videoGames` | `Array` |  |
+| `name` | `String` | Name of the character |
+| `parkAttractions` | `Array` | List of park attractions featuring the character |
+| `shortFilms` | `Array` | List of short films the character appears in |
+| `sourceUrl` | `String` | Source URL (Disney Wiki) for the character |
+| `tvShows` | `Array` | List of TV shows the character appears in |
+| `updatedAt` | `String` | Timestamp when the character was last updated |
+| `url` | `String` | API URL for this character |
+| `v` | `Integer` | Version key |
+| `videoGames` | `Array` | List of video games the character appears in |
 
 #### Example: Load
 

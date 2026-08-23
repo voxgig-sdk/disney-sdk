@@ -19,6 +19,9 @@ module DisneyConfig
     {
       "main" => {
         "name" => "Disney",
+        "slug" => "disney",
+        "version" => "0.0.1",
+        "target" => "rb",
       },
       "feature" => {
         "test" => {
@@ -41,14 +44,17 @@ module DisneyConfig
           "fields" => [
             {
               "name" => "alignment",
+              "short" => "Character alignment (good, bad, neutral, etc.)",
               "type" => "`$STRING`",
             },
             {
               "name" => "allies",
+              "short" => "List of character allies",
               "type" => "`$ARRAY`",
             },
             {
               "name" => "createdAt",
+              "short" => "Timestamp when the character was added to the database",
               "type" => "`$STRING`",
             },
             {
@@ -57,18 +63,22 @@ module DisneyConfig
             },
             {
               "name" => "enemies",
+              "short" => "List of character enemies",
               "type" => "`$ARRAY`",
             },
             {
               "name" => "films",
+              "short" => "List of films the character appears in",
               "type" => "`$ARRAY`",
             },
             {
               "name" => "id",
+              "short" => "Unique identifier for the character",
               "type" => "`$INTEGER`",
             },
             {
               "name" => "imageUrl",
+              "short" => "Image URL for the character",
               "type" => "`$STRING`",
             },
             {
@@ -77,38 +87,47 @@ module DisneyConfig
             },
             {
               "name" => "name",
+              "short" => "Name of the character",
               "type" => "`$STRING`",
             },
             {
               "name" => "parkAttractions",
+              "short" => "List of park attractions featuring the character",
               "type" => "`$ARRAY`",
             },
             {
               "name" => "shortFilms",
+              "short" => "List of short films the character appears in",
               "type" => "`$ARRAY`",
             },
             {
               "name" => "sourceUrl",
+              "short" => "Source URL (Disney Wiki) for the character",
               "type" => "`$STRING`",
             },
             {
               "name" => "tvShows",
+              "short" => "List of TV shows the character appears in",
               "type" => "`$ARRAY`",
             },
             {
               "name" => "updatedAt",
+              "short" => "Timestamp when the character was last updated",
               "type" => "`$STRING`",
             },
             {
               "name" => "url",
+              "short" => "API URL for this character",
               "type" => "`$STRING`",
             },
             {
               "name" => "v",
+              "short" => "Version key",
               "type" => "`$INTEGER`",
             },
             {
               "name" => "videoGames",
+              "short" => "List of video games the character appears in",
               "type" => "`$ARRAY`",
             },
           ],

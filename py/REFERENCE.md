@@ -87,24 +87,24 @@ character = client.Character()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `alignment` | `str` | No |  |
-| `allies` | `list` | No |  |
-| `createdAt` | `str` | No |  |
+| `alignment` | `str` | No | Character alignment (good, bad, neutral, etc.) |
+| `allies` | `list` | No | List of character allies |
+| `createdAt` | `str` | No | Timestamp when the character was added to the database |
 | `data` | `dict` | No |  |
-| `enemies` | `list` | No |  |
-| `films` | `list` | No |  |
-| `id` | `int` | No |  |
-| `imageUrl` | `str` | No |  |
+| `enemies` | `list` | No | List of character enemies |
+| `films` | `list` | No | List of films the character appears in |
+| `id` | `int` | No | Unique identifier for the character |
+| `imageUrl` | `str` | No | Image URL for the character |
 | `info` | `dict` | No |  |
-| `name` | `str` | No |  |
-| `parkAttractions` | `list` | No |  |
-| `shortFilms` | `list` | No |  |
-| `sourceUrl` | `str` | No |  |
-| `tvShows` | `list` | No |  |
-| `updatedAt` | `str` | No |  |
-| `url` | `str` | No |  |
-| `v` | `int` | No |  |
-| `videoGames` | `list` | No |  |
+| `name` | `str` | No | Name of the character |
+| `parkAttractions` | `list` | No | List of park attractions featuring the character |
+| `shortFilms` | `list` | No | List of short films the character appears in |
+| `sourceUrl` | `str` | No | Source URL (Disney Wiki) for the character |
+| `tvShows` | `list` | No | List of TV shows the character appears in |
+| `updatedAt` | `str` | No | Timestamp when the character was last updated |
+| `url` | `str` | No | API URL for this character |
+| `v` | `int` | No | Version key |
+| `videoGames` | `list` | No | List of video games the character appears in |
 
 ### Operations
 

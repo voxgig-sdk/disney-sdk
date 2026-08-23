@@ -93,24 +93,24 @@ character = client.Character
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `alignment` | `String` | No |  |
-| `allies` | `Array` | No |  |
-| `createdAt` | `String` | No |  |
+| `alignment` | `String` | No | Character alignment (good, bad, neutral, etc.) |
+| `allies` | `Array` | No | List of character allies |
+| `createdAt` | `String` | No | Timestamp when the character was added to the database |
 | `data` | `Hash` | No |  |
-| `enemies` | `Array` | No |  |
-| `films` | `Array` | No |  |
-| `id` | `Integer` | No |  |
-| `imageUrl` | `String` | No |  |
+| `enemies` | `Array` | No | List of character enemies |
+| `films` | `Array` | No | List of films the character appears in |
+| `id` | `Integer` | No | Unique identifier for the character |
+| `imageUrl` | `String` | No | Image URL for the character |
 | `info` | `Hash` | No |  |
-| `name` | `String` | No |  |
-| `parkAttractions` | `Array` | No |  |
-| `shortFilms` | `Array` | No |  |
-| `sourceUrl` | `String` | No |  |
-| `tvShows` | `Array` | No |  |
-| `updatedAt` | `String` | No |  |
-| `url` | `String` | No |  |
-| `v` | `Integer` | No |  |
-| `videoGames` | `Array` | No |  |
+| `name` | `String` | No | Name of the character |
+| `parkAttractions` | `Array` | No | List of park attractions featuring the character |
+| `shortFilms` | `Array` | No | List of short films the character appears in |
+| `sourceUrl` | `String` | No | Source URL (Disney Wiki) for the character |
+| `tvShows` | `Array` | No | List of TV shows the character appears in |
+| `updatedAt` | `String` | No | Timestamp when the character was last updated |
+| `url` | `String` | No | API URL for this character |
+| `v` | `Integer` | No | Version key |
+| `videoGames` | `Array` | No | List of video games the character appears in |
 
 ### Operations
 

@@ -263,24 +263,24 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `alignment` |  |
-| `allies` |  |
-| `createdAt` |  |
+| `alignment` | Character alignment (good, bad, neutral, etc.) |
+| `allies` | List of character allies |
+| `createdAt` | Timestamp when the character was added to the database |
 | `data` |  |
-| `enemies` |  |
-| `films` |  |
-| `id` |  |
-| `imageUrl` |  |
+| `enemies` | List of character enemies |
+| `films` | List of films the character appears in |
+| `id` | Unique identifier for the character |
+| `imageUrl` | Image URL for the character |
 | `info` |  |
-| `name` |  |
-| `parkAttractions` |  |
-| `shortFilms` |  |
-| `sourceUrl` |  |
-| `tvShows` |  |
-| `updatedAt` |  |
-| `url` |  |
-| `v` |  |
-| `videoGames` |  |
+| `name` | Name of the character |
+| `parkAttractions` | List of park attractions featuring the character |
+| `shortFilms` | List of short films the character appears in |
+| `sourceUrl` | Source URL (Disney Wiki) for the character |
+| `tvShows` | List of TV shows the character appears in |
+| `updatedAt` | Timestamp when the character was last updated |
+| `url` | API URL for this character |
+| `v` | Version key |
+| `videoGames` | List of video games the character appears in |
 
 Operations: List, Load.
 
@@ -306,24 +306,24 @@ Create an instance: `$character = $client->Character();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `alignment` | `string` |  |
-| `allies` | `array` |  |
-| `createdAt` | `string` |  |
+| `alignment` | `string` | Character alignment (good, bad, neutral, etc.) |
+| `allies` | `array` | List of character allies |
+| `createdAt` | `string` | Timestamp when the character was added to the database |
 | `data` | `array` |  |
-| `enemies` | `array` |  |
-| `films` | `array` |  |
-| `id` | `int` |  |
-| `imageUrl` | `string` |  |
+| `enemies` | `array` | List of character enemies |
+| `films` | `array` | List of films the character appears in |
+| `id` | `int` | Unique identifier for the character |
+| `imageUrl` | `string` | Image URL for the character |
 | `info` | `array` |  |
-| `name` | `string` |  |
-| `parkAttractions` | `array` |  |
-| `shortFilms` | `array` |  |
-| `sourceUrl` | `string` |  |
-| `tvShows` | `array` |  |
-| `updatedAt` | `string` |  |
-| `url` | `string` |  |
-| `v` | `int` |  |
-| `videoGames` | `array` |  |
+| `name` | `string` | Name of the character |
+| `parkAttractions` | `array` | List of park attractions featuring the character |
+| `shortFilms` | `array` | List of short films the character appears in |
+| `sourceUrl` | `string` | Source URL (Disney Wiki) for the character |
+| `tvShows` | `array` | List of TV shows the character appears in |
+| `updatedAt` | `string` | Timestamp when the character was last updated |
+| `url` | `string` | API URL for this character |
+| `v` | `int` | Version key |
+| `videoGames` | `array` | List of video games the character appears in |
 
 #### Example: Load
 
