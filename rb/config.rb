@@ -28,6 +28,7 @@ module DisneyConfig
           "options" => {
             "active" => false,
           },
+          "transport" => "base",
         },
       },
       "options" => {
