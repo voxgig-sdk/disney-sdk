@@ -99,75 +99,47 @@ CharacterLoadMatch = Struct.new(
 # @!attribute [rw] alignment
 #   @return [String, nil]
 #
-# @!attribute [rw] allies
-#   @return [Array, nil]
-#
-# @!attribute [rw] createdAt
+# @!attribute [rw] ally
 #   @return [String, nil]
 #
-# @!attribute [rw] data
-#   @return [Hash, nil]
-#
-# @!attribute [rw] enemies
-#   @return [Array, nil]
-#
-# @!attribute [rw] films
-#   @return [Array, nil]
-#
-# @!attribute [rw] id
-#   @return [Integer, nil]
-#
-# @!attribute [rw] imageUrl
+# @!attribute [rw] enemy
 #   @return [String, nil]
 #
-# @!attribute [rw] info
-#   @return [Hash, nil]
+# @!attribute [rw] film
+#   @return [String, nil]
 #
 # @!attribute [rw] name
 #   @return [String, nil]
 #
-# @!attribute [rw] parkAttractions
-#   @return [Array, nil]
-#
-# @!attribute [rw] shortFilms
-#   @return [Array, nil]
-#
-# @!attribute [rw] sourceUrl
-#   @return [String, nil]
-#
-# @!attribute [rw] tvShows
-#   @return [Array, nil]
-#
-# @!attribute [rw] updatedAt
-#   @return [String, nil]
-#
-# @!attribute [rw] url
-#   @return [String, nil]
-#
-# @!attribute [rw] v
+# @!attribute [rw] page
 #   @return [Integer, nil]
 #
-# @!attribute [rw] videoGames
-#   @return [Array, nil]
+# @!attribute [rw] page_size
+#   @return [Integer, nil]
+#
+# @!attribute [rw] park_attraction
+#   @return [String, nil]
+#
+# @!attribute [rw] short_film
+#   @return [String, nil]
+#
+# @!attribute [rw] tv_show
+#   @return [String, nil]
+#
+# @!attribute [rw] video_game
+#   @return [String, nil]
 CharacterListMatch = Struct.new(
   :alignment,
-  :allies,
-  :createdAt,
-  :data,
-  :enemies,
-  :films,
-  :id,
-  :imageUrl,
-  :info,
+  :ally,
+  :enemy,
+  :film,
   :name,
-  :parkAttractions,
-  :shortFilms,
-  :sourceUrl,
-  :tvShows,
-  :updatedAt,
-  :url,
-  :v,
-  :videoGames,
+  :page,
+  :page_size,
+  :park_attraction,
+  :short_film,
+  :tv_show,
+  :video_game,
   keyword_init: true
 )
 

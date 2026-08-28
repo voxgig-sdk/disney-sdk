@@ -31,23 +31,16 @@
 
 ---@class CharacterListMatch
 ---@field alignment? string
----@field allies? table
----@field createdAt? string
----@field data? table
----@field enemies? table
----@field films? table
----@field id? number
----@field imageUrl? string
----@field info? table
+---@field ally? string
+---@field enemy? string
+---@field film? string
 ---@field name? string
----@field parkAttractions? table
----@field shortFilms? table
----@field sourceUrl? string
----@field tvShows? table
----@field updatedAt? string
----@field url? string
----@field v? number
----@field videoGames? table
+---@field page? number
+---@field page_size? number
+---@field park_attraction? string
+---@field short_film? string
+---@field tv_show? string
+---@field video_game? string
 
 local M = {}
 

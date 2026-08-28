@@ -43,20 +43,13 @@ class CharacterLoadMatch(TypedDict):
 
 class CharacterListMatch(TypedDict, total=False):
     alignment: str
-    allies: list
-    createdAt: str
-    data: dict
-    enemies: list
-    films: list
-    id: int
-    imageUrl: str
-    info: dict
+    ally: str
+    enemy: str
+    film: str
     name: str
-    parkAttractions: list
-    shortFilms: list
-    sourceUrl: str
-    tvShows: list
-    updatedAt: str
-    url: str
-    v: int
-    videoGames: list
+    page: int
+    page_size: int
+    park_attraction: str
+    short_film: str
+    tv_show: str
+    video_game: str

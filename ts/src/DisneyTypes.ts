@@ -32,22 +32,15 @@ export interface CharacterLoadMatch {
 
 export interface CharacterListMatch {
   alignment?: string
-  allies?: any[]
-  createdAt?: string
-  data?: Record<string, any>
-  enemies?: any[]
-  films?: any[]
-  id?: number
-  imageUrl?: string
-  info?: Record<string, any>
+  ally?: string
+  enemy?: string
+  film?: string
   name?: string
-  parkAttractions?: any[]
-  shortFilms?: any[]
-  sourceUrl?: string
-  tvShows?: any[]
-  updatedAt?: string
-  url?: string
-  v?: number
-  videoGames?: any[]
+  page?: number
+  page_size?: number
+  park_attraction?: string
+  short_film?: string
+  tv_show?: string
+  video_game?: string
 }
 

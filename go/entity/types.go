@@ -42,23 +42,16 @@ type CharacterLoadMatch struct {
 // CharacterListMatch is the typed request payload for Character.ListTyped.
 type CharacterListMatch struct {
 	Alignment *string `json:"alignment,omitempty"`
-	Allies *[]any `json:"allies,omitempty"`
-	CreatedAt *string `json:"createdAt,omitempty"`
-	Data *map[string]any `json:"data,omitempty"`
-	Enemies *[]any `json:"enemies,omitempty"`
-	Films *[]any `json:"films,omitempty"`
-	Id *int `json:"id,omitempty"`
-	ImageUrl *string `json:"imageUrl,omitempty"`
-	Info *map[string]any `json:"info,omitempty"`
+	Ally *string `json:"ally,omitempty"`
+	Enemy *string `json:"enemy,omitempty"`
+	Film *string `json:"film,omitempty"`
 	Name *string `json:"name,omitempty"`
-	ParkAttractions *[]any `json:"parkAttractions,omitempty"`
-	ShortFilms *[]any `json:"shortFilms,omitempty"`
-	SourceUrl *string `json:"sourceUrl,omitempty"`
-	TvShows *[]any `json:"tvShows,omitempty"`
-	UpdatedAt *string `json:"updatedAt,omitempty"`
-	Url *string `json:"url,omitempty"`
-	V *int `json:"v,omitempty"`
-	VideoGames *[]any `json:"videoGames,omitempty"`
+	Page *int `json:"page,omitempty"`
+	PageSize *int `json:"page_size,omitempty"`
+	ParkAttraction *string `json:"park_attraction,omitempty"`
+	ShortFilm *string `json:"short_film,omitempty"`
+	TvShow *string `json:"tv_show,omitempty"`
+	VideoGame *string `json:"video_game,omitempty"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the

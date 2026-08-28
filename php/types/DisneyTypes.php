@@ -45,22 +45,15 @@ class CharacterLoadMatch
 class CharacterListMatch
 {
     public ?string $alignment = null;
-    public ?array $allies = null;
-    public ?string $createdAt = null;
-    public ?array $data = null;
-    public ?array $enemies = null;
-    public ?array $films = null;
-    public ?int $id = null;
-    public ?string $imageUrl = null;
-    public ?array $info = null;
+    public ?string $ally = null;
+    public ?string $enemy = null;
+    public ?string $film = null;
     public ?string $name = null;
-    public ?array $parkAttractions = null;
-    public ?array $shortFilms = null;
-    public ?string $sourceUrl = null;
-    public ?array $tvShows = null;
-    public ?string $updatedAt = null;
-    public ?string $url = null;
-    public ?int $v = null;
-    public ?array $videoGames = null;
+    public ?int $page = null;
+    public ?int $page_size = null;
+    public ?string $park_attraction = null;
+    public ?string $short_film = null;
+    public ?string $tv_show = null;
+    public ?string $video_game = null;
 }
 
