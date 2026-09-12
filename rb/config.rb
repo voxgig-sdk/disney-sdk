@@ -54,6 +54,7 @@ module DisneyConfig
               "type" => "`$ARRAY`",
             },
             {
+              "format" => "date-time",
               "name" => "createdAt",
               "short" => "Timestamp when the character was added to the database",
               "type" => "`$STRING`",
@@ -78,6 +79,7 @@ module DisneyConfig
               "type" => "`$INTEGER`",
             },
             {
+              "format" => "uri",
               "name" => "imageUrl",
               "short" => "Image URL for the character",
               "type" => "`$STRING`",
@@ -102,6 +104,7 @@ module DisneyConfig
               "type" => "`$ARRAY`",
             },
             {
+              "format" => "uri",
               "name" => "sourceUrl",
               "short" => "Source URL (Disney Wiki) for the character",
               "type" => "`$STRING`",
@@ -112,11 +115,13 @@ module DisneyConfig
               "type" => "`$ARRAY`",
             },
             {
+              "format" => "date-time",
               "name" => "updatedAt",
               "short" => "Timestamp when the character was last updated",
               "type" => "`$STRING`",
             },
             {
+              "format" => "uri",
               "name" => "url",
               "short" => "API URL for this character",
               "type" => "`$STRING`",
@@ -132,6 +137,10 @@ module DisneyConfig
               "type" => "`$ARRAY`",
             },
           ],
+          "id" => {
+            "field" => "id",
+            "name" => "id",
+          },
           "name" => "character",
           "op" => {
             "list" => {
@@ -214,8 +223,10 @@ module DisneyConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/character",
-                  "parts" => [
-                    "character",
+                  "segments" => [
+                    {
+                      "lit" => "character",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -236,6 +247,9 @@ module DisneyConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "character",
+                  ],
                 },
               ],
             },
@@ -258,9 +272,13 @@ module DisneyConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/character/{id}",
-                  "parts" => [
-                    "character",
-                    "{id}",
+                  "segments" => [
+                    {
+                      "lit" => "character",
+                    },
+                    {
+                      "var" => "id",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -271,6 +289,10 @@ module DisneyConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "character",
+                    "{id}",
+                  ],
                 },
               ],
             },

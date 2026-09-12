@@ -68,6 +68,7 @@ class DisneyConfig
               'type' => '`$ARRAY`',
             ],
             [
+              'format' => 'date-time',
               'name' => 'createdAt',
               'short' => 'Timestamp when the character was added to the database',
               'type' => '`$STRING`',
@@ -92,6 +93,7 @@ class DisneyConfig
               'type' => '`$INTEGER`',
             ],
             [
+              'format' => 'uri',
               'name' => 'imageUrl',
               'short' => 'Image URL for the character',
               'type' => '`$STRING`',
@@ -116,6 +118,7 @@ class DisneyConfig
               'type' => '`$ARRAY`',
             ],
             [
+              'format' => 'uri',
               'name' => 'sourceUrl',
               'short' => 'Source URL (Disney Wiki) for the character',
               'type' => '`$STRING`',
@@ -126,11 +129,13 @@ class DisneyConfig
               'type' => '`$ARRAY`',
             ],
             [
+              'format' => 'date-time',
               'name' => 'updatedAt',
               'short' => 'Timestamp when the character was last updated',
               'type' => '`$STRING`',
             ],
             [
+              'format' => 'uri',
               'name' => 'url',
               'short' => 'API URL for this character',
               'type' => '`$STRING`',
@@ -145,6 +150,10 @@ class DisneyConfig
               'short' => 'List of video games the character appears in',
               'type' => '`$ARRAY`',
             ],
+          ],
+          'id' => [
+            'field' => 'id',
+            'name' => 'id',
           ],
           'name' => 'character',
           'op' => [
@@ -228,8 +237,10 @@ class DisneyConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/character',
-                  'parts' => [
-                    'character',
+                  'segments' => [
+                    [
+                      'lit' => 'character',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -249,6 +260,9 @@ class DisneyConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'character',
                   ],
                 ],
               ],
@@ -272,9 +286,13 @@ class DisneyConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/character/{id}',
-                  'parts' => [
-                    'character',
-                    '{id}',
+                  'segments' => [
+                    [
+                      'lit' => 'character',
+                    ],
+                    [
+                      'var' => 'id',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -284,6 +302,10 @@ class DisneyConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'character',
+                    '{id}',
                   ],
                 ],
               ],

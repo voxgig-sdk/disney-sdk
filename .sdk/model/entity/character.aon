@@ -18,6 +18,7 @@ main: kit: entity: character: {
       type: "`$ARRAY`"
     }
     {
+      format: "date-time"
       name: "createdAt"
       req: false
       short: "Timestamp when the character was added to the database"
@@ -47,6 +48,7 @@ main: kit: entity: character: {
       type: "`$INTEGER`"
     }
     {
+      format: "uri"
       name: "imageUrl"
       req: false
       short: "Image URL for the character"
@@ -76,6 +78,7 @@ main: kit: entity: character: {
       type: "`$ARRAY`"
     }
     {
+      format: "uri"
       name: "sourceUrl"
       req: false
       short: "Source URL (Disney Wiki) for the character"
@@ -88,12 +91,14 @@ main: kit: entity: character: {
       type: "`$ARRAY`"
     }
     {
+      format: "date-time"
       name: "updatedAt"
       req: false
       short: "Timestamp when the character was last updated"
       type: "`$STRING`"
     }
     {
+      format: "uri"
       name: "url"
       req: false
       short: "API URL for this character"
@@ -209,8 +214,10 @@ main: kit: entity: character: {
           }
           method: "GET"
           orig: "/character"
-          parts: [
-            "character"
+          segments: [
+            {
+              lit: "character"
+            }
           ]
           select: {
             exist: [
@@ -251,9 +258,13 @@ main: kit: entity: character: {
           }
           method: "GET"
           orig: "/character/{id}"
-          parts: [
-            "character"
-            "{id}"
+          segments: [
+            {
+              lit: "character"
+            }
+            {
+              var: "id"
+            }
           ]
           select: {
             exist: [

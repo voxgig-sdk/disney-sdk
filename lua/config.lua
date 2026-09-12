@@ -42,6 +42,7 @@ local function make_config()
             ["type"] = "`$ARRAY`",
           },
           {
+            ["format"] = "date-time",
             ["name"] = "createdAt",
             ["short"] = "Timestamp when the character was added to the database",
             ["type"] = "`$STRING`",
@@ -66,6 +67,7 @@ local function make_config()
             ["type"] = "`$INTEGER`",
           },
           {
+            ["format"] = "uri",
             ["name"] = "imageUrl",
             ["short"] = "Image URL for the character",
             ["type"] = "`$STRING`",
@@ -90,6 +92,7 @@ local function make_config()
             ["type"] = "`$ARRAY`",
           },
           {
+            ["format"] = "uri",
             ["name"] = "sourceUrl",
             ["short"] = "Source URL (Disney Wiki) for the character",
             ["type"] = "`$STRING`",
@@ -100,11 +103,13 @@ local function make_config()
             ["type"] = "`$ARRAY`",
           },
           {
+            ["format"] = "date-time",
             ["name"] = "updatedAt",
             ["short"] = "Timestamp when the character was last updated",
             ["type"] = "`$STRING`",
           },
           {
+            ["format"] = "uri",
             ["name"] = "url",
             ["short"] = "API URL for this character",
             ["type"] = "`$STRING`",
@@ -119,6 +124,10 @@ local function make_config()
             ["short"] = "List of video games the character appears in",
             ["type"] = "`$ARRAY`",
           },
+        },
+        ["id"] = {
+          ["field"] = "id",
+          ["name"] = "id",
         },
         ["name"] = "character",
         ["op"] = {
@@ -202,8 +211,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/character",
-                ["parts"] = {
-                  "character",
+                ["segments"] = {
+                  {
+                    ["lit"] = "character",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -223,6 +234,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "character",
                 },
               },
             },
@@ -246,9 +260,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/character/{id}",
-                ["parts"] = {
-                  "character",
-                  "{id}",
+                ["segments"] = {
+                  {
+                    ["lit"] = "character",
+                  },
+                  {
+                    ["var"] = "id",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -258,6 +276,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "character",
+                  "{id}",
                 },
               },
             },
