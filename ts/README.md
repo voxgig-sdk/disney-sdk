@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { DisneySDK } from '@voxgig-sdk/disney'
+import { DisneySDK } from '@voxgig-sdk/disney-sdk'
 
 const client = new DisneySDK()
 ```
@@ -459,7 +459,7 @@ disney/
 Import the SDK from the package root:
 
 ```ts
-import { DisneySDK } from '@voxgig-sdk/disney'
+import { DisneySDK } from '@voxgig-sdk/disney-sdk'
 ```
 
 ### Entity state

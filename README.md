@@ -105,7 +105,7 @@ local results, err = client:Character():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/disney` | publish pending — [install from git tag](https://github.com/voxgig-sdk/disney-sdk/releases) |
+| TypeScript | `@voxgig-sdk/disney-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/disney-sdk/releases) |
 | Python | `voxgig-sdk-disney` | publish pending — [install from git tag](https://github.com/voxgig-sdk/disney-sdk/releases) |
 | PHP | `voxgig-sdk/disney` | publish pending — [install from git tag](https://github.com/voxgig-sdk/disney-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/disney-sdk/go` | `go get github.com/voxgig-sdk/disney-sdk/go@latest` |
@@ -119,7 +119,7 @@ local results, err = client:Character():list()
 ### TypeScript
 
 ```ts
-import { DisneySDK } from '@voxgig-sdk/disney'
+import { DisneySDK } from '@voxgig-sdk/disney-sdk'
 
 const client = new DisneySDK()
 
