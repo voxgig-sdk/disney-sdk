@@ -1,12 +1,18 @@
 # Disney SDK feature factory
 
 from disney_sdk.feature.base_feature import DisneyBaseFeature
+from disney_sdk.feature.ratelimit_feature import DisneyRatelimitFeature
+from disney_sdk.feature.retry_feature import DisneyRetryFeature
 from disney_sdk.feature.test_feature import DisneyTestFeature
+from disney_sdk.feature.timeout_feature import DisneyTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: DisneyBaseFeature(),
+    "ratelimit": lambda: DisneyRatelimitFeature(),
+    "retry": lambda: DisneyRetryFeature(),
     "test": lambda: DisneyTestFeature(),
+    "timeout": lambda: DisneyTimeoutFeature(),
 }
 
 

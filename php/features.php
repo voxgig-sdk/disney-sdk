@@ -4,7 +4,10 @@ declare(strict_types=1);
 // Disney SDK feature factory
 
 require_once __DIR__ . '/feature/BaseFeature.php';
+require_once __DIR__ . '/feature/RatelimitFeature.php';
+require_once __DIR__ . '/feature/RetryFeature.php';
 require_once __DIR__ . '/feature/TestFeature.php';
+require_once __DIR__ . '/feature/TimeoutFeature.php';
 
 
 class DisneyFeatures
@@ -14,8 +17,14 @@ class DisneyFeatures
         switch ($name) {
             case "base":
                 return new DisneyBaseFeature();
+            case "ratelimit":
+                return new DisneyRatelimitFeature();
+            case "retry":
+                return new DisneyRetryFeature();
             case "test":
                 return new DisneyTestFeature();
+            case "timeout":
+                return new DisneyTimeoutFeature();
             default:
                 return new DisneyBaseFeature();
         }
@@ -31,7 +40,10 @@ class DisneyFeatures
     {
         switch ($name) {
             case "base":
+            case "ratelimit":
+            case "retry":
             case "test":
+            case "timeout":
                 return true;
             default:
                 return false;

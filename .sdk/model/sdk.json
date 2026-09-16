@@ -24,7 +24,71 @@
         "repr": "auto"
       },
       "contributor": {},
-      "docs": {},
+      "doc": {
+        "active": true,
+        "assets": {
+          "path": ".sdk/doc/assets"
+        },
+        "brand": {
+          "label": "",
+          "notice": "",
+          "shortNotice": "",
+          "url": ""
+        },
+        "ci": {
+          "active": true,
+          "branch": "main"
+        },
+        "content": {
+          "path": ".sdk/doc/content"
+        },
+        "edition": {
+          "summary": {
+            "active": true,
+            "base": "node_modules/@voxgig/docgen/project/.sdk",
+            "brand": {},
+            "filter": {
+              "entities": [],
+              "features": [],
+              "targets": []
+            },
+            "kind": "summary",
+            "name": "summary",
+            "origname": "",
+            "output": {
+              "path": "SUMMARY.md"
+            },
+            "package": "@voxgig/docgen",
+            "site": {
+              "active": true
+            },
+            "style": {},
+            "title": ""
+          }
+        },
+        "qa": {
+          "vocabulary": []
+        },
+        "style": {
+          "color": {
+            "accent": "#00c6d8",
+            "background": "#f5f5f9",
+            "darkBackground": "#0f1117",
+            "darkText": "#e6edf3",
+            "primary": "#e70042",
+            "text": "#0a0a0a"
+          },
+          "font": "Nunito, system-ui, sans-serif",
+          "fontFile": "",
+          "headingFont": "Nunito, system-ui, sans-serif",
+          "headingFontFile": "",
+          "logo": "",
+          "mode": "light",
+          "mono": "ui-monospace, monospace",
+          "monoFile": ""
+        },
+        "target": {}
+      },
       "entity": {
         "character": {
           "active": true,
@@ -268,6 +332,12 @@
                       }
                     ]
                   },
+                  "contract": {
+                    "id": "GET /character",
+                    "json": "{\"operationId\":\"getAllCharacters\",\"parameters\":[{\"description\":\"The page number to get\",\"in\":\"query\",\"name\":\"page\",\"required\":false,\"schema\":{\"default\":1,\"minimum\":1,\"type\":\"integer\"}},{\"description\":\"The number of items per page\",\"in\":\"query\",\"name\":\"pageSize\",\"required\":false,\"schema\":{\"default\":50,\"maximum\":100,\"minimum\":1,\"type\":\"integer\"}},{\"description\":\"Filter by character name\",\"in\":\"query\",\"name\":\"name\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Filter by films the character appears in\",\"in\":\"query\",\"name\":\"films\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Filter by short films the character appears in\",\"in\":\"query\",\"name\":\"shortFilms\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Filter by TV shows the character appears in\",\"in\":\"query\",\"name\":\"tvShows\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Filter by video games the character appears in\",\"in\":\"query\",\"name\":\"videoGames\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Filter by park attractions featuring the character\",\"in\":\"query\",\"name\":\"parkAttractions\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Filter by character allies\",\"in\":\"query\",\"name\":\"allies\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Filter by character enemies\",\"in\":\"query\",\"name\":\"enemies\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Filter by character alignment\",\"in\":\"query\",\"name\":\"alignment\",\"required\":false,\"schema\":{\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"example\":{\"data\":[{\"__v\":0,\"_id\":308,\"allies\":[],\"createdAt\":\"2021-04-12T01:33:34.458Z\",\"enemies\":[],\"films\":[\"Tangled\",\"Tangled: Before Ever After\"],\"imageUrl\":\"https://static.wikia.nocookie.net/disney/images/1/15/Arianna_Tangled.jpg/revision/latest?cb=20160715191802\",\"name\":\"Queen Arianna\",\"parkAttractions\":[\"Celebrate the Magic\",\"Jingle Bell, Jingle BAM!\"],\"shortFilms\":[\"Tangled Ever After\",\"Hare Peace\"],\"sourceUrl\":\"https://disney.fandom.com/wiki/Queen_Arianna\",\"tvShows\":[\"Once Upon a Time\",\"Tangled: The Series\"],\"updatedAt\":\"2021-04-12T01:33:34.458Z\",\"url\":\"https://api.disneyapi.dev/characters/308\",\"videoGames\":[\"Disney Princess Enchanting Storybooks\",\"Hidden Worlds\",\"Disney Crossy Road\",\"Kingdom Hearts III\"]}],\"info\":{\"count\":50,\"nextPage\":\"https://api.disneyapi.dev/character?page=5\",\"previousPage\":\"https://api.disneyapi.dev/character?page=3\",\"totalPages\":149}},\"schema\":{\"properties\":{\"data\":{\"items\":{\"properties\":{\"__v\":{\"description\":\"Version key\",\"type\":\"integer\"},\"_id\":{\"description\":\"Unique identifier for the character\",\"type\":\"integer\"},\"alignment\":{\"description\":\"Character alignment (good, bad, neutral, etc.)\",\"type\":\"string\"},\"allies\":{\"description\":\"List of character allies\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"createdAt\":{\"description\":\"Timestamp when the character was added to the database\",\"format\":\"date-time\",\"type\":\"string\"},\"enemies\":{\"description\":\"List of character enemies\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"films\":{\"description\":\"List of films the character appears in\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"imageUrl\":{\"description\":\"Image URL for the character\",\"format\":\"uri\",\"type\":\"string\"},\"name\":{\"description\":\"Name of the character\",\"type\":\"string\"},\"parkAttractions\":{\"description\":\"List of park attractions featuring the character\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"shortFilms\":{\"description\":\"List of short films the character appears in\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"sourceUrl\":{\"description\":\"Source URL (Disney Wiki) for the character\",\"format\":\"uri\",\"type\":\"string\"},\"tvShows\":{\"description\":\"List of TV shows the character appears in\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"updatedAt\":{\"description\":\"Timestamp when the character was last updated\",\"format\":\"date-time\",\"type\":\"string\"},\"url\":{\"description\":\"API URL for this character\",\"format\":\"uri\",\"type\":\"string\"},\"videoGames\":{\"description\":\"List of video games the character appears in\",\"items\":{\"type\":\"string\"},\"type\":\"array\"}},\"type\":\"object\"},\"type\":\"array\"},\"info\":{\"properties\":{\"count\":{\"description\":\"Number of items in current response\",\"type\":\"integer\"},\"nextPage\":{\"description\":\"URL for the next page\",\"format\":\"uri\",\"nullable\":true,\"type\":\"string\"},\"previousPage\":{\"description\":\"URL for the previous page\",\"format\":\"uri\",\"nullable\":true,\"type\":\"string\"},\"totalPages\":{\"description\":\"Total number of pages available\",\"type\":\"integer\"}},\"type\":\"object\"}},\"type\":\"object\"}}},\"description\":\"Successful response with character list\"},\"400\":{\"description\":\"Bad request - invalid parameters\"},\"500\":{\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
+                    "source": "openapi3",
+                    "version": 1
+                  },
                   "kind": "http",
                   "method": "GET",
                   "orig": "/character",
@@ -316,6 +386,12 @@
                       }
                     ]
                   },
+                  "contract": {
+                    "id": "GET /character/{id}",
+                    "json": "{\"operationId\":\"getOneCharacter\",\"parameters\":[{\"description\":\"The ID of the character to retrieve\",\"in\":\"path\",\"name\":\"id\",\"required\":true,\"schema\":{\"type\":\"integer\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"example\":{\"data\":{\"_id\":308,\"allies\":[],\"enemies\":[],\"films\":[\"Tangled\",\"Tangled: Before Ever After\"],\"imageUrl\":\"https://static.wikia.nocookie.net/disney/images/1/15/Arianna_Tangled.jpg\",\"name\":\"Queen Arianna\",\"parkAttractions\":[\"Celebrate the Magic\",\"Jingle Bell, Jingle BAM!\"],\"shortFilms\":[\"Tangled Ever After\",\"Hare Peace\"],\"tvShows\":[\"Once Upon a Time\",\"Tangled: The Series\"],\"url\":\"https://api.disneyapi.dev/characters/308\",\"videoGames\":[\"Disney Princess Enchanting Storybooks\",\"Hidden Worlds\",\"Disney Crossy Road\",\"Kingdom Hearts III\"]},\"info\":{\"count\":1}},\"schema\":{\"properties\":{\"data\":{\"properties\":{\"__v\":{\"description\":\"Version key\",\"type\":\"integer\"},\"_id\":{\"description\":\"Unique identifier for the character\",\"type\":\"integer\"},\"alignment\":{\"description\":\"Character alignment (good, bad, neutral, etc.)\",\"type\":\"string\"},\"allies\":{\"description\":\"List of character allies\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"createdAt\":{\"description\":\"Timestamp when the character was added to the database\",\"format\":\"date-time\",\"type\":\"string\"},\"enemies\":{\"description\":\"List of character enemies\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"films\":{\"description\":\"List of films the character appears in\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"imageUrl\":{\"description\":\"Image URL for the character\",\"format\":\"uri\",\"type\":\"string\"},\"name\":{\"description\":\"Name of the character\",\"type\":\"string\"},\"parkAttractions\":{\"description\":\"List of park attractions featuring the character\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"shortFilms\":{\"description\":\"List of short films the character appears in\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"sourceUrl\":{\"description\":\"Source URL (Disney Wiki) for the character\",\"format\":\"uri\",\"type\":\"string\"},\"tvShows\":{\"description\":\"List of TV shows the character appears in\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"updatedAt\":{\"description\":\"Timestamp when the character was last updated\",\"format\":\"date-time\",\"type\":\"string\"},\"url\":{\"description\":\"API URL for this character\",\"format\":\"uri\",\"type\":\"string\"},\"videoGames\":{\"description\":\"List of video games the character appears in\",\"items\":{\"type\":\"string\"},\"type\":\"array\"}},\"type\":\"object\"},\"info\":{\"properties\":{\"count\":{\"description\":\"Number of items in response (always 1 for single character)\",\"type\":\"integer\"}},\"type\":\"object\"}},\"type\":\"object\"}}},\"description\":\"Successful response with character details\"},\"404\":{\"description\":\"Character not found\"},\"500\":{\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
+                    "source": "openapi3",
+                    "version": 1
+                  },
                   "kind": "http",
                   "method": "GET",
                   "orig": "/character/{id}",
@@ -346,13 +422,223 @@
         }
       },
       "feature": {
+        "ratelimit": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "config": {
+            "options": {
+              "active": false,
+              "burst": 5,
+              "rate": 5
+            },
+            "optspec": {
+              "now": "`$FUNCTION`",
+              "sleep": "`$FUNCTION`"
+            },
+            "strict": false
+          },
+          "hook": {
+            "GetData": {
+              "active": false,
+              "await": false
+            },
+            "GetMatch": {
+              "active": false,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": false,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": false,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PreRequest": {
+              "active": false,
+              "await": false
+            },
+            "PreResponse": {
+              "active": false,
+              "await": false
+            },
+            "PreResult": {
+              "active": false,
+              "await": false
+            },
+            "PreSpec": {
+              "active": false,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": false,
+              "await": false
+            }
+          },
+          "name": "ratelimit",
+          "needs": {},
+          "origname": "",
+          "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "rb": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "Client-side rate limiting via a token bucket",
+          "transport": "wrap",
+          "version": "0.0.1"
+        },
+        "retry": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "config": {
+            "options": {
+              "active": false,
+              "factor": 2,
+              "maxDelay": 2000,
+              "minDelay": 50,
+              "retries": 2,
+              "statuses": [
+                408,
+                425,
+                429,
+                500,
+                502,
+                503,
+                504
+              ]
+            },
+            "optspec": {
+              "jitter": "`$BOOLEAN`",
+              "sleep": "`$FUNCTION`"
+            },
+            "strict": false
+          },
+          "hook": {
+            "GetData": {
+              "active": false,
+              "await": false
+            },
+            "GetMatch": {
+              "active": false,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": false,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": false,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PreRequest": {
+              "active": false,
+              "await": false
+            },
+            "PreResponse": {
+              "active": false,
+              "await": false
+            },
+            "PreResult": {
+              "active": false,
+              "await": false
+            },
+            "PreSpec": {
+              "active": false,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": false,
+              "await": false
+            }
+          },
+          "name": "retry",
+          "needs": {},
+          "origname": "",
+          "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "rb": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "Automatic retry of transient failures with exponential backoff",
+          "transport": "wrap",
+          "version": "0.0.1"
+        },
         "test": {
           "active": true,
           "base": "node_modules/@voxgig/sdkgen/project/.sdk",
           "config": {
             "options": {
               "active": false
-            }
+            },
+            "optspec": {
+              "entity": "`$MAP`",
+              "net": "`$MAP`"
+            },
+            "strict": false
           },
           "hook": {
             "GetData": {
@@ -443,6 +729,102 @@
           "title": "In-memory mock transport for testing without a live server",
           "transport": "base",
           "version": "0.0.1"
+        },
+        "timeout": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "config": {
+            "options": {
+              "active": false,
+              "ms": 30000
+            },
+            "optspec": {
+              "clearTimer": "`$FUNCTION`",
+              "setTimer": "`$FUNCTION`"
+            },
+            "strict": false
+          },
+          "hook": {
+            "GetData": {
+              "active": false,
+              "await": false
+            },
+            "GetMatch": {
+              "active": false,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": false,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": false,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PreRequest": {
+              "active": false,
+              "await": false
+            },
+            "PreResponse": {
+              "active": false,
+              "await": false
+            },
+            "PreResult": {
+              "active": false,
+              "await": false
+            },
+            "PreSpec": {
+              "active": false,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": false,
+              "await": false
+            }
+          },
+          "name": "timeout",
+          "needs": {},
+          "origname": "",
+          "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "rb": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "Per-request timeout with transport abort",
+          "transport": "wrap",
+          "version": "0.0.1"
         }
       },
       "flow": {
@@ -515,6 +897,48 @@
         "website": "https://disneyapi.dev/docs/"
       },
       "option": {},
+      "optspec": {
+        "allow": {
+          "method": "GET,PUT,POST,PATCH,DELETE,OPTIONS",
+          "op": "create,update,load,list,remove,command,direct,graphql"
+        },
+        "apikey": "",
+        "auth": {
+          "basic": false,
+          "prefix": ""
+        },
+        "base": "http://localhost:8000",
+        "clean": {
+          "keys": "key,token,id"
+        },
+        "entity": {
+          "`$CHILD`": {
+            "`$OPEN`": true,
+            "active": false,
+            "alias": {}
+          }
+        },
+        "extend": "`$ANY`",
+        "headers": {
+          "`$CHILD`": "`$STRING`"
+        },
+        "prefix": "",
+        "secret": "",
+        "server": {
+          "`$CHILD`": ""
+        },
+        "suffix": "",
+        "system": {
+          "fetch": "`$ANY`"
+        },
+        "test": {
+          "active": false,
+          "entity": {
+            "`$OPEN`": true
+          }
+        },
+        "utility": {}
+      },
       "repo": {
         "host": "github.com",
         "path": ""
@@ -1069,6 +1493,7 @@
           },
           "package": "@voxgig/sdkgen",
           "provides": {
+            "schema": true,
             "sekreto": true
           },
           "publish": {
@@ -1110,7 +1535,7 @@
         "live": {
           "app": false,
           "base": "",
-          "strict": false
+          "strict": true
         }
       }
     }
