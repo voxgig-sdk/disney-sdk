@@ -105,12 +105,12 @@ local results, err = client:Character():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/disney-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/disney-sdk/releases) |
-| Python | `voxgig-sdk-disney` | publish pending — [install from git tag](https://github.com/voxgig-sdk/disney-sdk/releases) |
-| PHP | `voxgig-sdk/disney` | publish pending — [install from git tag](https://github.com/voxgig-sdk/disney-sdk/releases) |
+| TypeScript | `@voxgig-sdk/disney-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/disney-sdk/tags) |
+| Python | `voxgig-sdk-disney` | publish pending — [install from git tag](https://github.com/voxgig-sdk/disney-sdk/tags) |
+| PHP | `voxgig-sdk/disney` | publish pending — [install from git tag](https://github.com/voxgig-sdk/disney-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/disney-sdk/go` | `go get github.com/voxgig-sdk/disney-sdk/go@latest` |
-| Ruby | `voxgig-sdk-disney` | publish pending — [install from git tag](https://github.com/voxgig-sdk/disney-sdk/releases) |
-| Lua | `voxgig-sdk-disney` | publish pending — [install from git tag](https://github.com/voxgig-sdk/disney-sdk/releases) |
+| Ruby | `voxgig-sdk-disney` | publish pending — [install from git tag](https://github.com/voxgig-sdk/disney-sdk/tags) |
+| Lua | `voxgig-sdk-disney` | publish pending — [install from git tag](https://github.com/voxgig-sdk/disney-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/disney-sdk/go-cli` | `go install github.com/voxgig-sdk/disney-sdk/go-cli/cmd/disney@latest` |
 | Go MCP server | `github.com/voxgig-sdk/disney-sdk/go-mcp` | `go get github.com/voxgig-sdk/disney-sdk/go-mcp@latest` |
 
