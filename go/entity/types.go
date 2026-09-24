@@ -1,7 +1,7 @@
 // Typed models for the Disney SDK.
 //
-// GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
-// params (op.<name>.points[].args.params[]). Field/param types come from the
+// GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+// params (op.<name>.points[].g.params[]). Field/param types come from the
 // canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 package entity
@@ -14,24 +14,6 @@ import (
 
 // Character is the typed data model for the character entity.
 type Character struct {
-	Alignment *string `json:"alignment,omitempty"`
-	Allies *[]any `json:"allies,omitempty"`
-	CreatedAt *string `json:"createdAt,omitempty"`
-	Data *map[string]any `json:"data,omitempty"`
-	Enemies *[]any `json:"enemies,omitempty"`
-	Films *[]any `json:"films,omitempty"`
-	Id *int `json:"id,omitempty"`
-	ImageUrl *string `json:"imageUrl,omitempty"`
-	Info *map[string]any `json:"info,omitempty"`
-	Name *string `json:"name,omitempty"`
-	ParkAttractions *[]any `json:"parkAttractions,omitempty"`
-	ShortFilms *[]any `json:"shortFilms,omitempty"`
-	SourceUrl *string `json:"sourceUrl,omitempty"`
-	TvShows *[]any `json:"tvShows,omitempty"`
-	UpdatedAt *string `json:"updatedAt,omitempty"`
-	Url *string `json:"url,omitempty"`
-	V *int `json:"v,omitempty"`
-	VideoGames *[]any `json:"videoGames,omitempty"`
 }
 
 // CharacterLoadMatch is the typed request payload for Character.LoadTyped.

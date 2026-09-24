@@ -24,143 +24,227 @@
         "repr": "auto"
       },
       "contributor": {},
+      "doc": {
+        "active": true,
+        "assets": {
+          "path": ".sdk/doc/assets"
+        },
+        "brand": {
+          "label": "",
+          "notice": "",
+          "shortNotice": "",
+          "url": ""
+        },
+        "ci": {
+          "active": true,
+          "branch": "main"
+        },
+        "content": {
+          "path": ".sdk/doc/content"
+        },
+        "edition": {
+          "summary": {
+            "active": true,
+            "base": "node_modules/@voxgig/docgen/project/.sdk",
+            "brand": {},
+            "filter": {
+              "entities": [],
+              "features": [],
+              "targets": []
+            },
+            "kind": "summary",
+            "name": "summary",
+            "origname": "",
+            "output": {
+              "path": "SUMMARY.md"
+            },
+            "package": "@voxgig/docgen",
+            "published": false,
+            "site": {
+              "active": true
+            },
+            "style": {},
+            "title": ""
+          }
+        },
+        "qa": {
+          "vocabulary": []
+        },
+        "style": {
+          "color": {
+            "accent": "#00c6d8",
+            "background": "#f5f5f9",
+            "darkBackground": "#0f1117",
+            "darkText": "#e6edf3",
+            "primary": "#e70042",
+            "text": "#0a0a0a"
+          },
+          "font": "Nunito, system-ui, sans-serif",
+          "fontFile": "",
+          "headingFont": "Nunito, system-ui, sans-serif",
+          "headingFontFile": "",
+          "logo": "",
+          "mode": "light",
+          "mono": "ui-monospace, monospace",
+          "monoFile": ""
+        },
+        "target": {}
+      },
       "entity": {
         "character": {
           "active": true,
           "alias": {
             "field": {}
           },
-          "fields": [
-            {
-              "active": true,
-              "name": "alignment",
-              "req": false,
-              "short": "Character alignment (good, bad, neutral, etc.)",
-              "type": "`$STRING`"
+          "fields": {
+            "alignment": {
+              "a": true,
+              "h": "Alignment",
+              "n": "alignment",
+              "r": false,
+              "sh": "Character alignment (good, bad, neutral, etc.)",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "allies",
-              "req": false,
-              "short": "List of character allies",
-              "type": "`$ARRAY`"
+            "allies": {
+              "a": true,
+              "h": "Allies",
+              "n": "allies",
+              "r": false,
+              "sh": "List of character allies",
+              "t": "`$ARRAY`"
             },
-            {
-              "active": true,
-              "format": "date-time",
-              "name": "createdAt",
-              "req": false,
-              "short": "Timestamp when the character was added to the database",
-              "type": "`$STRING`"
+            "createdAt": {
+              "a": true,
+              "fo": "date-time",
+              "h": "Created At",
+              "n": "createdAt",
+              "r": false,
+              "sh": "Timestamp when the character was added to the database",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "data",
-              "req": false,
-              "type": "`$OBJECT`"
+            "data": {
+              "a": true,
+              "h": "Data",
+              "n": "data",
+              "r": false,
+              "t": "`$OBJECT`"
             },
-            {
-              "active": true,
-              "name": "enemies",
-              "req": false,
-              "short": "List of character enemies",
-              "type": "`$ARRAY`"
+            "enemies": {
+              "a": true,
+              "h": "Enemies",
+              "n": "enemies",
+              "r": false,
+              "sh": "List of character enemies",
+              "t": "`$ARRAY`"
             },
-            {
-              "active": true,
-              "name": "films",
-              "req": false,
-              "short": "List of films the character appears in",
-              "type": "`$ARRAY`"
+            "films": {
+              "a": true,
+              "h": "Films",
+              "n": "films",
+              "r": false,
+              "sh": "List of films the character appears in",
+              "t": "`$ARRAY`"
             },
-            {
-              "active": true,
-              "name": "id",
-              "req": false,
-              "short": "Unique identifier for the character",
-              "type": "`$INTEGER`"
+            "id": {
+              "a": true,
+              "h": "Id",
+              "n": "id",
+              "r": false,
+              "sh": "Unique identifier for the character",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "format": "uri",
-              "name": "imageUrl",
-              "req": false,
-              "short": "Image URL for the character",
-              "type": "`$STRING`"
+            "imageUrl": {
+              "a": true,
+              "fo": "uri",
+              "h": "Image Url",
+              "n": "imageUrl",
+              "r": false,
+              "sh": "Image URL for the character",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "info",
-              "req": false,
-              "type": "`$OBJECT`"
+            "info": {
+              "a": true,
+              "h": "Info",
+              "n": "info",
+              "r": false,
+              "t": "`$OBJECT`"
             },
-            {
-              "active": true,
-              "name": "name",
-              "req": false,
-              "short": "Name of the character",
-              "type": "`$STRING`"
+            "name": {
+              "a": true,
+              "h": "Name",
+              "n": "name",
+              "r": false,
+              "sh": "Name of the character",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "parkAttractions",
-              "req": false,
-              "short": "List of park attractions featuring the character",
-              "type": "`$ARRAY`"
+            "parkAttractions": {
+              "a": true,
+              "h": "Park Attractions",
+              "n": "parkAttractions",
+              "r": false,
+              "sh": "List of park attractions featuring the character",
+              "t": "`$ARRAY`"
             },
-            {
-              "active": true,
-              "name": "shortFilms",
-              "req": false,
-              "short": "List of short films the character appears in",
-              "type": "`$ARRAY`"
+            "shortFilms": {
+              "a": true,
+              "h": "Short Films",
+              "n": "shortFilms",
+              "r": false,
+              "sh": "List of short films the character appears in",
+              "t": "`$ARRAY`"
             },
-            {
-              "active": true,
-              "format": "uri",
-              "name": "sourceUrl",
-              "req": false,
-              "short": "Source URL (Disney Wiki) for the character",
-              "type": "`$STRING`"
+            "sourceUrl": {
+              "a": true,
+              "fo": "uri",
+              "h": "Source Url",
+              "n": "sourceUrl",
+              "r": false,
+              "sh": "Source URL (Disney Wiki) for the character",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "tvShows",
-              "req": false,
-              "short": "List of TV shows the character appears in",
-              "type": "`$ARRAY`"
+            "tvShows": {
+              "a": true,
+              "h": "Tv Shows",
+              "n": "tvShows",
+              "r": false,
+              "sh": "List of TV shows the character appears in",
+              "t": "`$ARRAY`"
             },
-            {
-              "active": true,
-              "format": "date-time",
-              "name": "updatedAt",
-              "req": false,
-              "short": "Timestamp when the character was last updated",
-              "type": "`$STRING`"
+            "updatedAt": {
+              "a": true,
+              "fo": "date-time",
+              "h": "Updated At",
+              "n": "updatedAt",
+              "r": false,
+              "sh": "Timestamp when the character was last updated",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "format": "uri",
-              "name": "url",
-              "req": false,
-              "short": "API URL for this character",
-              "type": "`$STRING`"
+            "url": {
+              "a": true,
+              "fo": "uri",
+              "h": "Url",
+              "n": "url",
+              "r": false,
+              "sh": "API URL for this character",
+              "t": "`$STRING`"
             },
-            {
-              "active": true,
-              "name": "v",
-              "req": false,
-              "short": "Version key",
-              "type": "`$INTEGER`"
+            "v": {
+              "a": true,
+              "h": "V",
+              "n": "v",
+              "r": false,
+              "sh": "Version key",
+              "t": "`$INTEGER`"
             },
-            {
-              "active": true,
-              "name": "videoGames",
-              "req": false,
-              "short": "List of video games the character appears in",
-              "type": "`$ARRAY`"
+            "videoGames": {
+              "a": true,
+              "h": "Video Games",
+              "n": "videoGames",
+              "r": false,
+              "sh": "List of video games the character appears in",
+              "t": "`$ARRAY`"
             }
-          ],
+          },
           "id": {
             "field": "id",
             "name": "id"
@@ -172,116 +256,110 @@
               "name": "list",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /character",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "query": [
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "alignment",
-                        "orig": "alignment",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "alignment",
+                        "or": "alignment",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "ally",
-                        "orig": "ally",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "ally",
+                        "or": "ally",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "enemy",
-                        "orig": "enemy",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "enemy",
+                        "or": "enemy",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "film",
-                        "orig": "film",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "film",
+                        "or": "film",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "name",
-                        "orig": "name",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "name",
+                        "or": "name",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "example": 1,
-                        "kind": "query",
-                        "name": "page",
-                        "orig": "page",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "ex": 1,
+                        "k": "query",
+                        "n": "page",
+                        "or": "page",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       },
                       {
-                        "active": true,
-                        "example": 50,
-                        "kind": "query",
-                        "name": "page_size",
-                        "orig": "page_size",
-                        "reqd": false,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "ex": 50,
+                        "k": "query",
+                        "n": "page_size",
+                        "or": "page_size",
+                        "r": false,
+                        "t": "`$INTEGER`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "park_attraction",
-                        "orig": "park_attraction",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "park_attraction",
+                        "or": "park_attraction",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "short_film",
-                        "orig": "short_film",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "short_film",
+                        "or": "short_film",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "tv_show",
-                        "orig": "tv_show",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "tv_show",
+                        "or": "tv_show",
+                        "r": false,
+                        "t": "`$STRING`"
                       },
                       {
-                        "active": true,
-                        "kind": "query",
-                        "name": "video_game",
-                        "orig": "video_game",
-                        "reqd": false,
-                        "type": "`$STRING`"
+                        "a": true,
+                        "k": "query",
+                        "n": "video_game",
+                        "or": "video_game",
+                        "r": false,
+                        "t": "`$STRING`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /character",
-                    "json": "{\"operationId\":\"getAllCharacters\",\"parameters\":[{\"description\":\"The page number to get\",\"in\":\"query\",\"name\":\"page\",\"required\":false,\"schema\":{\"default\":1,\"minimum\":1,\"type\":\"integer\"}},{\"description\":\"The number of items per page\",\"in\":\"query\",\"name\":\"pageSize\",\"required\":false,\"schema\":{\"default\":50,\"maximum\":100,\"minimum\":1,\"type\":\"integer\"}},{\"description\":\"Filter by character name\",\"in\":\"query\",\"name\":\"name\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Filter by films the character appears in\",\"in\":\"query\",\"name\":\"films\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Filter by short films the character appears in\",\"in\":\"query\",\"name\":\"shortFilms\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Filter by TV shows the character appears in\",\"in\":\"query\",\"name\":\"tvShows\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Filter by video games the character appears in\",\"in\":\"query\",\"name\":\"videoGames\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Filter by park attractions featuring the character\",\"in\":\"query\",\"name\":\"parkAttractions\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Filter by character allies\",\"in\":\"query\",\"name\":\"allies\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Filter by character enemies\",\"in\":\"query\",\"name\":\"enemies\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Filter by character alignment\",\"in\":\"query\",\"name\":\"alignment\",\"required\":false,\"schema\":{\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"example\":{\"data\":[{\"__v\":0,\"_id\":308,\"allies\":[],\"createdAt\":\"2021-04-12T01:33:34.458Z\",\"enemies\":[],\"films\":[\"Tangled\",\"Tangled: Before Ever After\"],\"imageUrl\":\"https://static.wikia.nocookie.net/disney/images/1/15/Arianna_Tangled.jpg/revision/latest?cb=20160715191802\",\"name\":\"Queen Arianna\",\"parkAttractions\":[\"Celebrate the Magic\",\"Jingle Bell, Jingle BAM!\"],\"shortFilms\":[\"Tangled Ever After\",\"Hare Peace\"],\"sourceUrl\":\"https://disney.fandom.com/wiki/Queen_Arianna\",\"tvShows\":[\"Once Upon a Time\",\"Tangled: The Series\"],\"updatedAt\":\"2021-04-12T01:33:34.458Z\",\"url\":\"https://api.disneyapi.dev/characters/308\",\"videoGames\":[\"Disney Princess Enchanting Storybooks\",\"Hidden Worlds\",\"Disney Crossy Road\",\"Kingdom Hearts III\"]}],\"info\":{\"count\":50,\"nextPage\":\"https://api.disneyapi.dev/character?page=5\",\"previousPage\":\"https://api.disneyapi.dev/character?page=3\",\"totalPages\":149}},\"schema\":{\"properties\":{\"data\":{\"items\":{\"properties\":{\"__v\":{\"description\":\"Version key\",\"type\":\"integer\"},\"_id\":{\"description\":\"Unique identifier for the character\",\"type\":\"integer\"},\"alignment\":{\"description\":\"Character alignment (good, bad, neutral, etc.)\",\"type\":\"string\"},\"allies\":{\"description\":\"List of character allies\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"createdAt\":{\"description\":\"Timestamp when the character was added to the database\",\"format\":\"date-time\",\"type\":\"string\"},\"enemies\":{\"description\":\"List of character enemies\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"films\":{\"description\":\"List of films the character appears in\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"imageUrl\":{\"description\":\"Image URL for the character\",\"format\":\"uri\",\"type\":\"string\"},\"name\":{\"description\":\"Name of the character\",\"type\":\"string\"},\"parkAttractions\":{\"description\":\"List of park attractions featuring the character\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"shortFilms\":{\"description\":\"List of short films the character appears in\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"sourceUrl\":{\"description\":\"Source URL (Disney Wiki) for the character\",\"format\":\"uri\",\"type\":\"string\"},\"tvShows\":{\"description\":\"List of TV shows the character appears in\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"updatedAt\":{\"description\":\"Timestamp when the character was last updated\",\"format\":\"date-time\",\"type\":\"string\"},\"url\":{\"description\":\"API URL for this character\",\"format\":\"uri\",\"type\":\"string\"},\"videoGames\":{\"description\":\"List of video games the character appears in\",\"items\":{\"type\":\"string\"},\"type\":\"array\"}},\"type\":\"object\"},\"type\":\"array\"},\"info\":{\"properties\":{\"count\":{\"description\":\"Number of items in current response\",\"type\":\"integer\"},\"nextPage\":{\"description\":\"URL for the next page\",\"format\":\"uri\",\"nullable\":true,\"type\":\"string\"},\"previousPage\":{\"description\":\"URL for the previous page\",\"format\":\"uri\",\"nullable\":true,\"type\":\"string\"},\"totalPages\":{\"description\":\"Total number of pages available\",\"type\":\"integer\"}},\"type\":\"object\"}},\"type\":\"object\"}}},\"description\":\"Successful response with character list\"},\"400\":{\"description\":\"Bad request - invalid parameters\"},\"500\":{\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
-                  },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/character",
-                  "segments": [
-                    {
-                      "lit": "character"
-                    }
-                  ],
-                  "select": {
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/character",
+                  "q": {
                     "exist": [
                       "alignment",
                       "ally",
@@ -296,7 +374,13 @@
                       "video_game"
                     ]
                   },
-                  "transform": {
+                  "r": {},
+                  "s": [
+                    {
+                      "lit": "character"
+                    }
+                  ],
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -308,29 +392,34 @@
               "name": "load",
               "points": [
                 {
-                  "active": true,
-                  "args": {
+                  "a": true,
+                  "co": {
+                    "id": "GET /character/{id}",
+                    "source": "openapi3",
+                    "version": 2
+                  },
+                  "g": {
                     "params": [
                       {
-                        "active": true,
-                        "kind": "param",
-                        "name": "id",
-                        "orig": "id",
-                        "reqd": true,
-                        "type": "`$INTEGER`"
+                        "a": true,
+                        "k": "param",
+                        "n": "id",
+                        "or": "id",
+                        "r": true,
+                        "t": "`$INTEGER`"
                       }
                     ]
                   },
-                  "contract": {
-                    "id": "GET /character/{id}",
-                    "json": "{\"operationId\":\"getOneCharacter\",\"parameters\":[{\"description\":\"The ID of the character to retrieve\",\"in\":\"path\",\"name\":\"id\",\"required\":true,\"schema\":{\"type\":\"integer\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"example\":{\"data\":{\"_id\":308,\"allies\":[],\"enemies\":[],\"films\":[\"Tangled\",\"Tangled: Before Ever After\"],\"imageUrl\":\"https://static.wikia.nocookie.net/disney/images/1/15/Arianna_Tangled.jpg\",\"name\":\"Queen Arianna\",\"parkAttractions\":[\"Celebrate the Magic\",\"Jingle Bell, Jingle BAM!\"],\"shortFilms\":[\"Tangled Ever After\",\"Hare Peace\"],\"tvShows\":[\"Once Upon a Time\",\"Tangled: The Series\"],\"url\":\"https://api.disneyapi.dev/characters/308\",\"videoGames\":[\"Disney Princess Enchanting Storybooks\",\"Hidden Worlds\",\"Disney Crossy Road\",\"Kingdom Hearts III\"]},\"info\":{\"count\":1}},\"schema\":{\"properties\":{\"data\":{\"properties\":{\"__v\":{\"description\":\"Version key\",\"type\":\"integer\"},\"_id\":{\"description\":\"Unique identifier for the character\",\"type\":\"integer\"},\"alignment\":{\"description\":\"Character alignment (good, bad, neutral, etc.)\",\"type\":\"string\"},\"allies\":{\"description\":\"List of character allies\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"createdAt\":{\"description\":\"Timestamp when the character was added to the database\",\"format\":\"date-time\",\"type\":\"string\"},\"enemies\":{\"description\":\"List of character enemies\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"films\":{\"description\":\"List of films the character appears in\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"imageUrl\":{\"description\":\"Image URL for the character\",\"format\":\"uri\",\"type\":\"string\"},\"name\":{\"description\":\"Name of the character\",\"type\":\"string\"},\"parkAttractions\":{\"description\":\"List of park attractions featuring the character\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"shortFilms\":{\"description\":\"List of short films the character appears in\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"sourceUrl\":{\"description\":\"Source URL (Disney Wiki) for the character\",\"format\":\"uri\",\"type\":\"string\"},\"tvShows\":{\"description\":\"List of TV shows the character appears in\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"updatedAt\":{\"description\":\"Timestamp when the character was last updated\",\"format\":\"date-time\",\"type\":\"string\"},\"url\":{\"description\":\"API URL for this character\",\"format\":\"uri\",\"type\":\"string\"},\"videoGames\":{\"description\":\"List of video games the character appears in\",\"items\":{\"type\":\"string\"},\"type\":\"array\"}},\"type\":\"object\"},\"info\":{\"properties\":{\"count\":{\"description\":\"Number of items in response (always 1 for single character)\",\"type\":\"integer\"}},\"type\":\"object\"}},\"type\":\"object\"}}},\"description\":\"Successful response with character details\"},\"404\":{\"description\":\"Character not found\"},\"500\":{\"description\":\"Internal server error\"}},\"securitySource\":\"unspecified\"}",
-                    "source": "openapi3",
-                    "version": 1
+                  "k": "http",
+                  "m": "GET",
+                  "o": "/character/{id}",
+                  "q": {
+                    "exist": [
+                      "id"
+                    ]
                   },
-                  "kind": "http",
-                  "method": "GET",
-                  "orig": "/character/{id}",
-                  "segments": [
+                  "r": {},
+                  "s": [
                     {
                       "lit": "character"
                     },
@@ -338,12 +427,7 @@
                       "var": "id"
                     }
                   ],
-                  "select": {
-                    "exist": [
-                      "id"
-                    ]
-                  },
-                  "transform": {
+                  "t": {
                     "req": "`reqdata`",
                     "res": "`body`"
                   }
@@ -772,13 +856,13 @@
           "param": {},
           "step": [
             {
-              "active": true,
-              "data": {},
-              "input": {},
-              "match": {},
-              "op": "list",
-              "spec": [],
-              "valid": [
+              "a": true,
+              "d": {},
+              "i": {},
+              "m": {},
+              "o": "list",
+              "s": [],
+              "v": [
                 {
                   "apply": "ItemExists",
                   "def": {
@@ -788,19 +872,19 @@
               ]
             },
             {
-              "active": true,
-              "data": {},
-              "input": {
+              "a": true,
+              "d": {},
+              "i": {
                 "ref": "character_ref01",
                 "srcdatavar": "character_ref01_data",
                 "suffix": "_dt0"
               },
-              "match": {
+              "m": {
                 "id": "character01"
               },
-              "op": "load",
-              "spec": [],
-              "valid": [
+              "o": "load",
+              "s": [],
+              "v": [
                 {
                   "apply": "TextFieldMark",
                   "def": {

@@ -91,96 +91,114 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "alignment",
-						"short": "Character alignment (good, bad, neutral, etc.)",
+						"title": "Alignment",
 						"type": "`$STRING`",
+						"short": "Character alignment (good, bad, neutral, etc.)",
 					},
 					map[string]any{
 						"name": "allies",
-						"short": "List of character allies",
+						"title": "Allies",
 						"type": "`$ARRAY`",
+						"short": "List of character allies",
 					},
 					map[string]any{
-						"format": "date-time",
 						"name": "createdAt",
-						"short": "Timestamp when the character was added to the database",
+						"title": "Created At",
 						"type": "`$STRING`",
+						"short": "Timestamp when the character was added to the database",
+						"format": "date-time",
 					},
 					map[string]any{
 						"name": "data",
+						"title": "Data",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "enemies",
-						"short": "List of character enemies",
+						"title": "Enemies",
 						"type": "`$ARRAY`",
+						"short": "List of character enemies",
 					},
 					map[string]any{
 						"name": "films",
-						"short": "List of films the character appears in",
+						"title": "Films",
 						"type": "`$ARRAY`",
+						"short": "List of films the character appears in",
 					},
 					map[string]any{
 						"name": "id",
-						"short": "Unique identifier for the character",
+						"title": "Id",
 						"type": "`$INTEGER`",
+						"short": "Unique identifier for the character",
 					},
 					map[string]any{
-						"format": "uri",
 						"name": "imageUrl",
-						"short": "Image URL for the character",
+						"title": "Image Url",
 						"type": "`$STRING`",
+						"short": "Image URL for the character",
+						"format": "uri",
 					},
 					map[string]any{
 						"name": "info",
+						"title": "Info",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "name",
-						"short": "Name of the character",
+						"title": "Name",
 						"type": "`$STRING`",
+						"short": "Name of the character",
 					},
 					map[string]any{
 						"name": "parkAttractions",
-						"short": "List of park attractions featuring the character",
+						"title": "Park Attractions",
 						"type": "`$ARRAY`",
+						"short": "List of park attractions featuring the character",
 					},
 					map[string]any{
 						"name": "shortFilms",
-						"short": "List of short films the character appears in",
+						"title": "Short Films",
 						"type": "`$ARRAY`",
+						"short": "List of short films the character appears in",
 					},
 					map[string]any{
-						"format": "uri",
 						"name": "sourceUrl",
-						"short": "Source URL (Disney Wiki) for the character",
+						"title": "Source Url",
 						"type": "`$STRING`",
+						"short": "Source URL (Disney Wiki) for the character",
+						"format": "uri",
 					},
 					map[string]any{
 						"name": "tvShows",
-						"short": "List of TV shows the character appears in",
+						"title": "Tv Shows",
 						"type": "`$ARRAY`",
+						"short": "List of TV shows the character appears in",
 					},
 					map[string]any{
-						"format": "date-time",
 						"name": "updatedAt",
-						"short": "Timestamp when the character was last updated",
+						"title": "Updated At",
 						"type": "`$STRING`",
+						"short": "Timestamp when the character was last updated",
+						"format": "date-time",
 					},
 					map[string]any{
-						"format": "uri",
 						"name": "url",
-						"short": "API URL for this character",
+						"title": "Url",
 						"type": "`$STRING`",
+						"short": "API URL for this character",
+						"format": "uri",
 					},
 					map[string]any{
 						"name": "v",
-						"short": "Version key",
+						"title": "V",
 						"type": "`$INTEGER`",
+						"short": "Version key",
 					},
 					map[string]any{
 						"name": "videoGames",
-						"short": "List of video games the character appears in",
+						"title": "Video Games",
 						"type": "`$ARRAY`",
+						"short": "List of video games the character appears in",
 					},
 				},
 				"id": map[string]any{
@@ -194,84 +212,92 @@ func MakeConfig() map[string]any {
 						"name": "list",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"kind": "query",
-											"name": "alignment",
-											"orig": "alignment",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "ally",
-											"orig": "ally",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "enemy",
-											"orig": "enemy",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "film",
-											"orig": "film",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "name",
-											"orig": "name",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"example": 1,
-											"kind": "query",
-											"name": "page",
-											"orig": "page",
-											"type": "`$INTEGER`",
-										},
-										map[string]any{
-											"example": 50,
-											"kind": "query",
-											"name": "page_size",
-											"orig": "page_size",
-											"type": "`$INTEGER`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "park_attraction",
-											"orig": "park_attraction",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "short_film",
-											"orig": "short_film",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "tv_show",
-											"orig": "tv_show",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"kind": "query",
-											"name": "video_game",
-											"orig": "video_game",
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/character",
 								"segments": []any{
 									map[string]any{
 										"lit": "character",
+									},
+								},
+								"parts": []any{
+									"character",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "alignment",
+											"orig": "alignment",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "ally",
+											"orig": "ally",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "enemy",
+											"orig": "enemy",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "film",
+											"orig": "film",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "name",
+											"orig": "name",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "page",
+											"orig": "page",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 1,
+										},
+										map[string]any{
+											"name": "page_size",
+											"orig": "page_size",
+											"type": "`$INTEGER`",
+											"kind": "query",
+											"example": 50,
+										},
+										map[string]any{
+											"name": "park_attraction",
+											"orig": "park_attraction",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "short_film",
+											"orig": "short_film",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "tv_show",
+											"orig": "tv_show",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
+										map[string]any{
+											"name": "video_game",
+											"orig": "video_game",
+											"type": "`$STRING`",
+											"kind": "query",
+										},
 									},
 								},
 								"select": map[string]any{
@@ -289,13 +315,6 @@ func MakeConfig() map[string]any {
 										"video_game",
 									},
 								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
-								"parts": []any{
-									"character",
-								},
 							},
 						},
 					},
@@ -304,17 +323,6 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"kind": "param",
-											"name": "id",
-											"orig": "id",
-											"reqd": true,
-											"type": "`$INTEGER`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/character/{id}",
@@ -326,18 +334,30 @@ func MakeConfig() map[string]any {
 										"var": "id",
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"id",
-									},
+								"parts": []any{
+									"character",
+									"{id}",
 								},
+								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"parts": []any{
-									"character",
-									"{id}",
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "id",
+											"orig": "id",
+											"type": "`$INTEGER`",
+											"kind": "param",
+											"reqd": true,
+										},
+									},
+								},
+								"select": map[string]any{
+									"exist": []any{
+										"id",
+									},
 								},
 							},
 						},

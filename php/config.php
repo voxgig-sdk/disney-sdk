@@ -113,96 +113,114 @@ class DisneyConfig
           'fields' => [
             [
               'name' => 'alignment',
-              'short' => 'Character alignment (good, bad, neutral, etc.)',
+              'title' => 'Alignment',
               'type' => '`$STRING`',
+              'short' => 'Character alignment (good, bad, neutral, etc.)',
             ],
             [
               'name' => 'allies',
-              'short' => 'List of character allies',
+              'title' => 'Allies',
               'type' => '`$ARRAY`',
+              'short' => 'List of character allies',
             ],
             [
-              'format' => 'date-time',
               'name' => 'createdAt',
-              'short' => 'Timestamp when the character was added to the database',
+              'title' => 'Created At',
               'type' => '`$STRING`',
+              'short' => 'Timestamp when the character was added to the database',
+              'format' => 'date-time',
             ],
             [
               'name' => 'data',
+              'title' => 'Data',
               'type' => '`$OBJECT`',
             ],
             [
               'name' => 'enemies',
-              'short' => 'List of character enemies',
+              'title' => 'Enemies',
               'type' => '`$ARRAY`',
+              'short' => 'List of character enemies',
             ],
             [
               'name' => 'films',
-              'short' => 'List of films the character appears in',
+              'title' => 'Films',
               'type' => '`$ARRAY`',
+              'short' => 'List of films the character appears in',
             ],
             [
               'name' => 'id',
-              'short' => 'Unique identifier for the character',
+              'title' => 'Id',
               'type' => '`$INTEGER`',
+              'short' => 'Unique identifier for the character',
             ],
             [
-              'format' => 'uri',
               'name' => 'imageUrl',
-              'short' => 'Image URL for the character',
+              'title' => 'Image Url',
               'type' => '`$STRING`',
+              'short' => 'Image URL for the character',
+              'format' => 'uri',
             ],
             [
               'name' => 'info',
+              'title' => 'Info',
               'type' => '`$OBJECT`',
             ],
             [
               'name' => 'name',
-              'short' => 'Name of the character',
+              'title' => 'Name',
               'type' => '`$STRING`',
+              'short' => 'Name of the character',
             ],
             [
               'name' => 'parkAttractions',
-              'short' => 'List of park attractions featuring the character',
+              'title' => 'Park Attractions',
               'type' => '`$ARRAY`',
+              'short' => 'List of park attractions featuring the character',
             ],
             [
               'name' => 'shortFilms',
-              'short' => 'List of short films the character appears in',
+              'title' => 'Short Films',
               'type' => '`$ARRAY`',
+              'short' => 'List of short films the character appears in',
             ],
             [
-              'format' => 'uri',
               'name' => 'sourceUrl',
-              'short' => 'Source URL (Disney Wiki) for the character',
+              'title' => 'Source Url',
               'type' => '`$STRING`',
+              'short' => 'Source URL (Disney Wiki) for the character',
+              'format' => 'uri',
             ],
             [
               'name' => 'tvShows',
-              'short' => 'List of TV shows the character appears in',
+              'title' => 'Tv Shows',
               'type' => '`$ARRAY`',
+              'short' => 'List of TV shows the character appears in',
             ],
             [
-              'format' => 'date-time',
               'name' => 'updatedAt',
-              'short' => 'Timestamp when the character was last updated',
+              'title' => 'Updated At',
               'type' => '`$STRING`',
+              'short' => 'Timestamp when the character was last updated',
+              'format' => 'date-time',
             ],
             [
-              'format' => 'uri',
               'name' => 'url',
-              'short' => 'API URL for this character',
+              'title' => 'Url',
               'type' => '`$STRING`',
+              'short' => 'API URL for this character',
+              'format' => 'uri',
             ],
             [
               'name' => 'v',
-              'short' => 'Version key',
+              'title' => 'V',
               'type' => '`$INTEGER`',
+              'short' => 'Version key',
             ],
             [
               'name' => 'videoGames',
-              'short' => 'List of video games the character appears in',
+              'title' => 'Video Games',
               'type' => '`$ARRAY`',
+              'short' => 'List of video games the character appears in',
             ],
           ],
           'id' => [
@@ -216,84 +234,92 @@ class DisneyConfig
               'name' => 'list',
               'points' => [
                 [
-                  'args' => [
-                    'query' => [
-                      [
-                        'kind' => 'query',
-                        'name' => 'alignment',
-                        'orig' => 'alignment',
-                        'type' => '`$STRING`',
-                      ],
-                      [
-                        'kind' => 'query',
-                        'name' => 'ally',
-                        'orig' => 'ally',
-                        'type' => '`$STRING`',
-                      ],
-                      [
-                        'kind' => 'query',
-                        'name' => 'enemy',
-                        'orig' => 'enemy',
-                        'type' => '`$STRING`',
-                      ],
-                      [
-                        'kind' => 'query',
-                        'name' => 'film',
-                        'orig' => 'film',
-                        'type' => '`$STRING`',
-                      ],
-                      [
-                        'kind' => 'query',
-                        'name' => 'name',
-                        'orig' => 'name',
-                        'type' => '`$STRING`',
-                      ],
-                      [
-                        'example' => 1,
-                        'kind' => 'query',
-                        'name' => 'page',
-                        'orig' => 'page',
-                        'type' => '`$INTEGER`',
-                      ],
-                      [
-                        'example' => 50,
-                        'kind' => 'query',
-                        'name' => 'page_size',
-                        'orig' => 'page_size',
-                        'type' => '`$INTEGER`',
-                      ],
-                      [
-                        'kind' => 'query',
-                        'name' => 'park_attraction',
-                        'orig' => 'park_attraction',
-                        'type' => '`$STRING`',
-                      ],
-                      [
-                        'kind' => 'query',
-                        'name' => 'short_film',
-                        'orig' => 'short_film',
-                        'type' => '`$STRING`',
-                      ],
-                      [
-                        'kind' => 'query',
-                        'name' => 'tv_show',
-                        'orig' => 'tv_show',
-                        'type' => '`$STRING`',
-                      ],
-                      [
-                        'kind' => 'query',
-                        'name' => 'video_game',
-                        'orig' => 'video_game',
-                        'type' => '`$STRING`',
-                      ],
-                    ],
-                  ],
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/character',
                   'segments' => [
                     [
                       'lit' => 'character',
+                    ],
+                  ],
+                  'parts' => [
+                    'character',
+                  ],
+                  'rename' => [],
+                  'transform' => [
+                    'req' => '`reqdata`',
+                    'res' => '`body`',
+                  ],
+                  'args' => [
+                    'query' => [
+                      [
+                        'name' => 'alignment',
+                        'orig' => 'alignment',
+                        'type' => '`$STRING`',
+                        'kind' => 'query',
+                      ],
+                      [
+                        'name' => 'ally',
+                        'orig' => 'ally',
+                        'type' => '`$STRING`',
+                        'kind' => 'query',
+                      ],
+                      [
+                        'name' => 'enemy',
+                        'orig' => 'enemy',
+                        'type' => '`$STRING`',
+                        'kind' => 'query',
+                      ],
+                      [
+                        'name' => 'film',
+                        'orig' => 'film',
+                        'type' => '`$STRING`',
+                        'kind' => 'query',
+                      ],
+                      [
+                        'name' => 'name',
+                        'orig' => 'name',
+                        'type' => '`$STRING`',
+                        'kind' => 'query',
+                      ],
+                      [
+                        'name' => 'page',
+                        'orig' => 'page',
+                        'type' => '`$INTEGER`',
+                        'kind' => 'query',
+                        'example' => 1,
+                      ],
+                      [
+                        'name' => 'page_size',
+                        'orig' => 'page_size',
+                        'type' => '`$INTEGER`',
+                        'kind' => 'query',
+                        'example' => 50,
+                      ],
+                      [
+                        'name' => 'park_attraction',
+                        'orig' => 'park_attraction',
+                        'type' => '`$STRING`',
+                        'kind' => 'query',
+                      ],
+                      [
+                        'name' => 'short_film',
+                        'orig' => 'short_film',
+                        'type' => '`$STRING`',
+                        'kind' => 'query',
+                      ],
+                      [
+                        'name' => 'tv_show',
+                        'orig' => 'tv_show',
+                        'type' => '`$STRING`',
+                        'kind' => 'query',
+                      ],
+                      [
+                        'name' => 'video_game',
+                        'orig' => 'video_game',
+                        'type' => '`$STRING`',
+                        'kind' => 'query',
+                      ],
                     ],
                   ],
                   'select' => [
@@ -311,13 +337,6 @@ class DisneyConfig
                       'video_game',
                     ],
                   ],
-                  'transform' => [
-                    'req' => '`reqdata`',
-                    'res' => '`body`',
-                  ],
-                  'parts' => [
-                    'character',
-                  ],
                 ],
               ],
             ],
@@ -326,17 +345,6 @@ class DisneyConfig
               'name' => 'load',
               'points' => [
                 [
-                  'args' => [
-                    'params' => [
-                      [
-                        'kind' => 'param',
-                        'name' => 'id',
-                        'orig' => 'id',
-                        'reqd' => true,
-                        'type' => '`$INTEGER`',
-                      ],
-                    ],
-                  ],
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/character/{id}',
@@ -348,18 +356,30 @@ class DisneyConfig
                       'var' => 'id',
                     ],
                   ],
-                  'select' => [
-                    'exist' => [
-                      'id',
-                    ],
+                  'parts' => [
+                    'character',
+                    '{id}',
                   ],
+                  'rename' => [],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
-                  'parts' => [
-                    'character',
-                    '{id}',
+                  'args' => [
+                    'params' => [
+                      [
+                        'name' => 'id',
+                        'orig' => 'id',
+                        'type' => '`$INTEGER`',
+                        'kind' => 'param',
+                        'reqd' => true,
+                      ],
+                    ],
+                  ],
+                  'select' => [
+                    'exist' => [
+                      'id',
+                    ],
                   ],
                 ],
               ],

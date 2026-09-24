@@ -16,12 +16,6 @@ const FEATURE_CLASS: Record<string, typeof BaseFeature> = {
 }
 
 
-// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
-// the model's active plugin groups. A feature that takes a `plugins` option
-// (secrets over sekreto) reads its own entry; a feature with no plugins has
-// none. Named imports above make each definition statically reachable, so
-// an SDK carries exactly the plugin modules its model selects — the same
-// leanness the old side-effect registry imports bought, without a registry.
 const FEATURE_PLUGINS: Record<string, any[]> = {
   
 }
@@ -32,7 +26,6 @@ class Config {
   makeFeature(this: any, fn: string) {
     const fc = FEATURE_CLASS[fn]
     const fi = new fc()
-    // TODO: errors etc
     return fi
   }
 
@@ -139,96 +132,114 @@ class Config {
       "fields": [
         {
           "name": "alignment",
-          "short": "Character alignment (good, bad, neutral, etc.)",
-          "type": "`$STRING`"
+          "title": "Alignment",
+          "type": "`$STRING`",
+          "short": "Character alignment (good, bad, neutral, etc.)"
         },
         {
           "name": "allies",
-          "short": "List of character allies",
-          "type": "`$ARRAY`"
+          "title": "Allies",
+          "type": "`$ARRAY`",
+          "short": "List of character allies"
         },
         {
-          "format": "date-time",
           "name": "createdAt",
+          "title": "Created At",
+          "type": "`$STRING`",
           "short": "Timestamp when the character was added to the database",
-          "type": "`$STRING`"
+          "format": "date-time"
         },
         {
           "name": "data",
+          "title": "Data",
           "type": "`$OBJECT`"
         },
         {
           "name": "enemies",
-          "short": "List of character enemies",
-          "type": "`$ARRAY`"
+          "title": "Enemies",
+          "type": "`$ARRAY`",
+          "short": "List of character enemies"
         },
         {
           "name": "films",
-          "short": "List of films the character appears in",
-          "type": "`$ARRAY`"
+          "title": "Films",
+          "type": "`$ARRAY`",
+          "short": "List of films the character appears in"
         },
         {
           "name": "id",
-          "short": "Unique identifier for the character",
-          "type": "`$INTEGER`"
+          "title": "Id",
+          "type": "`$INTEGER`",
+          "short": "Unique identifier for the character"
         },
         {
-          "format": "uri",
           "name": "imageUrl",
+          "title": "Image Url",
+          "type": "`$STRING`",
           "short": "Image URL for the character",
-          "type": "`$STRING`"
+          "format": "uri"
         },
         {
           "name": "info",
+          "title": "Info",
           "type": "`$OBJECT`"
         },
         {
           "name": "name",
-          "short": "Name of the character",
-          "type": "`$STRING`"
+          "title": "Name",
+          "type": "`$STRING`",
+          "short": "Name of the character"
         },
         {
           "name": "parkAttractions",
-          "short": "List of park attractions featuring the character",
-          "type": "`$ARRAY`"
+          "title": "Park Attractions",
+          "type": "`$ARRAY`",
+          "short": "List of park attractions featuring the character"
         },
         {
           "name": "shortFilms",
-          "short": "List of short films the character appears in",
-          "type": "`$ARRAY`"
+          "title": "Short Films",
+          "type": "`$ARRAY`",
+          "short": "List of short films the character appears in"
         },
         {
-          "format": "uri",
           "name": "sourceUrl",
+          "title": "Source Url",
+          "type": "`$STRING`",
           "short": "Source URL (Disney Wiki) for the character",
-          "type": "`$STRING`"
+          "format": "uri"
         },
         {
           "name": "tvShows",
-          "short": "List of TV shows the character appears in",
-          "type": "`$ARRAY`"
+          "title": "Tv Shows",
+          "type": "`$ARRAY`",
+          "short": "List of TV shows the character appears in"
         },
         {
-          "format": "date-time",
           "name": "updatedAt",
+          "title": "Updated At",
+          "type": "`$STRING`",
           "short": "Timestamp when the character was last updated",
-          "type": "`$STRING`"
+          "format": "date-time"
         },
         {
-          "format": "uri",
           "name": "url",
+          "title": "Url",
+          "type": "`$STRING`",
           "short": "API URL for this character",
-          "type": "`$STRING`"
+          "format": "uri"
         },
         {
           "name": "v",
-          "short": "Version key",
-          "type": "`$INTEGER`"
+          "title": "V",
+          "type": "`$INTEGER`",
+          "short": "Version key"
         },
         {
           "name": "videoGames",
-          "short": "List of video games the character appears in",
-          "type": "`$ARRAY`"
+          "title": "Video Games",
+          "type": "`$ARRAY`",
+          "short": "List of video games the character appears in"
         }
       ],
       "id": {
@@ -242,78 +253,6 @@ class Config {
           "name": "list",
           "points": [
             {
-              "args": {
-                "query": [
-                  {
-                    "kind": "query",
-                    "name": "alignment",
-                    "orig": "alignment",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "ally",
-                    "orig": "ally",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "enemy",
-                    "orig": "enemy",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "film",
-                    "orig": "film",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "name",
-                    "orig": "name",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "example": 1,
-                    "kind": "query",
-                    "name": "page",
-                    "orig": "page",
-                    "type": "`$INTEGER`"
-                  },
-                  {
-                    "example": 50,
-                    "kind": "query",
-                    "name": "page_size",
-                    "orig": "page_size",
-                    "type": "`$INTEGER`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "park_attraction",
-                    "orig": "park_attraction",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "short_film",
-                    "orig": "short_film",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "tv_show",
-                    "orig": "tv_show",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "kind": "query",
-                    "name": "video_game",
-                    "orig": "video_game",
-                    "type": "`$STRING`"
-                  }
-                ]
-              },
               "kind": "http",
               "method": "GET",
               "orig": "/character",
@@ -322,6 +261,86 @@ class Config {
                   "lit": "character"
                 }
               ],
+              "parts": [
+                "character"
+              ],
+              "rename": {},
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "args": {
+                "query": [
+                  {
+                    "name": "alignment",
+                    "orig": "alignment",
+                    "type": "`$STRING`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "ally",
+                    "orig": "ally",
+                    "type": "`$STRING`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "enemy",
+                    "orig": "enemy",
+                    "type": "`$STRING`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "film",
+                    "orig": "film",
+                    "type": "`$STRING`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "name",
+                    "orig": "name",
+                    "type": "`$STRING`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "page",
+                    "orig": "page",
+                    "type": "`$INTEGER`",
+                    "kind": "query",
+                    "example": 1
+                  },
+                  {
+                    "name": "page_size",
+                    "orig": "page_size",
+                    "type": "`$INTEGER`",
+                    "kind": "query",
+                    "example": 50
+                  },
+                  {
+                    "name": "park_attraction",
+                    "orig": "park_attraction",
+                    "type": "`$STRING`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "short_film",
+                    "orig": "short_film",
+                    "type": "`$STRING`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "tv_show",
+                    "orig": "tv_show",
+                    "type": "`$STRING`",
+                    "kind": "query"
+                  },
+                  {
+                    "name": "video_game",
+                    "orig": "video_game",
+                    "type": "`$STRING`",
+                    "kind": "query"
+                  }
+                ]
+              },
               "select": {
                 "exist": [
                   "alignment",
@@ -336,14 +355,7 @@ class Config {
                   "tv_show",
                   "video_game"
                 ]
-              },
-              "transform": {
-                "req": "`reqdata`",
-                "res": "`body`"
-              },
-              "parts": [
-                "character"
-              ]
+              }
             }
           ]
         },
@@ -352,17 +364,6 @@ class Config {
           "name": "load",
           "points": [
             {
-              "args": {
-                "params": [
-                  {
-                    "kind": "param",
-                    "name": "id",
-                    "orig": "id",
-                    "reqd": true,
-                    "type": "`$INTEGER`"
-                  }
-                ]
-              },
               "kind": "http",
               "method": "GET",
               "orig": "/character/{id}",
@@ -374,19 +375,31 @@ class Config {
                   "var": "id"
                 }
               ],
-              "select": {
-                "exist": [
-                  "id"
-                ]
-              },
+              "parts": [
+                "character",
+                "{id}"
+              ],
+              "rename": {},
               "transform": {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "parts": [
-                "character",
-                "{id}"
-              ]
+              "args": {
+                "params": [
+                  {
+                    "name": "id",
+                    "orig": "id",
+                    "type": "`$INTEGER`",
+                    "kind": "param",
+                    "reqd": true
+                  }
+                ]
+              },
+              "select": {
+                "exist": [
+                  "id"
+                ]
+              }
             }
           ]
         }

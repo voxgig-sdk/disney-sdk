@@ -1,0 +1,313 @@
+# Entity: character
+
+main: kit: entity: character: {
+
+  alias: field: {}
+
+  fields: {
+    alignment: {
+      h: "Alignment"
+      n: "alignment"
+      r: false
+      sh: "Character alignment (good, bad, neutral, etc.)"
+      t: "`$STRING`"
+    }
+    allies: {
+      h: "Allies"
+      n: "allies"
+      r: false
+      sh: "List of character allies"
+      t: "`$ARRAY`"
+    }
+    createdAt: {
+      fo: "date-time"
+      h: "Created At"
+      n: "createdAt"
+      r: false
+      sh: "Timestamp when the character was added to the database"
+      t: "`$STRING`"
+    }
+    data: {
+      h: "Data"
+      n: "data"
+      r: false
+      t: "`$OBJECT`"
+    }
+    enemies: {
+      h: "Enemies"
+      n: "enemies"
+      r: false
+      sh: "List of character enemies"
+      t: "`$ARRAY`"
+    }
+    films: {
+      h: "Films"
+      n: "films"
+      r: false
+      sh: "List of films the character appears in"
+      t: "`$ARRAY`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      sh: "Unique identifier for the character"
+      t: "`$INTEGER`"
+    }
+    imageUrl: {
+      fo: "uri"
+      h: "Image Url"
+      n: "imageUrl"
+      r: false
+      sh: "Image URL for the character"
+      t: "`$STRING`"
+    }
+    info: {
+      h: "Info"
+      n: "info"
+      r: false
+      t: "`$OBJECT`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: false
+      sh: "Name of the character"
+      t: "`$STRING`"
+    }
+    parkAttractions: {
+      h: "Park Attractions"
+      n: "parkAttractions"
+      r: false
+      sh: "List of park attractions featuring the character"
+      t: "`$ARRAY`"
+    }
+    shortFilms: {
+      h: "Short Films"
+      n: "shortFilms"
+      r: false
+      sh: "List of short films the character appears in"
+      t: "`$ARRAY`"
+    }
+    sourceUrl: {
+      fo: "uri"
+      h: "Source Url"
+      n: "sourceUrl"
+      r: false
+      sh: "Source URL (Disney Wiki) for the character"
+      t: "`$STRING`"
+    }
+    tvShows: {
+      h: "Tv Shows"
+      n: "tvShows"
+      r: false
+      sh: "List of TV shows the character appears in"
+      t: "`$ARRAY`"
+    }
+    updatedAt: {
+      fo: "date-time"
+      h: "Updated At"
+      n: "updatedAt"
+      r: false
+      sh: "Timestamp when the character was last updated"
+      t: "`$STRING`"
+    }
+    url: {
+      fo: "uri"
+      h: "Url"
+      n: "url"
+      r: false
+      sh: "API URL for this character"
+      t: "`$STRING`"
+    }
+    v: {
+      h: "V"
+      n: "v"
+      r: false
+      sh: "Version key"
+      t: "`$INTEGER`"
+    }
+    videoGames: {
+      h: "Video Games"
+      n: "videoGames"
+      r: false
+      sh: "List of video games the character appears in"
+      t: "`$ARRAY`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "character"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /character"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "alignment"
+                or: "alignment"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "ally"
+                or: "ally"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "enemy"
+                or: "enemy"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "film"
+                or: "film"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "name"
+                or: "name"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: 1
+                k: "query"
+                n: "page"
+                or: "page"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 50
+                k: "query"
+                n: "page_size"
+                or: "page_size"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                k: "query"
+                n: "park_attraction"
+                or: "park_attraction"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "short_film"
+                or: "short_film"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "tv_show"
+                or: "tv_show"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "video_game"
+                or: "video_game"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/character"
+          q: {
+            exist: [
+              "alignment"
+              "ally"
+              "enemy"
+              "film"
+              "name"
+              "page"
+              "page_size"
+              "park_attraction"
+              "short_film"
+              "tv_show"
+              "video_game"
+            ]
+          }
+          s: [
+            {
+              lit: "character"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /character/{id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$INTEGER`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/character/{id}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          s: [
+            {
+              lit: "character"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}
