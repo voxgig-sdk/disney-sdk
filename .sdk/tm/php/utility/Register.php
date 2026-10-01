@@ -37,6 +37,8 @@ require_once __DIR__ . '/TransformResponse.php';
 
 DisneyUtility::setRegistrar(function (DisneyUtility $u): void {
     $u->clean = [DisneyClean::class, 'call'];
+    $u->clean_add = [DisneyClean::class, 'add'];
+    $u->clean_explain = [DisneyDone::class, 'clean_explain'];
     $u->done = [DisneyDone::class, 'call'];
     $u->make_error = [DisneyMakeError::class, 'call'];
     $u->feature_add = [DisneyFeatureAdd::class, 'call'];

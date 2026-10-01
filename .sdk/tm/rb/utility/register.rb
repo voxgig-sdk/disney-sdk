@@ -33,6 +33,8 @@ require_relative 'transform_response'
 
 DisneyUtility.registrar = ->(u) {
   u.clean = DisneyUtilities::Clean
+  u.clean_add = DisneyUtilities::CleanAdd
+  u.clean_explain = DisneyUtilities::CleanExplain
   u.done = DisneyUtilities::Done
   u.make_error = DisneyUtilities::MakeError
   u.feature_add = DisneyUtilities::FeatureAdd

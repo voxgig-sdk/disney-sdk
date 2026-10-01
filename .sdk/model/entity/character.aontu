@@ -164,21 +164,21 @@ main: kit: entity: character: {
               {
                 k: "query"
                 n: "ally"
-                or: "ally"
+                or: "allies"
                 r: false
                 t: "`$STRING`"
               }
               {
                 k: "query"
                 n: "enemy"
-                or: "enemy"
+                or: "enemies"
                 r: false
                 t: "`$STRING`"
               }
               {
                 k: "query"
                 n: "film"
-                or: "film"
+                or: "films"
                 r: false
                 t: "`$STRING`"
               }
@@ -201,35 +201,35 @@ main: kit: entity: character: {
                 ex: 50
                 k: "query"
                 n: "page_size"
-                or: "page_size"
+                or: "pageSize"
                 r: false
                 t: "`$INTEGER`"
               }
               {
                 k: "query"
                 n: "park_attraction"
-                or: "park_attraction"
+                or: "parkAttractions"
                 r: false
                 t: "`$STRING`"
               }
               {
                 k: "query"
                 n: "short_film"
-                or: "short_film"
+                or: "shortFilms"
                 r: false
                 t: "`$STRING`"
               }
               {
                 k: "query"
                 n: "tv_show"
-                or: "tv_show"
+                or: "tvShows"
                 r: false
                 t: "`$STRING`"
               }
               {
                 k: "query"
                 n: "video_game"
-                or: "video_game"
+                or: "videoGames"
                 r: false
                 t: "`$STRING`"
               }
@@ -259,7 +259,7 @@ main: kit: entity: character: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.data`"
           }
         }
       ]

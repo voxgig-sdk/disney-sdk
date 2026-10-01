@@ -226,7 +226,7 @@ func MakeConfig() map[string]any {
 								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body`",
+									"res": "`body.data`",
 								},
 								"args": map[string]any{
 									"query": []any{
@@ -238,19 +238,19 @@ func MakeConfig() map[string]any {
 										},
 										map[string]any{
 											"name": "ally",
-											"orig": "ally",
+											"orig": "allies",
 											"type": "`$STRING`",
 											"kind": "query",
 										},
 										map[string]any{
 											"name": "enemy",
-											"orig": "enemy",
+											"orig": "enemies",
 											"type": "`$STRING`",
 											"kind": "query",
 										},
 										map[string]any{
 											"name": "film",
-											"orig": "film",
+											"orig": "films",
 											"type": "`$STRING`",
 											"kind": "query",
 										},
@@ -269,32 +269,32 @@ func MakeConfig() map[string]any {
 										},
 										map[string]any{
 											"name": "page_size",
-											"orig": "page_size",
+											"orig": "pageSize",
 											"type": "`$INTEGER`",
 											"kind": "query",
 											"example": 50,
 										},
 										map[string]any{
 											"name": "park_attraction",
-											"orig": "park_attraction",
+											"orig": "parkAttractions",
 											"type": "`$STRING`",
 											"kind": "query",
 										},
 										map[string]any{
 											"name": "short_film",
-											"orig": "short_film",
+											"orig": "shortFilms",
 											"type": "`$STRING`",
 											"kind": "query",
 										},
 										map[string]any{
 											"name": "tv_show",
-											"orig": "tv_show",
+											"orig": "tvShows",
 											"type": "`$STRING`",
 											"kind": "query",
 										},
 										map[string]any{
 											"name": "video_game",
-											"orig": "video_game",
+											"orig": "videoGames",
 											"type": "`$STRING`",
 											"kind": "query",
 										},

@@ -276,7 +276,7 @@
                         "a": true,
                         "k": "query",
                         "n": "ally",
-                        "or": "ally",
+                        "or": "allies",
                         "r": false,
                         "t": "`$STRING`"
                       },
@@ -284,7 +284,7 @@
                         "a": true,
                         "k": "query",
                         "n": "enemy",
-                        "or": "enemy",
+                        "or": "enemies",
                         "r": false,
                         "t": "`$STRING`"
                       },
@@ -292,7 +292,7 @@
                         "a": true,
                         "k": "query",
                         "n": "film",
-                        "or": "film",
+                        "or": "films",
                         "r": false,
                         "t": "`$STRING`"
                       },
@@ -318,7 +318,7 @@
                         "ex": 50,
                         "k": "query",
                         "n": "page_size",
-                        "or": "page_size",
+                        "or": "pageSize",
                         "r": false,
                         "t": "`$INTEGER`"
                       },
@@ -326,7 +326,7 @@
                         "a": true,
                         "k": "query",
                         "n": "park_attraction",
-                        "or": "park_attraction",
+                        "or": "parkAttractions",
                         "r": false,
                         "t": "`$STRING`"
                       },
@@ -334,7 +334,7 @@
                         "a": true,
                         "k": "query",
                         "n": "short_film",
-                        "or": "short_film",
+                        "or": "shortFilms",
                         "r": false,
                         "t": "`$STRING`"
                       },
@@ -342,7 +342,7 @@
                         "a": true,
                         "k": "query",
                         "n": "tv_show",
-                        "or": "tv_show",
+                        "or": "tvShows",
                         "r": false,
                         "t": "`$STRING`"
                       },
@@ -350,7 +350,7 @@
                         "a": true,
                         "k": "query",
                         "n": "video_game",
-                        "or": "video_game",
+                        "or": "videoGames",
                         "r": false,
                         "t": "`$STRING`"
                       }
@@ -382,7 +382,7 @@
                   ],
                   "t": {
                     "req": "`reqdata`",
-                    "res": "`body`"
+                    "res": "`body.data`"
                   }
                 }
               ]
@@ -934,7 +934,12 @@
         },
         "base": "http://localhost:8000",
         "clean": {
-          "keys": "key,token,id"
+          "active": true,
+          "hint": "0",
+          "keys": "key,secret,token,password,passwd,authorization,cookie,credential,signature",
+          "mask": "[redacted]",
+          "min": "4",
+          "values": ""
         },
         "entity": {
           "`$CHILD`": {

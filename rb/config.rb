@@ -234,7 +234,7 @@ module DisneyConfig
                   "rename" => {},
                   "transform" => {
                     "req" => "`reqdata`",
-                    "res" => "`body`",
+                    "res" => "`body.data`",
                   },
                   "args" => {
                     "query" => [
@@ -246,19 +246,19 @@ module DisneyConfig
                       },
                       {
                         "name" => "ally",
-                        "orig" => "ally",
+                        "orig" => "allies",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "enemy",
-                        "orig" => "enemy",
+                        "orig" => "enemies",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "film",
-                        "orig" => "film",
+                        "orig" => "films",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
@@ -277,32 +277,32 @@ module DisneyConfig
                       },
                       {
                         "name" => "page_size",
-                        "orig" => "page_size",
+                        "orig" => "pageSize",
                         "type" => "`$INTEGER`",
                         "kind" => "query",
                         "example" => 50,
                       },
                       {
                         "name" => "park_attraction",
-                        "orig" => "park_attraction",
+                        "orig" => "parkAttractions",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "short_film",
-                        "orig" => "short_film",
+                        "orig" => "shortFilms",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "tv_show",
-                        "orig" => "tv_show",
+                        "orig" => "tvShows",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
                       {
                         "name" => "video_game",
-                        "orig" => "video_game",
+                        "orig" => "videoGames",
                         "type" => "`$STRING`",
                         "kind" => "query",
                       },
