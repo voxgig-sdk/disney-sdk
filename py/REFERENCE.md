@@ -87,13 +87,13 @@ character = client.Character()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
+| `_id` | `int` | No | Unique identifier for the character |
 | `alignment` | `str` | No | Character alignment (good, bad, neutral, etc.) |
 | `allies` | `list` | No | List of character allies |
 | `createdAt` | `str` | No | Timestamp when the character was added to the database |
 | `data` | `dict` | No |  |
 | `enemies` | `list` | No | List of character enemies |
 | `films` | `list` | No | List of films the character appears in |
-| `id` | `int` | No | Unique identifier for the character |
 | `imageUrl` | `str` | No | Image URL for the character |
 | `info` | `dict` | No |  |
 | `name` | `str` | No | Name of the character |
@@ -108,19 +108,19 @@ character = client.Character()
 
 ### Operations
 
-#### `list(reqmatch=None, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list[CharacterEntity]`
 
-List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list of entities, one per record, and raises on error.
 
 ```python
 results = client.Character().list()
 for character in results:
-    print(character)
+    print(character.data_get())
 ```
 
-#### `load(reqmatch, ctrl=None) -> dict`
+#### `load(reqmatch, ctrl=None) -> CharacterEntity`
 
-Load a single entity matching the given criteria. Returns the entity data and raises on error.
+Load a single entity matching the given criteria. Returns the entity, whose record `data_get()` reads, and raises on error.
 
 ```python
 result = client.Character().load({"id": 1})
@@ -312,6 +312,7 @@ Timeout.
 | Option | Type |
 |---|---|
 | `clearTimer` | function |
+| `now` | function |
 | `setTimer` | function |
 
 These take no default: the feature behaves one way when you supply them and

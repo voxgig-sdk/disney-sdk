@@ -67,6 +67,7 @@ local function make_config()
         },
         ["optspec"] = {
           ["clearTimer"] = "`$FUNCTION`",
+          ["now"] = "`$FUNCTION`",
           ["setTimer"] = "`$FUNCTION`",
         },
         ["strict"] = false,
@@ -85,6 +86,12 @@ local function make_config()
     entity = {
       ["character"] = {
         ["fields"] = {
+          {
+            ["name"] = "_id",
+            ["title"] = "Id",
+            ["type"] = "`$INTEGER`",
+            ["short"] = "Unique identifier for the character",
+          },
           {
             ["name"] = "alignment",
             ["title"] = "Alignment",
@@ -120,12 +127,6 @@ local function make_config()
             ["title"] = "Films",
             ["type"] = "`$ARRAY`",
             ["short"] = "List of films the character appears in",
-          },
-          {
-            ["name"] = "id",
-            ["title"] = "Id",
-            ["type"] = "`$INTEGER`",
-            ["short"] = "Unique identifier for the character",
           },
           {
             ["name"] = "imageUrl",
@@ -198,7 +199,7 @@ local function make_config()
           },
         },
         ["id"] = {
-          ["field"] = "id",
+          ["field"] = "_id",
           ["name"] = "id",
         },
         ["name"] = "character",
@@ -231,6 +232,7 @@ local function make_config()
                       ["orig"] = "alignment",
                       ["type"] = "`$STRING`",
                       ["kind"] = "query",
+                      ["field"] = true,
                     },
                     {
                       ["name"] = "ally",
@@ -255,6 +257,7 @@ local function make_config()
                       ["orig"] = "name",
                       ["type"] = "`$STRING`",
                       ["kind"] = "query",
+                      ["field"] = true,
                     },
                     {
                       ["name"] = "page",
@@ -296,20 +299,13 @@ local function make_config()
                     },
                   },
                 },
-                ["select"] = {
-                  ["exist"] = {
-                    "alignment",
-                    "ally",
-                    "enemy",
-                    "film",
-                    "name",
-                    "page",
-                    "page_size",
-                    "park_attraction",
-                    "short_film",
-                    "tv_show",
-                    "video_game",
-                  },
+                ["select"] = {},
+                ["response"] = {
+                  ["kind"] = "json",
+                  ["media"] = "application/json",
+                },
+                ["alias"] = {
+                  ["id"] = "_id",
                 },
               },
             },
@@ -337,7 +333,7 @@ local function make_config()
                 ["rename"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
-                  ["res"] = "`body`",
+                  ["res"] = "`body.data`",
                 },
                 ["args"] = {
                   ["params"] = {
@@ -354,6 +350,13 @@ local function make_config()
                   ["exist"] = {
                     "id",
                   },
+                },
+                ["response"] = {
+                  ["kind"] = "json",
+                  ["media"] = "application/json",
+                },
+                ["alias"] = {
+                  ["id"] = "_id",
                 },
               },
             },

@@ -9,9 +9,35 @@ import pytest
 from disney_sdk.utility.voxgig_struct import voxgig_struct as vs
 from disney_sdk import DisneySDK
 from disney_sdk.core import helpers
+from disney_sdk.config import shared_config
+from disney_sdk.feature.base_feature import DisneyBaseFeature
 
 _TEST_DIR = os.path.dirname(os.path.abspath(__file__))
 from test import runner
+
+
+class _FailHook(DisneyBaseFeature):
+    def __init__(self):
+        super().__init__()
+        self.name = "failhook"
+        self.unexpected = 0
+
+    def init(self, ctx, options):
+        pass
+
+    def PreSpec(self, ctx):
+        raise RuntimeError("character hook failed")
+
+    def PreUnexpected(self, ctx):
+        self.unexpected += 1
+
+
+
+# main.kit.test.live.strict is true (the default is true): a live
+# request that fails, or a live test missing an input it needs,
+# fails the test.
+# An account with no record for a test to read skips it either way.
+LIVE_STRICT = True
 
 
 class TestCharacterEntity:
@@ -55,6 +81,58 @@ class TestCharacterEntity:
                     got.append(item)
             assert len(got) == 3
 
+    def test_should_report_a_failed_stream(self):
+        offline = {"net": {"offline": True}}
+        with pytest.raises(Exception, match="offline"):
+            list(DisneySDK.test(offline, None).Character(None).stream("list", None, None))
+
+        quiet = {"ctrl": {"throw": False}}
+        list(DisneySDK.test(offline, None).Character(None).stream("list", None, quiet))
+
+        if "rbac" in (shared_config().get("feature") or {}):
+            denied = DisneySDK.test(
+                None, {"feature": {"rbac": {"active": True, "deny": True}}})
+            with pytest.raises(Exception) as err:
+                list(denied.Character(None).stream("list", None, None))
+            assert "rbac_denied" == getattr(err.value, "code", None)
+
+    def test_should_leave_the_callers_ctrl(self):
+        explain = {}
+        ctrl = {"explain": explain}
+        list(DisneySDK.test(None, None).Character(None).stream("list", None, {"ctrl": ctrl}))
+        assert ["explain"] == list(ctrl.keys())
+        assert explain is ctrl["explain"] and 0 < len(explain)
+
+    def test_should_fire_pre_unexpected(self):
+        hook = _FailHook()
+        client = DisneySDK({"feature": {"test": {"active": True}}, "extend": [hook]})
+        with pytest.raises(Exception, match="hook failed"):
+            client.Character(None).list(None, None)
+        assert 0 < hook.unexpected
+
+        fired = hook.unexpected
+        assert client.Character(None).list(None, {"throw": False}) is None
+        assert fired < hook.unexpected
+
+    def test_should_validate_each_listed_record(self):
+        if "validate" not in (shared_config().get("feature") or {}):
+            pytest.skip("feature not present in this SDK: validate")
+        opts = {"feature": {"validate": {"active": True, "request": False, "response": True}}}
+        listed = DisneySDK.test({"entity": {"character": {"v1": {}}}}, opts).Character(None).list(None, None)
+        assert ["v1"] == [ent.data_get().get("id") for ent in listed]
+        with pytest.raises(Exception) as err:
+            DisneySDK.test({"entity": {"character": {"v1": {"_id": "x"}}}}, opts).Character(None).list(None, None)
+        assert "validate_failed" == getattr(err.value, "code", None)
+
+    def test_should_refuse_an_invalid_request(self):
+        if "validate" not in (shared_config().get("feature") or {}):
+            pytest.skip("feature not present in this SDK: validate")
+        client = DisneySDK.test(
+            None, {"feature": {"validate": {"active": True}}})
+        with pytest.raises(Exception) as err:
+            client.Character(None).list({"alignment": 1}, None)
+        assert "validate_failed" == getattr(err.value, "code", None)
+
     def test_should_run_basic_flow(self):
         setup = _character_basic_setup(None)
         # Per-op sdk-test-control.json skip — basic test exercises a flow with
@@ -66,12 +144,13 @@ class TestCharacterEntity:
             if _skip:
                 pytest.skip(_reason or "skipped via sdk-test-control.json")
                 return
-        # The basic flow consumes synthetic IDs from the fixture. In live mode
-        # without an *_ENTID env override, those IDs hit the live API and 4xx.
-        if setup.get("synthetic_only"):
-            pytest.skip("live entity test uses synthetic IDs from fixture — "
-                        "set DISNEY_TEST_CHARACTER_ENTID JSON to run live")
         client = setup["client"]
+        if setup["live"]:
+            _live_id = None if setup.get("synthetic_only") else setup["idmap"].get("character01")
+            runner.live_pace()
+            runner.live_existing(setup, LIVE_STRICT, "character",
+                                 lambda: client.Character(None).list({}, None),
+                                 "_id", _live_id)
 
         # Bootstrap entity data from existing test data.
         character_ref01_data_raw = vs.items(helpers.to_map(
@@ -80,6 +159,8 @@ class TestCharacterEntity:
         if len(character_ref01_data_raw) > 0:
             character_ref01_data = helpers.to_map(character_ref01_data_raw[0][1])
 
+        if setup["live"]:
+            runner.live_pace()
         # LIST
         character_ref01_ent = client.Character(None)
         character_ref01_match = {}
@@ -87,14 +168,16 @@ class TestCharacterEntity:
         character_ref01_list_result = character_ref01_ent.list(character_ref01_match, None)
         assert isinstance(character_ref01_list_result, list)
 
+        if setup["live"]:
+            runner.live_pace()
         # LOAD
         character_ref01_match_dt0 = {
-            "id": character_ref01_data["id"],
+            "id": character_ref01_data["_id"],
         }
         character_ref01_data_dt0_loaded = character_ref01_ent.load(character_ref01_match_dt0, None)
         character_ref01_data_dt0_load_result = helpers.to_map(runner.entity_data(character_ref01_data_dt0_loaded))
         assert character_ref01_data_dt0_load_result is not None
-        assert character_ref01_data_dt0_load_result["id"] == character_ref01_data["id"]
+        assert runner.live_same_id(character_ref01_data_dt0_load_result.get("_id"), character_ref01_data["_id"])
 
 
 
@@ -102,10 +185,14 @@ def _character_basic_setup(extra):
     runner.load_env_local()
 
     entity_data_file = os.path.join(_TEST_DIR, "../../.sdk/test/entity/character/CharacterTestData.json")
-    with open(entity_data_file, "r") as f:
+    with open(entity_data_file, "r", encoding="utf-8") as f:
         entity_data_source = f.read()
 
     entity_data = json.loads(entity_data_source)
+
+    for rec in ((entity_data.get("existing") or {}).get("character") or {}).values():
+        if isinstance(rec, dict) and rec.get("id") is not None:
+            rec["_id"] = rec["id"]
 
     options = {}
     options["entity"] = entity_data.get("existing")
@@ -123,9 +210,8 @@ def _character_basic_setup(extra):
         }
     )
 
-    # Detect ENTID env override before envOverride consumes it. When live
-    # mode is on without a real override, the basic test runs against synthetic
-    # IDs from the fixture and 4xx's. We surface this so the test can skip.
+    # Whether *_ENTID supplied the idmap, read before env_override consumes
+    # it: without it, the ids a live flow binds are the fixture's synthetic ones.
     _entid_env_raw = os.environ.get(
         "DISNEY_TEST_CHARACTER_ENTID")
     _idmap_overridden = _entid_env_raw is not None and _entid_env_raw.strip().startswith("{")

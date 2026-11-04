@@ -10,6 +10,9 @@
 
 # Character entity data model.
 #
+# @!attribute [rw] _id
+#   @return [Integer, nil]
+#
 # @!attribute [rw] alignment
 #   @return [String, nil]
 #
@@ -27,9 +30,6 @@
 #
 # @!attribute [rw] films
 #   @return [Array, nil]
-#
-# @!attribute [rw] id
-#   @return [Integer, nil]
 #
 # @!attribute [rw] imageUrl
 #   @return [String, nil]
@@ -64,13 +64,13 @@
 # @!attribute [rw] videoGames
 #   @return [Array, nil]
 Character = Struct.new(
+  :_id,
   :alignment,
   :allies,
   :createdAt,
   :data,
   :enemies,
   :films,
-  :id,
   :imageUrl,
   :info,
   :name,

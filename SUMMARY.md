@@ -20,11 +20,11 @@ SDK operations: `list`, `load`.
 
 Key fields to recognise:
 
+- `_id`: Unique identifier for the character
 - `alignment`: Character alignment (good, bad, neutral, etc.)
 - `allies`: List of character allies
 - `createdAt`: Timestamp when the character was added to the database
 - `enemies`: List of character enemies
-- `films`: List of films the character appears in
 
 ### Route map
 

@@ -7,13 +7,13 @@
 -- edit by hand.
 
 ---@class Character
+---@field _id? number
 ---@field alignment? string
 ---@field allies? table
 ---@field createdAt? string
 ---@field data? table
 ---@field enemies? table
 ---@field films? table
----@field id? number
 ---@field imageUrl? string
 ---@field info? table
 ---@field name? string

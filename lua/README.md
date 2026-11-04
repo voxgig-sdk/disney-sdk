@@ -12,7 +12,7 @@ It exposes the API as capitalised, semantic **Entities** — e.g. `client:Charac
 
 ## Install
 This package is not yet published to LuaRocks. Install it from the
-GitHub release tag (`lua/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/disney-sdk/releases)),
+GitHub release tag (`lua/vX.Y.Z`, see [Tags](https://github.com/voxgig-sdk/disney-sdk/tags)),
 or add the source directory to your `LUA_PATH`:
 
 ```bash
@@ -35,24 +35,29 @@ local client = sdk.new()
 
 ### 2. List character records
 
-Entity operations return `(value, err)`. For `list`, `value` is the
-array of records itself — iterate it directly (there is no wrapper).
+Entity operations return `(value, err)`. For `list`, `value` is an
+array of entities, one per record — iterate it directly (there is no
+wrapper), and read each record with `data_get()`.
 
 ```lua
 local characters, err = client:Character():list()
 if err then error(err) end
 
 for _, item in ipairs(characters) do
-  print(item["id"])
+  local rec = item:data_get()
+  print(rec["_id"])
 end
 ```
 
 ### 3. Load a character
 
+`load` returns the entity; `data_get()` reads its record.
+
 ```lua
 local character, err = client:Character():load({ id = 1 })
 if err then error(err) end
-print(character)
+local rec = character:data_get()
+print(rec["_id"])
 ```
 
 
@@ -121,7 +126,7 @@ Create a mock client for unit testing — no server required:
 local client = sdk.test()
 
 local result, err = client:Character():list()
--- result is the returned data; err is set on failure
+-- result is an array of entities, one per mock record; err is set on failure
 ```
 
 ### Use a custom fetch function
@@ -207,8 +212,8 @@ All entities share the same interface.
 
 | Method | Signature | Description |
 | --- | --- | --- |
-| `load` | `(reqmatch, ctrl) -> any, err` | Load a single entity by match criteria. |
-| `list` | `(reqmatch, ctrl) -> any, err` | List entities matching the criteria. |
+| `load` | `(reqmatch, ctrl) -> any, err` | Load a single entity by match criteria, and return it. |
+| `list` | `(reqmatch, ctrl) -> any, err` | List entities matching the criteria, one per record. |
 | `data_get` | `() -> table` | Get entity data. |
 | `data_set` | `(data)` | Set entity data. |
 | `match_get` | `() -> table` | Get entity match criteria. |
@@ -218,19 +223,19 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return `(value, err)`. The `value` is the operation's
-data **directly** — there is no wrapper:
+Entity operations return `(value, err)`. The `value` is the entity
+itself — there is no wrapper:
 
 | Operation | `value` |
 | --- | --- |
-| `load` | the entity record (a `table`) |
-| `list` | an array (`table`) of entity records |
+| `load` | the entity, whose `data_get()` reads its record (a `table`) |
+| `list` | an array (`table`) of entities, one per record |
 
 Check `err` first (it is non-`nil` on failure), then use `value`:
 
     local character, err = client:Character():load({ id = "example_id" })
     if err then error(err) end
-    -- character is the loaded record
+    -- character is the loaded entity
 
 Only `direct()` returns a response envelope — a `table` with `ok`,
 `status`, `headers`, and `data` keys.
@@ -241,13 +246,13 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
+| `_id` | Unique identifier for the character |
 | `alignment` | Character alignment (good, bad, neutral, etc.) |
 | `allies` | List of character allies |
 | `createdAt` | Timestamp when the character was added to the database |
 | `data` |  |
 | `enemies` | List of character enemies |
 | `films` | List of films the character appears in |
-| `id` | Unique identifier for the character |
 | `imageUrl` | Image URL for the character |
 | `info` |  |
 | `name` | Name of the character |
@@ -284,13 +289,13 @@ Create an instance: `local character = client:Character(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
+| `_id` | `number` | Unique identifier for the character |
 | `alignment` | `string` | Character alignment (good, bad, neutral, etc.) |
 | `allies` | `table` | List of character allies |
 | `createdAt` | `string` | Timestamp when the character was added to the database |
 | `data` | `table` |  |
 | `enemies` | `table` | List of character enemies |
 | `films` | `table` | List of films the character appears in |
-| `id` | `number` | Unique identifier for the character |
 | `imageUrl` | `string` | Image URL for the character |
 | `info` | `table` |  |
 | `name` | `string` | Name of the character |

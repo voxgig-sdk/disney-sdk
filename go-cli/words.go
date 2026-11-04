@@ -75,7 +75,7 @@ func runOp(client *sdk.DisneySDK, op string, query *eng.Value, entityAtom eng.Va
 
 // entityFor dispatches on the lowercase entity name. The generator
 // emits one `case "<name>":` per entity defined in the SDK model.
-func entityFor(client *sdk.DisneySDK, name string) (sdk.DisneyEntity, error) {
+func entityFor(client *sdk.DisneySDK, name string) (sdk.DisneyEntityBase, error) {
 	switch strings.ToLower(name) {
 	case "character":
 		return client.Character(nil), nil

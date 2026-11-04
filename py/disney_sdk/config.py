@@ -96,6 +96,7 @@ def make_config():
         },
         "optspec": {
           "clearTimer": "`$FUNCTION`",
+          "now": "`$FUNCTION`",
           "setTimer": "`$FUNCTION`",
         },
         "strict": False,
@@ -114,6 +115,12 @@ def make_config():
         "entity": {
       "character": {
         "fields": [
+          {
+            "name": "_id",
+            "title": "Id",
+            "type": "`$INTEGER`",
+            "short": "Unique identifier for the character",
+          },
           {
             "name": "alignment",
             "title": "Alignment",
@@ -149,12 +156,6 @@ def make_config():
             "title": "Films",
             "type": "`$ARRAY`",
             "short": "List of films the character appears in",
-          },
-          {
-            "name": "id",
-            "title": "Id",
-            "type": "`$INTEGER`",
-            "short": "Unique identifier for the character",
           },
           {
             "name": "imageUrl",
@@ -227,7 +228,7 @@ def make_config():
           },
         ],
         "id": {
-          "field": "id",
+          "field": "_id",
           "name": "id",
         },
         "name": "character",
@@ -260,6 +261,7 @@ def make_config():
                       "orig": "alignment",
                       "type": "`$STRING`",
                       "kind": "query",
+                      "field": True,
                     },
                     {
                       "name": "ally",
@@ -284,6 +286,7 @@ def make_config():
                       "orig": "name",
                       "type": "`$STRING`",
                       "kind": "query",
+                      "field": True,
                     },
                     {
                       "name": "page",
@@ -325,20 +328,13 @@ def make_config():
                     },
                   ],
                 },
-                "select": {
-                  "exist": [
-                    "alignment",
-                    "ally",
-                    "enemy",
-                    "film",
-                    "name",
-                    "page",
-                    "page_size",
-                    "park_attraction",
-                    "short_film",
-                    "tv_show",
-                    "video_game",
-                  ],
+                "select": {},
+                "response": {
+                  "kind": "json",
+                  "media": "application/json",
+                },
+                "alias": {
+                  "id": "_id",
                 },
               },
             ],
@@ -366,7 +362,7 @@ def make_config():
                 "rename": {},
                 "transform": {
                   "req": "`reqdata`",
-                  "res": "`body`",
+                  "res": "`body.data`",
                 },
                 "args": {
                   "params": [
@@ -383,6 +379,13 @@ def make_config():
                   "exist": [
                     "id",
                   ],
+                },
+                "response": {
+                  "kind": "json",
+                  "media": "application/json",
+                },
+                "alias": {
+                  "id": "_id",
                 },
               },
             ],

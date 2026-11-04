@@ -93,6 +93,7 @@ class DisneyConfig
           ],
           'optspec' => [
             'clearTimer' => '`$FUNCTION`',
+            'now' => '`$FUNCTION`',
             'setTimer' => '`$FUNCTION`',
           ],
           'strict' => false,
@@ -111,6 +112,12 @@ class DisneyConfig
             "entity" => [
         'character' => [
           'fields' => [
+            [
+              'name' => '_id',
+              'title' => 'Id',
+              'type' => '`$INTEGER`',
+              'short' => 'Unique identifier for the character',
+            ],
             [
               'name' => 'alignment',
               'title' => 'Alignment',
@@ -146,12 +153,6 @@ class DisneyConfig
               'title' => 'Films',
               'type' => '`$ARRAY`',
               'short' => 'List of films the character appears in',
-            ],
-            [
-              'name' => 'id',
-              'title' => 'Id',
-              'type' => '`$INTEGER`',
-              'short' => 'Unique identifier for the character',
             ],
             [
               'name' => 'imageUrl',
@@ -224,7 +225,7 @@ class DisneyConfig
             ],
           ],
           'id' => [
-            'field' => 'id',
+            'field' => '_id',
             'name' => 'id',
           ],
           'name' => 'character',
@@ -257,6 +258,7 @@ class DisneyConfig
                         'orig' => 'alignment',
                         'type' => '`$STRING`',
                         'kind' => 'query',
+                        'field' => true,
                       ],
                       [
                         'name' => 'ally',
@@ -281,6 +283,7 @@ class DisneyConfig
                         'orig' => 'name',
                         'type' => '`$STRING`',
                         'kind' => 'query',
+                        'field' => true,
                       ],
                       [
                         'name' => 'page',
@@ -322,20 +325,13 @@ class DisneyConfig
                       ],
                     ],
                   ],
-                  'select' => [
-                    'exist' => [
-                      'alignment',
-                      'ally',
-                      'enemy',
-                      'film',
-                      'name',
-                      'page',
-                      'page_size',
-                      'park_attraction',
-                      'short_film',
-                      'tv_show',
-                      'video_game',
-                    ],
+                  'select' => [],
+                  'response' => [
+                    'kind' => 'json',
+                    'media' => 'application/json',
+                  ],
+                  'alias' => [
+                    'id' => '_id',
                   ],
                 ],
               ],
@@ -363,7 +359,7 @@ class DisneyConfig
                   'rename' => [],
                   'transform' => [
                     'req' => '`reqdata`',
-                    'res' => '`body`',
+                    'res' => '`body.data`',
                   ],
                   'args' => [
                     'params' => [
@@ -380,6 +376,13 @@ class DisneyConfig
                     'exist' => [
                       'id',
                     ],
+                  ],
+                  'response' => [
+                    'kind' => 'json',
+                    'media' => 'application/json',
+                  ],
+                  'alias' => [
+                    'id' => '_id',
                   ],
                 ],
               ],

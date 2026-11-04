@@ -4,5 +4,9 @@
 
 @"./base-guide.aontu"
 
-
-
+# Builder overlay (api/disney/guide.aontu), installed by pub-regen:
+# character records carry _id and no id.
+guide: entity: character: id: from: id: "_id"
+# the item route answers {info: {count}, data: the record}; apidef reads
+# info as a second candidate and falls back to body (apidef ITEM_META_PROPS).
+guide: entity: character: path: "/character/{id}": op: load: transform: res: "`body.data`"

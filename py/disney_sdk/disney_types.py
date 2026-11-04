@@ -17,13 +17,13 @@ from typing import TypedDict, Any
 
 
 class Character(TypedDict, total=False):
+    _id: int
     alignment: str
     allies: list
     createdAt: str
     data: dict
     enemies: list
     films: list
-    id: int
     imageUrl: str
     info: dict
     name: str

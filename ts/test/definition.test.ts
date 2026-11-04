@@ -21,14 +21,18 @@ const PLAN: any[] = [
       "enemy": "v1",
       "film": "v1",
       "name": "v1",
-      "page": "v1",
-      "page_size": "v1",
+      "page": 1,
+      "page_size": 50,
       "park_attraction": "v1",
       "short_film": "v1",
       "tv_show": "v1",
       "video_game": "v1"
     },
     "headers": [],
+    "cookies": [],
+    "responseMedia": [
+      "application/json"
+    ],
     "query": [
       "page",
       "pageSize",
@@ -41,6 +45,52 @@ const PLAN: any[] = [
       "allies",
       "enemies",
       "alignment"
+    ],
+    "queryArgs": [
+      {
+        "name": "alignment",
+        "wire": "alignment"
+      },
+      {
+        "name": "ally",
+        "wire": "allies"
+      },
+      {
+        "name": "enemy",
+        "wire": "enemies"
+      },
+      {
+        "name": "film",
+        "wire": "films"
+      },
+      {
+        "name": "name",
+        "wire": "name"
+      },
+      {
+        "name": "page",
+        "wire": "page"
+      },
+      {
+        "name": "page_size",
+        "wire": "pageSize"
+      },
+      {
+        "name": "park_attraction",
+        "wire": "parkAttractions"
+      },
+      {
+        "name": "short_film",
+        "wire": "shortFilms"
+      },
+      {
+        "name": "tv_show",
+        "wire": "tvShows"
+      },
+      {
+        "name": "video_game",
+        "wire": "videoGames"
+      }
     ],
     "auth": null,
     "status": 200,
@@ -87,7 +137,7 @@ const PLAN: any[] = [
         }
       ]
     },
-    "idField": "id"
+    "idField": "_id"
   },
   {
     "entity": "character",
@@ -104,7 +154,12 @@ const PLAN: any[] = [
     ],
     "select": {},
     "headers": [],
+    "cookies": [],
+    "responseMedia": [
+      "application/json"
+    ],
     "query": [],
+    "queryArgs": [],
     "auth": null,
     "status": 200,
     "sample": {
@@ -141,7 +196,7 @@ const PLAN: any[] = [
         "url": "https://api.disneyapi.dev/characters/308"
       }
     },
-    "idField": "id"
+    "idField": "_id"
   }
 ]
 

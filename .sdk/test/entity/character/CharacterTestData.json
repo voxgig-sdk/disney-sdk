@@ -2,13 +2,13 @@
   "existing": {
     "character": {
       "CHARACTER00": {
-        "alignment": "sb4",
+        "_id": "01",
+        "alignment": "sb5",
         "allies": [],
-        "createdAt": "sb6",
+        "createdAt": "sb7",
         "data": {},
         "enemies": [],
         "films": [],
-        "id": "CHARACTER00",
         "imageUrl": "sbb",
         "info": {},
         "name": "sbd",
@@ -19,16 +19,17 @@
         "updatedAt": "sc2",
         "url": "sc3",
         "v": 196,
-        "videoGames": []
+        "videoGames": [],
+        "id": "CHARACTER00"
       },
       "CHARACTER01": {
-        "alignment": "s168",
+        "_id": "01",
+        "alignment": "s169",
         "allies": [],
-        "createdAt": "s16a",
+        "createdAt": "s16b",
         "data": {},
         "enemies": [],
         "films": [],
-        "id": "CHARACTER01",
         "imageUrl": "s16f",
         "info": {},
         "name": "s171",
@@ -39,16 +40,17 @@
         "updatedAt": "s176",
         "url": "s177",
         "v": 376,
-        "videoGames": []
+        "videoGames": [],
+        "id": "CHARACTER01"
       },
       "CHARACTER02": {
-        "alignment": "s21c",
+        "_id": "01",
+        "alignment": "s21d",
         "allies": [],
-        "createdAt": "s21e",
+        "createdAt": "s21f",
         "data": {},
         "enemies": [],
         "films": [],
-        "id": "CHARACTER02",
         "imageUrl": "s223",
         "info": {},
         "name": "s225",
@@ -59,16 +61,18 @@
         "updatedAt": "s22a",
         "url": "s22b",
         "v": 556,
-        "videoGames": []
+        "videoGames": [],
+        "id": "CHARACTER02"
       }
     }
   },
   "new": {
     "character": {
       "character_ref01": {
-        "alignment": "s2d0",
+        "_id": "01",
+        "alignment": "s2d1",
         "allies": [],
-        "createdAt": "s2d2",
+        "createdAt": "s2d3",
         "data": {},
         "enemies": [],
         "films": [],

@@ -13,7 +13,12 @@ type Context = core.Context
 type Utility = core.Utility
 type Feature = core.Feature
 type Entity = core.Entity
-type DisneyEntity = core.DisneyEntity
+type DisneyEntityBase = core.DisneyEntityBase
+
+// Deprecated: use DisneyEntityBase.
+type DisneyEntity = core.DisneyEntityBase
+
+type StreamItem = core.StreamItem
 type FetcherFunc = core.FetcherFunc
 type Spec = core.Spec
 type Result = core.Result
@@ -41,7 +46,7 @@ func init() {
 	core.NewTimeoutFeatureFunc = func() core.Feature {
 		return feature.NewTimeoutFeature()
 	}
-	core.NewCharacterEntityFunc = func(client *core.DisneySDK, entopts map[string]any) core.DisneyEntity {
+	core.NewCharacterEntityFunc = func(client *core.DisneySDK, entopts map[string]any) core.DisneyEntityBase {
 		return entity.NewCharacterEntity(client, entopts)
 	}
 }

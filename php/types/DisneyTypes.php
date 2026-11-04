@@ -15,13 +15,13 @@ declare(strict_types=1);
 /** Character entity data model. */
 class Character
 {
+    public ?int $_id = null;
     public ?string $alignment = null;
     public ?array $allies = null;
     public ?string $createdAt = null;
     public ?array $data = null;
     public ?array $enemies = null;
     public ?array $films = null;
-    public ?int $id = null;
     public ?string $imageUrl = null;
     public ?array $info = null;
     public ?string $name = null;

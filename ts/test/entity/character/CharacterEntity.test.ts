@@ -9,7 +9,7 @@ import { createLiveTransport } from '../../live-runner'
 import { runLiveEntity } from '../../live-entity'
 
 
-import { DisneySDK, BaseFeature, stdutil } from '../../..'
+import { DisneySDK, BaseFeature, config, stdutil } from '../../..'
 
 import {
   envOverride,
@@ -41,6 +41,64 @@ describe('CharacterEntity', async () => {
   })
 
 
+  class FailHook extends BaseFeature {
+    name = 'failhook'
+    version = '0.0.1'
+    active = true
+    unexpected = 0
+    init() { }
+    PreSpec() { throw new Error('character hook failed') }
+    PreUnexpected() { this.unexpected++ }
+  }
+
+  test('stream-error', async () => {
+    const offline = { net: { offline: true } }
+    await assert.rejects(async () => {
+      for await (const _item of DisneySDK.test(offline).Character().stream('list')) { }
+    }, /offline/)
+
+    for await (const _item of DisneySDK.test(offline).Character()
+      .stream('list', undefined, { ctrl: { throw: false } })) { }
+
+    if (null != (config as any).feature?.rbac) {
+      const denied = DisneySDK.test(undefined, { feature: { rbac: { active: true, deny: true } } })
+      await assert.rejects(async () => {
+        for await (const _item of denied.Character().stream('list')) { }
+      }, (err: any) => 'rbac_denied' === err.code)
+    }
+  })
+
+  test('stream-ctrl', async () => {
+    const explain: any = {}
+    const ctrl: any = { explain }
+    for await (const _item of DisneySDK.test().Character().stream('list', undefined, { ctrl })) { }
+    assert.deepStrictEqual(Object.keys(ctrl), ['explain'])
+    assert(explain === ctrl.explain && 0 < Object.keys(explain).length)
+  })
+
+  test('unexpected', async () => {
+    const hook = new FailHook()
+    const client = new DisneySDK({ feature: { test: { active: true } }, extend: [hook] })
+    await assert.rejects(client.Character().list(), /hook failed/)
+    assert(0 < hook.unexpected)
+
+    const fired = hook.unexpected
+    assert.strictEqual(await client.Character().list(undefined, { throw: false }), undefined)
+    assert(fired < hook.unexpected)
+  })
+
+  test('validate', async (t) => {
+    if (null == (config as any).feature?.validate) {
+      t.skip('feature not present in this SDK: validate')
+      return
+    }
+    const client = DisneySDK.test(undefined, { feature: { validate: { active: true } } })
+    await assert.rejects(client.Character().list({"alignment":1} as any),
+      (err: any) => 'validate_failed' === err.code)
+  })
+
+
+
   test('basic', async (t) => {
 
     const live = 'TRUE' === process.env.DISNEY_TEST_LIVE
@@ -51,7 +109,7 @@ describe('CharacterEntity', async () => {
     
     const setup = basicSetup()
     if (setup.live) {
-      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":{"alignment":{"a":true,"h":"Alignment","n":"alignment","r":false,"sh":"Character alignment (good, bad, neutral, etc.)","t":"`$STRING`","key$":"alignment","index$":0},"allies":{"a":true,"h":"Allies","n":"allies","r":false,"sh":"List of character allies","t":"`$ARRAY`","key$":"allies","index$":1},"createdAt":{"a":true,"fo":"date-time","h":"Created At","n":"createdAt","r":false,"sh":"Timestamp when the character was added to the database","t":"`$STRING`","key$":"createdAt","index$":2},"data":{"a":true,"h":"Data","n":"data","r":false,"t":"`$OBJECT`","key$":"data","index$":3},"enemies":{"a":true,"h":"Enemies","n":"enemies","r":false,"sh":"List of character enemies","t":"`$ARRAY`","key$":"enemies","index$":4},"films":{"a":true,"h":"Films","n":"films","r":false,"sh":"List of films the character appears in","t":"`$ARRAY`","key$":"films","index$":5},"id":{"a":true,"h":"Id","n":"id","r":false,"sh":"Unique identifier for the character","t":"`$INTEGER`","key$":"id","index$":6},"imageUrl":{"a":true,"fo":"uri","h":"Image Url","n":"imageUrl","r":false,"sh":"Image URL for the character","t":"`$STRING`","key$":"imageUrl","index$":7},"info":{"a":true,"h":"Info","n":"info","r":false,"t":"`$OBJECT`","key$":"info","index$":8},"name":{"a":true,"h":"Name","n":"name","r":false,"sh":"Name of the character","t":"`$STRING`","key$":"name","index$":9},"parkAttractions":{"a":true,"h":"Park Attractions","n":"parkAttractions","r":false,"sh":"List of park attractions featuring the character","t":"`$ARRAY`","key$":"parkAttractions","index$":10},"shortFilms":{"a":true,"h":"Short Films","n":"shortFilms","r":false,"sh":"List of short films the character appears in","t":"`$ARRAY`","key$":"shortFilms","index$":11},"sourceUrl":{"a":true,"fo":"uri","h":"Source Url","n":"sourceUrl","r":false,"sh":"Source URL (Disney Wiki) for the character","t":"`$STRING`","key$":"sourceUrl","index$":12},"tvShows":{"a":true,"h":"Tv Shows","n":"tvShows","r":false,"sh":"List of TV shows the character appears in","t":"`$ARRAY`","key$":"tvShows","index$":13},"updatedAt":{"a":true,"fo":"date-time","h":"Updated At","n":"updatedAt","r":false,"sh":"Timestamp when the character was last updated","t":"`$STRING`","key$":"updatedAt","index$":14},"url":{"a":true,"fo":"uri","h":"Url","n":"url","r":false,"sh":"API URL for this character","t":"`$STRING`","key$":"url","index$":15},"v":{"a":true,"h":"V","n":"v","r":false,"sh":"Version key","t":"`$INTEGER`","key$":"v","index$":16},"videoGames":{"a":true,"h":"Video Games","n":"videoGames","r":false,"sh":"List of video games the character appears in","t":"`$ARRAY`","key$":"videoGames","index$":17}},"id":{"field":"id","name":"id"},"name":"character","op":{"list":{"input":"data","name":"list","points":[{"a":true,"co":{"id":"GET /character","source":"openapi3","version":2},"g":{"query":[{"a":true,"k":"query","n":"alignment","or":"alignment","r":false,"t":"`$STRING`","index$":0},{"a":true,"k":"query","n":"ally","or":"allies","r":false,"t":"`$STRING`","index$":1},{"a":true,"k":"query","n":"enemy","or":"enemies","r":false,"t":"`$STRING`","index$":2},{"a":true,"k":"query","n":"film","or":"films","r":false,"t":"`$STRING`","index$":3},{"a":true,"k":"query","n":"name","or":"name","r":false,"t":"`$STRING`","index$":4},{"a":true,"ex":1,"k":"query","n":"page","or":"page","r":false,"t":"`$INTEGER`","index$":5},{"a":true,"ex":50,"k":"query","n":"page_size","or":"pageSize","r":false,"t":"`$INTEGER`","index$":6},{"a":true,"k":"query","n":"park_attraction","or":"parkAttractions","r":false,"t":"`$STRING`","index$":7},{"a":true,"k":"query","n":"short_film","or":"shortFilms","r":false,"t":"`$STRING`","index$":8},{"a":true,"k":"query","n":"tv_show","or":"tvShows","r":false,"t":"`$STRING`","index$":9},{"a":true,"k":"query","n":"video_game","or":"videoGames","r":false,"t":"`$STRING`","index$":10}]},"k":"http","m":"GET","o":"/character","q":{"exist":["alignment","ally","enemy","film","name","page","page_size","park_attraction","short_film","tv_show","video_game"]},"r":{},"s":[{"lit":"character"}],"t":{"req":"`reqdata`","res":"`body.data`"},"index$":0}],"key$":"list"},"load":{"input":"data","name":"load","points":[{"a":true,"co":{"id":"GET /character/{id}","source":"openapi3","version":2},"g":{"params":[{"a":true,"k":"param","n":"id","or":"id","r":true,"t":"`$INTEGER`","index$":0}]},"k":"http","m":"GET","o":"/character/{id}","q":{"exist":["id"]},"r":{},"s":[{"lit":"character"},{"var":"id"}],"t":{"req":"`reqdata`","res":"`body`"},"index$":0}],"key$":"load"}},"relations":{"ancestors":[]},"key$":"character","name__orig":"character","Name":"Character","name_":"character","name-":"character","NAME":"CHARACTER","index$":0}, {"active":true,"entity":"character","key$":"BasicCharacterFlow","kind":"basic","name":"BasicCharacterFlow","param":{},"step":[{"a":true,"d":{},"i":{},"m":{},"o":"list","s":[],"v":[{"apply":"ItemExists","def":{"ref":"character_ref01"}}],"index$":0},{"a":true,"d":{},"i":{"ref":"character_ref01","srcdatavar":"character_ref01_data","suffix":"_dt0"},"m":{"id":"character01"},"o":"load","s":[],"v":[{"apply":"TextFieldMark","def":{"mark":"Mark01-character_ref01"}}],"index$":1}]}, 'Character', {"GET /character":{"protocol":"http","parameters":[{"name":"page","in":"query","description":"The page number to get","required":false,"schema":{"type":"integer","default":1,"minimum":1},"index$":0},{"name":"pageSize","in":"query","description":"The number of items per page","required":false,"schema":{"type":"integer","default":50,"minimum":1,"maximum":100},"index$":1},{"name":"name","in":"query","description":"Filter by character name","required":false,"schema":{"type":"string"},"index$":2},{"name":"films","in":"query","description":"Filter by films the character appears in","required":false,"schema":{"type":"string"},"index$":3},{"name":"shortFilms","in":"query","description":"Filter by short films the character appears in","required":false,"schema":{"type":"string"},"index$":4},{"name":"tvShows","in":"query","description":"Filter by TV shows the character appears in","required":false,"schema":{"type":"string"},"index$":5},{"name":"videoGames","in":"query","description":"Filter by video games the character appears in","required":false,"schema":{"type":"string"},"index$":6},{"name":"parkAttractions","in":"query","description":"Filter by park attractions featuring the character","required":false,"schema":{"type":"string"},"index$":7},{"name":"allies","in":"query","description":"Filter by character allies","required":false,"schema":{"type":"string"},"index$":8},{"name":"enemies","in":"query","description":"Filter by character enemies","required":false,"schema":{"type":"string"},"index$":9},{"name":"alignment","in":"query","description":"Filter by character alignment","required":false,"schema":{"type":"string"},"index$":10}]},"GET /character/{id}":{"protocol":"http","parameters":[{"name":"id","in":"path","description":"The ID of the character to retrieve","required":true,"schema":{"type":"integer"},"index$":0}]}})
+      return runLiveEntity(setup, {"active":true,"alias":{"field":{}},"fields":{"_id":{"a":true,"h":"Id","n":"_id","r":false,"sh":"Unique identifier for the character","t":"`$INTEGER`","key$":"_id","index$":0},"alignment":{"a":true,"h":"Alignment","n":"alignment","r":false,"sh":"Character alignment (good, bad, neutral, etc.)","t":"`$STRING`","key$":"alignment","index$":1},"allies":{"a":true,"h":"Allies","n":"allies","r":false,"sh":"List of character allies","t":"`$ARRAY`","key$":"allies","index$":2},"createdAt":{"a":true,"fo":"date-time","h":"Created At","n":"createdAt","r":false,"sh":"Timestamp when the character was added to the database","t":"`$STRING`","key$":"createdAt","index$":3},"data":{"a":true,"h":"Data","n":"data","r":false,"t":"`$OBJECT`","key$":"data","index$":4},"enemies":{"a":true,"h":"Enemies","n":"enemies","r":false,"sh":"List of character enemies","t":"`$ARRAY`","key$":"enemies","index$":5},"films":{"a":true,"h":"Films","n":"films","r":false,"sh":"List of films the character appears in","t":"`$ARRAY`","key$":"films","index$":6},"imageUrl":{"a":true,"fo":"uri","h":"Image Url","n":"imageUrl","r":false,"sh":"Image URL for the character","t":"`$STRING`","key$":"imageUrl","index$":7},"info":{"a":true,"h":"Info","n":"info","r":false,"t":"`$OBJECT`","key$":"info","index$":8},"name":{"a":true,"h":"Name","n":"name","r":false,"sh":"Name of the character","t":"`$STRING`","key$":"name","index$":9},"parkAttractions":{"a":true,"h":"Park Attractions","n":"parkAttractions","r":false,"sh":"List of park attractions featuring the character","t":"`$ARRAY`","key$":"parkAttractions","index$":10},"shortFilms":{"a":true,"h":"Short Films","n":"shortFilms","r":false,"sh":"List of short films the character appears in","t":"`$ARRAY`","key$":"shortFilms","index$":11},"sourceUrl":{"a":true,"fo":"uri","h":"Source Url","n":"sourceUrl","r":false,"sh":"Source URL (Disney Wiki) for the character","t":"`$STRING`","key$":"sourceUrl","index$":12},"tvShows":{"a":true,"h":"Tv Shows","n":"tvShows","r":false,"sh":"List of TV shows the character appears in","t":"`$ARRAY`","key$":"tvShows","index$":13},"updatedAt":{"a":true,"fo":"date-time","h":"Updated At","n":"updatedAt","r":false,"sh":"Timestamp when the character was last updated","t":"`$STRING`","key$":"updatedAt","index$":14},"url":{"a":true,"fo":"uri","h":"Url","n":"url","r":false,"sh":"API URL for this character","t":"`$STRING`","key$":"url","index$":15},"v":{"a":true,"h":"V","n":"v","r":false,"sh":"Version key","t":"`$INTEGER`","key$":"v","index$":16},"videoGames":{"a":true,"h":"Video Games","n":"videoGames","r":false,"sh":"List of video games the character appears in","t":"`$ARRAY`","key$":"videoGames","index$":17}},"id":{"field":"_id","name":"id"},"name":"character","op":{"list":{"input":"data","name":"list","points":[{"a":true,"co":{"id":"GET /character","source":"openapi3","version":2},"g":{"query":[{"a":true,"k":"query","n":"alignment","or":"alignment","r":false,"t":"`$STRING`","index$":0},{"a":true,"k":"query","n":"ally","or":"allies","r":false,"t":"`$STRING`","index$":1},{"a":true,"k":"query","n":"enemy","or":"enemies","r":false,"t":"`$STRING`","index$":2},{"a":true,"k":"query","n":"film","or":"films","r":false,"t":"`$STRING`","index$":3},{"a":true,"k":"query","n":"name","or":"name","r":false,"t":"`$STRING`","index$":4},{"a":true,"ex":1,"k":"query","n":"page","or":"page","r":false,"t":"`$INTEGER`","index$":5},{"a":true,"ex":50,"k":"query","n":"page_size","or":"pageSize","r":false,"t":"`$INTEGER`","index$":6},{"a":true,"k":"query","n":"park_attraction","or":"parkAttractions","r":false,"t":"`$STRING`","index$":7},{"a":true,"k":"query","n":"short_film","or":"shortFilms","r":false,"t":"`$STRING`","index$":8},{"a":true,"k":"query","n":"tv_show","or":"tvShows","r":false,"t":"`$STRING`","index$":9},{"a":true,"k":"query","n":"video_game","or":"videoGames","r":false,"t":"`$STRING`","index$":10}]},"k":"http","m":"GET","o":"/character","q":{},"r":{},"rs":{"kind":"json","media":"application/json"},"s":[{"lit":"character"}],"t":{"req":"`reqdata`","res":"`body.data`"},"index$":0}],"key$":"list"},"load":{"input":"data","name":"load","points":[{"a":true,"co":{"id":"GET /character/{id}","source":"openapi3","version":2},"g":{"params":[{"a":true,"k":"param","n":"id","or":"id","r":true,"t":"`$INTEGER`","index$":0}]},"k":"http","m":"GET","o":"/character/{id}","q":{"exist":["id"]},"r":{},"rs":{"kind":"json","media":"application/json"},"s":[{"lit":"character"},{"var":"id"}],"t":{"req":"`reqdata`","res":"`body.data`"},"index$":0}],"key$":"load"}},"relations":{"ancestors":[]},"key$":"character","name__orig":"character","Name":"Character","name_":"character","name-":"character","NAME":"CHARACTER","index$":0}, {"active":true,"entity":"character","key$":"BasicCharacterFlow","kind":"basic","name":"BasicCharacterFlow","param":{},"step":[{"a":true,"d":{},"i":{},"m":{},"o":"list","s":[],"v":[{"apply":"ItemExists","def":{"ref":"character_ref01"}}],"index$":0},{"a":true,"d":{},"i":{"ref":"character_ref01","srcdatavar":"character_ref01_data","suffix":"_dt0"},"m":{"id":"character01"},"o":"load","s":[],"v":[{"apply":"TextFieldMark","def":{"mark":"Mark01-character_ref01"}}],"index$":1,"route":"GET /character/{id}","record":{}}]}, 'Character', {"GET /character":{"protocol":"http","parameters":[{"name":"page","in":"query","description":"The page number to get","required":false,"schema":{"type":"integer","default":1,"minimum":1},"index$":0},{"name":"pageSize","in":"query","description":"The number of items per page","required":false,"schema":{"type":"integer","default":50,"minimum":1,"maximum":100},"index$":1},{"name":"name","in":"query","description":"Filter by character name","required":false,"schema":{"type":"string"},"index$":2},{"name":"films","in":"query","description":"Filter by films the character appears in","required":false,"schema":{"type":"string"},"index$":3},{"name":"shortFilms","in":"query","description":"Filter by short films the character appears in","required":false,"schema":{"type":"string"},"index$":4},{"name":"tvShows","in":"query","description":"Filter by TV shows the character appears in","required":false,"schema":{"type":"string"},"index$":5},{"name":"videoGames","in":"query","description":"Filter by video games the character appears in","required":false,"schema":{"type":"string"},"index$":6},{"name":"parkAttractions","in":"query","description":"Filter by park attractions featuring the character","required":false,"schema":{"type":"string"},"index$":7},{"name":"allies","in":"query","description":"Filter by character allies","required":false,"schema":{"type":"string"},"index$":8},{"name":"enemies","in":"query","description":"Filter by character enemies","required":false,"schema":{"type":"string"},"index$":9},{"name":"alignment","in":"query","description":"Filter by character alignment","required":false,"schema":{"type":"string"},"index$":10}]},"GET /character/{id}":{"protocol":"http","parameters":[{"name":"id","in":"path","description":"The ID of the character to retrieve","required":true,"schema":{"type":"integer"},"index$":0}]}}, { strict: LIVE_STRICT, t })
     }
     const client = setup.client
     const struct = setup.struct
@@ -70,15 +128,21 @@ describe('CharacterEntity', async () => {
 
     // LOAD
     const character_ref01_match_dt0: any = {}
-    character_ref01_match_dt0.id = character_ref01_data.id
+    character_ref01_match_dt0.id = character_ref01_data._id
     const character_ref01_data_dt0 = (await character_ref01_ent.load(character_ref01_match_dt0)).data()
-    assert(character_ref01_data_dt0.id === character_ref01_data.id)
+    assert(character_ref01_data_dt0._id === character_ref01_data._id)
 
 
   })
 })
 
 
+
+// main.kit.test.live.strict is true (the default is true): a live
+// request that fails, or a live test missing an input it needs,
+// fails the test.
+// An account with no record for a test to read skips it either way.
+const LIVE_STRICT = true
 
 function basicSetup(extra?: any) {
   // TODO: fix test def options
@@ -94,6 +158,10 @@ function basicSetup(extra?: any) {
 
   // TODO: need a xlang JSON parse utility in voxgig/struct with better error msgs
   const entityData = JSON.parse(entityDataSource)
+
+  for (const rec of Object.values(entityData.existing?.["character"] ?? {}) as any[]) {
+    if (null != rec?.id) rec._id = rec.id
+  }
 
   options.entity = entityData.existing
 

@@ -5,6 +5,13 @@ main: kit: entity: character: {
   alias: field: {}
 
   fields: {
+    _id: {
+      h: "Id"
+      n: "_id"
+      r: false
+      sh: "Unique identifier for the character"
+      t: "`$INTEGER`"
+    }
     alignment: {
       h: "Alignment"
       n: "alignment"
@@ -46,13 +53,6 @@ main: kit: entity: character: {
       r: false
       sh: "List of films the character appears in"
       t: "`$ARRAY`"
-    }
-    id: {
-      h: "Id"
-      n: "id"
-      r: false
-      sh: "Unique identifier for the character"
-      t: "`$INTEGER`"
     }
     imageUrl: {
       fo: "uri"
@@ -137,7 +137,7 @@ main: kit: entity: character: {
   }
 
   id: {
-    field: "id"
+    field: "_id"
     name: "id"
   }
 
@@ -237,20 +237,9 @@ main: kit: entity: character: {
           }
           m: "GET"
           o: "/character"
-          q: {
-            exist: [
-              "alignment"
-              "ally"
-              "enemy"
-              "film"
-              "name"
-              "page"
-              "page_size"
-              "park_attraction"
-              "short_film"
-              "tv_show"
-              "video_game"
-            ]
+          rs: {
+            kind: "json"
+            media: "application/json"
           }
           s: [
             {
@@ -291,6 +280,10 @@ main: kit: entity: character: {
               "id"
             ]
           }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
           s: [
             {
               lit: "character"
@@ -301,7 +294,7 @@ main: kit: entity: character: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.data`"
           }
         }
       ]

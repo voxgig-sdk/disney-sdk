@@ -1,11 +1,11 @@
 export interface Character {
+    _id?: number;
     alignment?: string;
     allies?: any[];
     createdAt?: string;
     data?: Record<string, any>;
     enemies?: any[];
     films?: any[];
-    id?: number;
     imageUrl?: string;
     info?: Record<string, any>;
     name?: string;

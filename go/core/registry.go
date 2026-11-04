@@ -12,5 +12,5 @@ var NewTestFeatureFunc func() Feature
 
 var NewTimeoutFeatureFunc func() Feature
 
-var NewCharacterEntityFunc func(client *DisneySDK, entopts map[string]any) DisneyEntity
+var NewCharacterEntityFunc func(client *DisneySDK, entopts map[string]any) DisneyEntityBase
 

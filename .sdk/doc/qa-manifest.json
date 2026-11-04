@@ -3,5 +3,18 @@
     "SUMMARY.md"
   ],
   "config": ".sdk/doc/qa/vale.ini",
-  "routes": {}
+  "routes": {},
+  "quoted": {
+    "SUMMARY.md": [
+      "Character alignment (good, bad, neutral, etc.)",
+      "GET only API for Disney characters information. No authentication required. Provides endpoints to filter characters, get all characters, and get details about one character. Available in REST and GraphQL. Access to a database of 9820 Disney characters.",
+      "List of character allies",
+      "List of character enemies",
+      "Production server",
+      "Successful response with character details",
+      "Successful response with character list",
+      "Timestamp when the character was added to the database",
+      "Unique identifier for the character"
+    ]
+  }
 }

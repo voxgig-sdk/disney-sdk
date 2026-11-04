@@ -71,6 +71,7 @@ func MakeConfig() map[string]any {
 				},
 				"optspec": map[string]any{
 					"clearTimer": "`$FUNCTION`",
+					"now": "`$FUNCTION`",
 					"setTimer": "`$FUNCTION`",
 				},
 				"strict": false,
@@ -89,6 +90,12 @@ func MakeConfig() map[string]any {
 		"entity": map[string]any{
 			"character": map[string]any{
 				"fields": []any{
+					map[string]any{
+						"name": "_id",
+						"title": "Id",
+						"type": "`$INTEGER`",
+						"short": "Unique identifier for the character",
+					},
 					map[string]any{
 						"name": "alignment",
 						"title": "Alignment",
@@ -124,12 +131,6 @@ func MakeConfig() map[string]any {
 						"title": "Films",
 						"type": "`$ARRAY`",
 						"short": "List of films the character appears in",
-					},
-					map[string]any{
-						"name": "id",
-						"title": "Id",
-						"type": "`$INTEGER`",
-						"short": "Unique identifier for the character",
 					},
 					map[string]any{
 						"name": "imageUrl",
@@ -202,7 +203,7 @@ func MakeConfig() map[string]any {
 					},
 				},
 				"id": map[string]any{
-					"field": "id",
+					"field": "_id",
 					"name": "id",
 				},
 				"name": "character",
@@ -235,6 +236,7 @@ func MakeConfig() map[string]any {
 											"orig": "alignment",
 											"type": "`$STRING`",
 											"kind": "query",
+											"field": true,
 										},
 										map[string]any{
 											"name": "ally",
@@ -259,6 +261,7 @@ func MakeConfig() map[string]any {
 											"orig": "name",
 											"type": "`$STRING`",
 											"kind": "query",
+											"field": true,
 										},
 										map[string]any{
 											"name": "page",
@@ -300,20 +303,13 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"alignment",
-										"ally",
-										"enemy",
-										"film",
-										"name",
-										"page",
-										"page_size",
-										"park_attraction",
-										"short_film",
-										"tv_show",
-										"video_game",
-									},
+								"select": map[string]any{},
+								"response": map[string]any{
+									"kind": "json",
+									"media": "application/json",
+								},
+								"alias": map[string]any{
+									"id": "_id",
 								},
 							},
 						},
@@ -341,7 +337,7 @@ func MakeConfig() map[string]any {
 								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
-									"res": "`body`",
+									"res": "`body.data`",
 								},
 								"args": map[string]any{
 									"params": []any{
@@ -358,6 +354,13 @@ func MakeConfig() map[string]any {
 									"exist": []any{
 										"id",
 									},
+								},
+								"response": map[string]any{
+									"kind": "json",
+									"media": "application/json",
+								},
+								"alias": map[string]any{
+									"id": "_id",
 								},
 							},
 						},

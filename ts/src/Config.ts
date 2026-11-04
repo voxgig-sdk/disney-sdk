@@ -102,6 +102,7 @@ class Config {
       },
       "optspec": {
         "clearTimer": "`$FUNCTION`",
+        "now": "`$FUNCTION`",
         "setTimer": "`$FUNCTION`"
       },
       "strict": false,
@@ -130,6 +131,12 @@ class Config {
   entity = {
     "character": {
       "fields": [
+        {
+          "name": "_id",
+          "title": "Id",
+          "type": "`$INTEGER`",
+          "short": "Unique identifier for the character"
+        },
         {
           "name": "alignment",
           "title": "Alignment",
@@ -165,12 +172,6 @@ class Config {
           "title": "Films",
           "type": "`$ARRAY`",
           "short": "List of films the character appears in"
-        },
-        {
-          "name": "id",
-          "title": "Id",
-          "type": "`$INTEGER`",
-          "short": "Unique identifier for the character"
         },
         {
           "name": "imageUrl",
@@ -243,7 +244,7 @@ class Config {
         }
       ],
       "id": {
-        "field": "id",
+        "field": "_id",
         "name": "id"
       },
       "name": "character",
@@ -275,7 +276,8 @@ class Config {
                     "name": "alignment",
                     "orig": "alignment",
                     "type": "`$STRING`",
-                    "kind": "query"
+                    "kind": "query",
+                    "field": true
                   },
                   {
                     "name": "ally",
@@ -299,7 +301,8 @@ class Config {
                     "name": "name",
                     "orig": "name",
                     "type": "`$STRING`",
-                    "kind": "query"
+                    "kind": "query",
+                    "field": true
                   },
                   {
                     "name": "page",
@@ -341,20 +344,13 @@ class Config {
                   }
                 ]
               },
-              "select": {
-                "exist": [
-                  "alignment",
-                  "ally",
-                  "enemy",
-                  "film",
-                  "name",
-                  "page",
-                  "page_size",
-                  "park_attraction",
-                  "short_film",
-                  "tv_show",
-                  "video_game"
-                ]
+              "select": {},
+              "response": {
+                "kind": "json",
+                "media": "application/json"
+              },
+              "alias": {
+                "id": "_id"
               }
             }
           ]
@@ -382,7 +378,7 @@ class Config {
               "rename": {},
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.data`"
               },
               "args": {
                 "params": [
@@ -399,6 +395,13 @@ class Config {
                 "exist": [
                   "id"
                 ]
+              },
+              "response": {
+                "kind": "json",
+                "media": "application/json"
+              },
+              "alias": {
+                "id": "_id"
               }
             }
           ]

@@ -12,7 +12,7 @@ The SDK exposes the API as capitalised, semantic **Entities** — for example `$
 
 ## Install
 This package is not yet published to Packagist. Install it from the
-GitHub release tag (`php/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/disney-sdk/releases)), or
+GitHub release tag (`php/vX.Y.Z`, see [Tags](https://github.com/voxgig-sdk/disney-sdk/tags)), or
 from a clone as a Composer path repository:
 
 ```bash
@@ -44,7 +44,7 @@ try {
     $characters = $client->Character()->list();
     foreach ($characters as $record) {
         $item = $record->data_get();
-        echo $item["id"] . " " . $item["alignment"] . "\n";
+        echo $item["_id"] . " " . $item["_id"] . "\n";
     }
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
@@ -236,8 +236,8 @@ All entities share the same interface.
 
 | Method | Signature | Description |
 | --- | --- | --- |
-| `load` | `($reqmatch, $ctrl): array` | Load a single entity by match criteria. |
-| `list` | `(?array $reqmatch = null, $ctrl): array` | List entities matching the criteria (call with no argument to list all). |
+| `load` | `($reqmatch, $ctrl): mixed` | Load a single entity by match criteria, and return it. |
+| `list` | `(?array $reqmatch = null, $ctrl): mixed` | List entities matching the criteria (call with no argument to list all), one per record. |
 | `data_get` | `(): array` | Get entity data. |
 | `data_set` | `($data): void` | Set entity data. |
 | `match_get` | `(): array` | Get entity match criteria. |
@@ -247,9 +247,9 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
-ops, a `list` for `list`) and throw on error. Wrap calls in
-`try`/`catch` to handle failures.
+Entity operations return the entity, and `list` an `array` of entities, one
+per record; an entity's `data_get()` reads its record (an `array`). They
+throw on error, so wrap calls in `try`/`catch` to handle failures.
 
 The `direct()` escape hatch never throws — it returns a result `array`
 you branch on via `$result["ok"]`:
@@ -269,13 +269,13 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
+| `_id` | Unique identifier for the character |
 | `alignment` | Character alignment (good, bad, neutral, etc.) |
 | `allies` | List of character allies |
 | `createdAt` | Timestamp when the character was added to the database |
 | `data` |  |
 | `enemies` | List of character enemies |
 | `films` | List of films the character appears in |
-| `id` | Unique identifier for the character |
 | `imageUrl` | Image URL for the character |
 | `info` |  |
 | `name` | Name of the character |
@@ -312,13 +312,13 @@ Create an instance: `$character = $client->Character();`
 
 | Field | Type | Description |
 | --- | --- | --- |
+| `_id` | `int` | Unique identifier for the character |
 | `alignment` | `string` | Character alignment (good, bad, neutral, etc.) |
 | `allies` | `array` | List of character allies |
 | `createdAt` | `string` | Timestamp when the character was added to the database |
 | `data` | `array` |  |
 | `enemies` | `array` | List of character enemies |
 | `films` | `array` | List of films the character appears in |
-| `id` | `int` | Unique identifier for the character |
 | `imageUrl` | `string` | Image URL for the character |
 | `info` | `array` |  |
 | `name` | `string` | Name of the character |
@@ -341,7 +341,7 @@ $character = $client->Character()->load(["id" => 1]);
 #### Example: List
 
 ```php
-// list() returns an array of Character records (throws on error).
+// list() returns an array of Character entities, one per record (throws on error).
 $characters = $client->Character()->list();
 ```
 
